@@ -4,6 +4,32 @@ export const PortalRtcCallState = Object.freeze({ Ringing: 'ringing', Received: 
 export type PortalRtcCallState = typeof PortalRtcCallState[keyof typeof PortalRtcCallState]
 export type PortalRtcCallMedia = 'audio' | 'video'
 
+const RINGING_TERMINAL_STATES = Object.freeze([
+  PortalRtcCallState.Missed,
+  PortalRtcCallState.Declined,
+  PortalRtcCallState.Cancelled,
+] as const)
+
+/**
+ * Resolves the terminal Communication state without inferring participant
+ * intent in a portal. A ringing call requires the BFF/requester to state
+ * whether it timed out, was declined by the recipient or cancelled by the
+ * caller. An accepted call always completes when ended.
+ */
+export function resolvePortalRtcCallTerminalState(
+  currentState: PortalRtcCallState,
+  requestedState?: PortalRtcCallState,
+): PortalRtcCallState {
+  if (currentState === PortalRtcCallState.Ringing) {
+    if (!requestedState || !RINGING_TERMINAL_STATES.includes(requestedState as typeof RINGING_TERMINAL_STATES[number])) {
+      throw new TypeError('portal_rtc_call_terminal_state_invalid')
+    }
+    return requestedState
+  }
+  if (currentState === PortalRtcCallState.Received) return PortalRtcCallState.Completed
+  return currentState
+}
+
 /** Canonical Communication payload; RTC tokens, SDP, ICE and media never enter it. */
 export type PortalRtcCallEvent = Readonly<{
   version: 1; callId: string; threadId: string; subjectIdentifier: string

@@ -3,6 +3,12 @@
 
 ## Unreleased
 
+- Add the canonical RTC terminal-state resolver. Each BFF must distinguish a
+  ringing call that timed out (`missed`), was rejected by its recipient
+  (`declined`) or was withdrawn by its caller (`cancelled`); an accepted
+  `received` call ends as `completed`. This preserves one Communication
+  contract across Demo, Test Network, web and future Expo adapters.
+
 - Reserve `0.7.0` for the explicit removal or incompatible replacement of
   deprecated contracts. Releases `0.6.27` and `0.6.28` are additive: they add
   the runtime storage-composition and portal RTC Communication modules without
