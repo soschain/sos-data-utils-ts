@@ -5,6 +5,10 @@
 
 ## 0.6.28 - 2026-11-07
 
+- Define the product-neutral portal call-event contract used identically by
+  Personal and Professional: ringing, received, missed and completed states,
+  plus optional unanswered audio, are Communication content rather than Chat
+  records or RTC-provider state.
 - Separate the CH all-local portal, telephone assistant, optional web
   assistant and RTC execution profiles. Calls use a dedicated RTC provider;
   invitations, terminal events and unanswered audio remain Communications.
@@ -15,6 +19,10 @@
   Test Network, production web, offline browser and Expo. All-local selects
   memory and Expo selects SQLite; Demo cannot introduce a Firestore-specific
   route, store or use-case model.
+- Correct the earlier portal divergence: persistence is selected by runtime
+  composition, never by React UI or by a Personal/Professional-only flow. The
+  same managers and use-case contracts must run over memory, durable web and
+  future Expo SQLite adapters.
 
 ## 0.6.26 - 2026-11-06
 
