@@ -59,7 +59,7 @@ export type SubjectConversationContent =
   | Readonly<{ kind: 'audio'; label: string; uri: string; mediaType: string; durationSeconds?: number }>
   | Readonly<{ kind: 'fhir-document'; label: string; bundle: Readonly<Record<string, unknown>> }>
   | Readonly<{ kind: 'calendar' | 'file'; label: string; uri: string; mediaType?: string }>
-  | Readonly<{ kind: 'call'; label: string; media: 'audio' | 'video'; state: 'ringing' | 'received' | 'completed' | 'missed' | 'declined' | 'ended' }>
+  | Readonly<{ kind: 'call'; label: string; media: 'audio' | 'video'; state: 'ringing' | 'received' | 'completed' | 'missed' | 'declined' | 'cancelled' | 'ended' }>
   | ServiceSubjectIndexUpdate['content']
 
 export type SubjectConversationEntry = Readonly<{

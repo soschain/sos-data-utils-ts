@@ -8,6 +8,8 @@
   (`declined`) or was withdrawn by its caller (`cancelled`); an accepted
   `received` call ends as `completed`. This preserves one Communication
   contract across Demo, Test Network, web and future Expo adapters.
+- Preserve `cancelled` as a distinct shared conversation call state instead of
+  collapsing caller cancellation into the generic `ended` presentation.
 
 - Reserve `0.7.0` for the explicit removal or incompatible replacement of
   deprecated contracts. Releases `0.6.27` and `0.6.28` are additive: they add
