@@ -3,6 +3,13 @@
 
 ## Unreleased
 
+- Reserve `0.7.0` for the explicit removal or incompatible replacement of
+  deprecated contracts. Releases `0.6.27` and `0.6.28` are additive: they add
+  the runtime storage-composition and portal RTC Communication modules without
+  changing or deleting existing exports. A future `0.7.0` must include a
+  migration guide and executable consumer checks rather than merely
+  republishing the same API under a new number.
+
 ## 0.6.28 - 2026-11-07
 
 - Define the product-neutral portal call-event contract used identically by
