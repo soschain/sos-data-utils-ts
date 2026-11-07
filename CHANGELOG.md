@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+## 0.6.29 - 2026-11-07
+
 - Add the canonical RTC terminal-state resolver. Each BFF must distinguish a
   ringing call that timed out (`missed`), was rejected by its recipient
   (`declined`) or was withdrawn by its caller (`cancelled`); an accepted
