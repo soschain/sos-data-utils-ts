@@ -3,6 +3,15 @@
 
 ## Unreleased
 
+- Define bounded browser push subscriptions and content-free call update
+  notices. Device delivery does not identify a card or grant recipient access.
+
+- Preserve bounded, server-resolved Encounter, subject, recipient-card and
+  organization/service/role display context in call Communications. Reject
+  incomplete context while retaining compatibility with existing call events.
+- Allow the existing contact projection to reference persisted subject IDs
+  and an independent BFF-resolved recipient actor instead of fixture IDs only.
+
 ## 0.6.29 - 2026-11-07
 
 - Add the canonical RTC terminal-state resolver. Each BFF must distinguish a

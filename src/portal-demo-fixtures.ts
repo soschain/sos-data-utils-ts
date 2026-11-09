@@ -19,6 +19,7 @@ export type SoschainDemoSubject = Readonly<{
   organizationId: string
   uhcId: string
   cardDid?: string
+  providerCode9?: string
   cardNumber21: string
   nickname: string
   legalName: string
@@ -33,9 +34,11 @@ export type SoschainDemoSubject = Readonly<{
   canManage: boolean
 }>
 
-export type SoschainDemoContact = Readonly<{
+export type SoschainDemoContact<TSubjectId extends string = SoschainPersonalDemoSubjectId> = Readonly<{
   contactId: string
-  subjectId: SoschainPersonalDemoSubjectId
+  subjectId: TSubjectId
+  /** BFF-resolved communication recipient, independent of controller authority. */
+  actorIdentifier?: string
   label: string
   alternateName: string
   relationshipLabel: string

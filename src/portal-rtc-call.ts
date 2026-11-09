@@ -30,12 +30,23 @@ export function resolvePortalRtcCallTerminalState(
   return currentState
 }
 
+/** Server-resolved display context; none of these fields grants access. */
+export type PortalRtcCallContext = Readonly<{
+  encounterReference: string
+  subjectDisplayName: string
+  recipientSubjectIdentifier: string
+  organizationDisplayName: string
+  departmentDisplayName: string
+  professionalRoleLabel: string
+}>
+
 /** Canonical Communication payload; RTC tokens, SDP, ICE and media never enter it. */
 export type PortalRtcCallEvent = Readonly<{
   version: 1; callId: string; threadId: string; subjectIdentifier: string
   professionalGroupReference: string; callerActorIdentifier: string; recipientActorIdentifier: string
   media: readonly PortalRtcCallMedia[]; state: PortalRtcCallState; occurredAt: string
   unansweredAudio?: Readonly<{ uri: string; mediaType: string; durationSeconds?: number }>
+  context?: PortalRtcCallContext
 }>
 
 export function normalizePortalRtcCallEvent(value: unknown): PortalRtcCallEvent {
@@ -49,12 +60,35 @@ export function normalizePortalRtcCallEvent(value: unknown): PortalRtcCallEvent 
   const occurredAt = required(input.occurredAt, 'portal_rtc_call_occurred_at_required')
   if (!Number.isFinite(Date.parse(occurredAt))) throw new TypeError('portal_rtc_call_occurred_at_invalid')
   const unansweredAudio = normalizeAudio(input.unansweredAudio)
+  const context = normalizeContext(input.context)
   if (unansweredAudio && state !== PortalRtcCallState.Missed) throw new TypeError('portal_rtc_unanswered_audio_requires_missed_call')
   return Object.freeze({ version: 1,
     callId: required(input.callId, 'portal_rtc_call_id_required'), threadId: required(input.threadId, 'portal_rtc_thread_id_required'),
     subjectIdentifier: required(input.subjectIdentifier, 'portal_rtc_subject_required'), professionalGroupReference: required(input.professionalGroupReference, 'portal_rtc_professional_group_required'),
     callerActorIdentifier: required(input.callerActorIdentifier, 'portal_rtc_caller_required'), recipientActorIdentifier: required(input.recipientActorIdentifier, 'portal_rtc_recipient_required'),
-    media: Object.freeze(media as PortalRtcCallMedia[]), state: state as PortalRtcCallState, occurredAt, ...(unansweredAudio ? { unansweredAudio } : {}) })
+    media: Object.freeze(media as PortalRtcCallMedia[]), state: state as PortalRtcCallState, occurredAt, ...(unansweredAudio ? { unansweredAudio } : {}), ...(context ? { context } : {}) })
+}
+
+function normalizeContext(value: unknown): PortalRtcCallContext | undefined {
+  if(value===undefined)return undefined
+  if(!value||typeof value!=='object'||Array.isArray(value))throw new TypeError('portal_rtc_context_invalid')
+  const input=value as Record<string,unknown>
+  const text=(key:string,name:string)=>{
+    if(typeof input[key]!=='string')throw new TypeError(`portal_rtc_context_${name}_required`)
+    const normalized=(input[key] as string).trim()
+    if(!normalized)throw new TypeError(`portal_rtc_context_${name}_required`)
+    if(normalized.length>200||/[\u0000-\u001f\u007f]/u.test(normalized))throw new TypeError(`portal_rtc_context_${name}_invalid`)
+    return normalized
+  }
+  const encounterReference=text('encounterReference','encounter')
+  if(!/^Encounter\/[A-Za-z0-9.-]{1,64}$/u.test(encounterReference))throw new TypeError('portal_rtc_context_encounter_invalid')
+  return Object.freeze({encounterReference,
+    subjectDisplayName:text('subjectDisplayName','subject'),
+    recipientSubjectIdentifier:text('recipientSubjectIdentifier','recipient'),
+    organizationDisplayName:text('organizationDisplayName','organization'),
+    departmentDisplayName:text('departmentDisplayName','department'),
+    professionalRoleLabel:text('professionalRoleLabel','role'),
+  })
 }
 
 function normalizeAudio(value: unknown): PortalRtcCallEvent['unansweredAudio'] {

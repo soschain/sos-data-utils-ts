@@ -45,3 +45,4 @@ export * from './subject-encounter-access.js';
 export * from './animal-card-interoperability.js';
 export * from './gateway-application-identity.js';
 export * from './portal-rtc-call.js';
+export * from './portal-push.js';
