@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+## 0.6.30 - 2026-11-09
+
 - Define bounded browser push subscriptions and content-free call update
   notices. Device delivery does not identify a card or grant recipient access.
 
