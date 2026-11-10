@@ -321,3 +321,7 @@ plan exposes only a static prefix and independently reusable digit prompts.
 npm ci
 npm run check
 ```
+
+## Shared Demo care examples
+
+`createPortalDemoCareEntries` from `sos-data-utils-ts/portal-demo-care-fixtures` returns independent flat Appointment, Encounter and Task entries for an authenticated, selected synthetic subject. Supply the subject reference, an idempotent generation-specific ID prefix and the BFF clock. The Task references the Appointment and is due one minute after seeding; the planned Encounter also references that Appointment. These are data fixtures, not persistence, authorization, delivery or gateway clients. Consumers must use the same providers and use cases as their Network workflows.

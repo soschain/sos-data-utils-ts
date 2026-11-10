@@ -206,6 +206,10 @@
     "./continuity-service-capabilities": {
       "types": "./dist/continuity-service-capabilities.d.ts",
       "default": "./dist/continuity-service-capabilities.js"
+    },
+    "./portal-demo-care-fixtures": {
+      "types": "./dist/portal-demo-care-fixtures.d.ts",
+      "default": "./dist/portal-demo-care-fixtures.js"
     }
   },
   "files": [

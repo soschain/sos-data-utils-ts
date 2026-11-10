@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+- Add shared subject-bound, generation-ready care fixtures for Appointment, Encounter and Task using canonical flat resource entries and claim constants. Timing is relative to the supplied clock; the reminder declares push and never initiates a telephone call.
+
 ## 0.6.30 - 2026-11-09
 
 - Define bounded browser push subscriptions and content-free call update
