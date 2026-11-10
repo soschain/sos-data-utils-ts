@@ -35,6 +35,7 @@ test('timings are fresh for each seeded workspace and never request a real phone
   assert.ok(Date.parse(first[2].claims[TaskClaim.ScheduledAt])>now)
   assert.equal(Date.parse(later[2].claims[TaskClaim.ScheduledAt])-Date.parse(first[2].claims[TaskClaim.ScheduledAt]),86_400_000)
   assert.equal(first[2].claims[TaskClaim.Channel],'push')
+  assert.equal(first[2].claims[TaskClaim.AutoCloseAt],first[0].claims[AppointmentClaim.End])
   assert.ok(!JSON.stringify(first).includes('phone-call'))
   assert.deepEqual(first,createPortalDemoCareEntries(input))
 })

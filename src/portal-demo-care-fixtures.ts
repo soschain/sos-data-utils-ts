@@ -37,6 +37,7 @@ export function createPortalDemoCareEntries(input: Readonly<{
       [TaskClaim.Description]:'Confirm the blood donation appointment',
       [TaskClaim.Focus]:`Appointment/${appointmentId}`,
       [TaskClaim.ScheduledAt]:new Date(input.now+60*1000).toISOString(),
+      [TaskClaim.AutoCloseAt]:new Date(input.now+90*60*1000).toISOString(),
       [TaskClaim.Channel]:'push',
     }}),
   ])
