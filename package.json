@@ -1,6 +1,6 @@
 {
   "name": "sos-data-utils-ts",
-  "version": "0.6.30",
+  "version": "0.6.31",
   "description": "Product-neutral SOS channel and BFF contract utilities",
   "license": "Apache-2.0",
   "type": "module",
@@ -214,6 +214,10 @@
     "./portal-care-view": {
       "types": "./dist/portal-care-view.d.ts",
       "default": "./dist/portal-care-view.js"
+    },
+    "./portal-demo-service-directory": {
+      "types": "./dist/portal-demo-service-directory.d.ts",
+      "default": "./dist/portal-demo-service-directory.js"
     }
   },
   "files": [

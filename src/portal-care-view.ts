@@ -32,7 +32,7 @@ export function portalCareViewFromEntry(entry:FlatClaimResourceEntry,revision?:n
   const c=entry.claims
   const kind=entry.resourceType==='Appointment'?'appointment':entry.resourceType==='Encounter'?'encounter':entry.resourceType==='Task'?'task':undefined
   if(!kind)throw new TypeError('portal_care_resource_type_invalid')
-  const title=kind==='appointment'?c[AppointmentClaim.Description]||'Appointment':kind==='task'?c[TaskClaim.Description]||c[TaskClaim.BasedOnDisplay]||'Task':'Encounter'
+  const title=kind==='appointment'?c[AppointmentClaim.Description]||'Appointment':kind==='task'?c[TaskClaim.Description]||c[TaskClaim.BasedOnDisplay]||'Task':c[EncounterClaim.ServiceType]||'Encounter'
   const dateTime=kind==='appointment'?c[AppointmentClaim.Start]||c[AppointmentClaim.Date]:kind==='encounter'?c[EncounterClaim.ActualPeriodStart]||c[EncounterClaim.PeriodStart]:c[TaskClaim.ScheduledAt]||c[TaskClaim.ExecutionPeriodStart]
   const endDateTime=kind==='appointment'?c[AppointmentClaim.End]:kind==='encounter'?c[EncounterClaim.ActualPeriodEnd]||c[EncounterClaim.PeriodEnd]:c[TaskClaim.AutoCloseAt]||c[TaskClaim.WindowEnd]
   const actors=kind==='appointment'?c[AppointmentClaim.ParticipantActor]:c[EncounterClaim.Participant]
@@ -77,6 +77,7 @@ export function portalCareEntryFromView(view:PortalCareResourceView,subjectRefer
     if(view.focusReference)claims[TaskClaim.Focus]=view.focusReference
   }else{
     Object.assign(claims,{[EncounterClaim.Subject]:subjectReference,[EncounterClaim.Status]:view.status||claims[EncounterClaim.Status]||EncounterStatusR5.Planned})
+    if(!previous||claims[EncounterClaim.ServiceType]||view.title!=='Encounter')claims[EncounterClaim.ServiceType]=view.title
     assignOptional(claims,EncounterClaim.PeriodStart,view.dateTime)
     assignOptional(claims,EncounterClaim.PeriodEnd,view.endDateTime)
     if(view.organizationReference)claims[EncounterClaim.ServiceProvider]=view.organizationReference
