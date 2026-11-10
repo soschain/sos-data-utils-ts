@@ -2,7 +2,7 @@
 export const TaskClaim = Object.freeze({
   Id: 'Task.id', Identifier: 'Task.identifier', GroupIdentifier: 'Task.group-identifier',
   Status: 'Task.status', StatusReason: 'Task.status-reason', BusinessStatus: 'Task.business-status',
-  Intent: 'Task.intent', Code: 'Task.code', Description: 'Task.description', Subject: 'Task.subject',
+  Intent: 'Task.intent', Code: 'Task.code', Description: 'Task.description', Note: 'Task.note', Subject: 'Task.subject',
   For: 'Task.for', Requester: 'Task.requester', Owner: 'Task.owner', Focus: 'Task.focus',
   PartOf: 'Task.part-of', BasedOn: 'Task.based-on', BasedOnDisplay: 'Task.based-on-display',
   Language: 'Task.language', Channel: 'Task.channel', AuthoredOn: 'Task.authored-on',
@@ -69,6 +69,7 @@ export const TaskArtifactSchema: TaskArtifactSchemaContract = Object.freeze({
     TaskClaim.BusinessStatus,
     TaskClaim.Code,
     TaskClaim.Description,
+    TaskClaim.Note,
     TaskClaim.Subject,
     TaskClaim.For,
     TaskClaim.Requester,

@@ -210,6 +210,10 @@
     "./portal-demo-care-fixtures": {
       "types": "./dist/portal-demo-care-fixtures.d.ts",
       "default": "./dist/portal-demo-care-fixtures.js"
+    },
+    "./portal-care-view": {
+      "types": "./dist/portal-care-view.d.ts",
+      "default": "./dist/portal-care-view.js"
     }
   },
   "files": [

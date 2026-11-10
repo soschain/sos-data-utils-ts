@@ -48,3 +48,4 @@ export * from './portal-rtc-call.js';
 export * from './portal-push.js';
 
 export * from './portal-demo-care-fixtures.js';
+export * from './portal-care-view.js';
