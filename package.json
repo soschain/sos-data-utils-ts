@@ -214,6 +214,10 @@
     "./portal-care-view": {
       "types": "./dist/portal-care-view.d.ts",
       "default": "./dist/portal-care-view.js"
+    },
+    "./portal-demo-service-directory": {
+      "types": "./dist/portal-demo-service-directory.d.ts",
+      "default": "./dist/portal-demo-service-directory.js"
     }
   },
   "files": [

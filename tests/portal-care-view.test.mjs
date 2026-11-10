@@ -35,6 +35,7 @@ test('Encounter lifecycle projections retain participant, service and Appointmen
   assert.equal(updated.claims[EncounterClaim.Participant],entry.claims[EncounterClaim.Participant])
   assert.equal(updated.claims[EncounterClaim.ServiceProvider],entry.claims[EncounterClaim.ServiceProvider])
   assert.equal(updated.claims[EncounterClaim.Appointment],entries[0].reference)
+  assert.equal(portalCareViewFromEntry(updated).title,portalCareViewFromEntry(entry).title)
 })
 
 test('identity changes, foreign-subject edits and invalid periods fail before persistence',()=>{

@@ -3,6 +3,12 @@
 
 ## Unreleased
 
+- Add one repository-safe Demo veterinary service directory and a required-country,
+  optional-region and service-type search projection. Both portals consume the
+  same organization, Place, HealthcareService and professional Group identities.
+  Preserve the Encounter service title in the shared care projection so channel
+  notices identify the journey instead of displaying a generic resource label.
+
 - Add shared care-resource presentation projections for Appointment, Encounter
   and Task flat claims. Keep persisted claims separate from UI views, preserve
   fields outside the editor, and reject cross-subject updates. This candidate
