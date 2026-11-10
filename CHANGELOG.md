@@ -3,6 +3,13 @@
 
 ## Unreleased
 
+- Add shared care-resource presentation projections for Appointment, Encounter
+  and Task flat claims. Keep persisted claims separate from UI views, preserve
+  fields outside the editor, and reject cross-subject updates. This candidate
+  is not yet published or wired into the CH portal care providers.
+
+- Add shared subject-bound, generation-ready care fixtures for Appointment, Encounter and Task using canonical flat resource entries and claim constants. Timing is relative to the supplied clock; the reminder declares push and never initiates a telephone call.
+
 ## 0.6.30 - 2026-11-09
 
 - Define bounded browser push subscriptions and content-free call update
