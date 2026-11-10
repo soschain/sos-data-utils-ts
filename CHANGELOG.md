@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+## 0.6.31 - 2026-11-10
+
 - Add one repository-safe Demo veterinary service directory and a required-country,
   optional-region and service-type search projection. Both portals consume the
   same organization, Place, HealthcareService and professional Group identities.
