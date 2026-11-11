@@ -1,3 +1,4 @@
+import {IndividualLogicalSections} from 'gdc-common-utils-ts/constants/individual-sections'
 import {EncounterClaim as E,EncounterHistoryClaim as H,EncounterStatusR5 as S} from 'fhir-data-utils-ts/claims'
 import {buildEncounterHistoryR5FlatEntry,type FlatClaimResourceEntry} from 'fhir-data-utils-ts'
 import {buildFlatClaimResourceEntry} from 'fhir-data-utils-ts/flat-claim-resource-graph'
@@ -100,3 +101,6 @@ function history(entry:FlatClaimResourceEntry,id:string,at:string):FlatClaimReso
     serviceReference:entry.claims[E.ServiceType],locationReference:entry.claims[E.Location],actualPeriodStart:at,
   })
 }
+
+/** General Encounter read scope; no emergency-only Encounter filter is implied. */
+export const PortalEncounterPermissionSection=IndividualLogicalSections.Encounters.attributeValue

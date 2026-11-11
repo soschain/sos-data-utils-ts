@@ -1,3 +1,4 @@
+import {HL7_CODING_SYSTEM_V3_ROLE_CODE,HL7_RELATED_PERSON_FUNCTIONAL_ROLES} from 'gdc-common-utils-ts/constants/hl7-roles'
 export const SoschainDemoMemberRoles = Object.freeze({
   FamilyMember: 'family-member',
   Caregiver: 'caregiver',
@@ -140,3 +141,9 @@ function instant(value: unknown, code: string): string {
   if (!normalized || !Number.isFinite(milliseconds)) throw new Error(code)
   return new Date(milliseconds).toISOString()
 }
+
+/** Role vocabulary only; membership and an explicit active Consent remain separate checks. */
+export const DemoMemberConsentRoleClaims=Object.freeze({
+  FamilyMember:`${HL7_CODING_SYSTEM_V3_ROLE_CODE}|FAMMEMB`,
+  Caregiver:(()=>{const role=HL7_RELATED_PERSON_FUNCTIONAL_ROLES.find(item=>item.code==='CAREGIVER')!;return `${role.codingSystem}|${role.code}`})(),
+})
