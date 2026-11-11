@@ -3,6 +3,11 @@
 
 ## Unreleased
 
+- Project the same minimal subject-bound Encounter journey for professional
+  and delegated readers, excluding personnel/Group details, diagnoses and
+  foreign subjects. Bound writer status choices by both provider policy and
+  the current lifecycle; reject nested native state at this flat boundary.
+
 - Share organization-scoped synthetic Encounter service configuration across
   both BFFs, preserving the existing veterinary service and assigning distinct
   emergency, assessment and continuing-care references to each organization.
