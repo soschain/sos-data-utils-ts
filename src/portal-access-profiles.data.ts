@@ -342,6 +342,9 @@ export const SOSCHAIN_DEMO_DEPARTMENTS: readonly SoschainDemoDepartment[] = Obje
 export type SoschainDemoOrganization = Readonly<{
   sector: SoschainProfessionalDemoSectorId
   organizationUrn: `urn:uuid:${string}`
+  organizationDomain: string
+  organizationDid: string
+  jurisdiction: string
   titleEn: string
   grantsAuthority: false
 }>
@@ -353,6 +356,9 @@ const demoOrganization = (
 ): SoschainDemoOrganization => Object.freeze({
   sector,
   organizationUrn: `urn:uuid:${uuid}`,
+  organizationDomain: `${uuid}.${REPOSITORY_SAFE_EXAMPLES.domain}`,
+  organizationDid: `did:web:${uuid}.${REPOSITORY_SAFE_EXAMPLES.domain}`,
+  jurisdiction: REPOSITORY_SAFE_EXAMPLES.countryIso2,
   titleEn,
   grantsAuthority: false,
 })
