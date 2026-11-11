@@ -3,6 +3,11 @@
 
 ## Unreleased
 
+- Share organization-scoped synthetic Encounter service configuration across
+  both BFFs, preserving the existing veterinary service and assigning distinct
+  emergency, assessment and continuing-care references to each organization.
+  The catalog grants no access and does not select a deployment or provider.
+
 - Accept validated generated-card identifiers in the existing member invitation
   contract while retaining explicit delegated-read, family-only and emergency-
   contact access distinctions. Add the shared Encounter mutation readback

@@ -222,6 +222,10 @@
     "./portal-encounter-journey": {
       "types": "./dist/portal-encounter-journey.d.ts",
       "default": "./dist/portal-encounter-journey.js"
+    },
+    "./portal-demo-encounter-services": {
+      "types": "./dist/portal-demo-encounter-services.d.ts",
+      "default": "./dist/portal-demo-encounter-services.js"
     }
   },
   "files": [
