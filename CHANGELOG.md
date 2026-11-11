@@ -3,6 +3,12 @@
 
 ## Unreleased
 
+- Accept validated generated-card identifiers in the existing member invitation
+  contract while retaining explicit delegated-read, family-only and emergency-
+  contact access distinctions. Add the shared Encounter mutation readback
+  contract and provider-resolved allowed statuses. Cancellation before care
+  begins does not manufacture an actual clinical-care period.
+
 - Add the shared Encounter journey/request contracts and deterministic R5
   transition/transfer planner. Preserve exact subject/provider ownership,
   parent-child continuity and an immutable EncounterHistory per changed stage.

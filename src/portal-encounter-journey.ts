@@ -1,8 +1,9 @@
 import {EncounterClaim as E,EncounterStatusR5 as S} from 'fhir-data-utils-ts/claims'
 import {buildEncounterHistoryR5FlatEntry,type FlatClaimResourceEntry} from 'fhir-data-utils-ts'
 import {buildFlatClaimResourceEntry} from 'fhir-data-utils-ts/flat-claim-resource-graph'
+export {EncounterStatusR5} from 'fhir-data-utils-ts/claims'
 
-export type PortalEncounterRecord=Readonly<{entry:FlatClaimResourceEntry;revision:number}>
+export type PortalEncounterRecord=Readonly<{entry:FlatClaimResourceEntry;revision:number;allowedStatuses?:readonly S[]}>
 export type PortalEncounterSourceOutcome=S.OnHold|S.Completed
 export type PortalEncounterService=Readonly<{reference:string;label:string;organizationReference:string;locationReference?:string;classToken:string}>
 /** Browser intent only. The BFF resolves all service, provider and author identities. */
@@ -14,6 +15,7 @@ export type PortalEncounterJourneyView=Readonly<{
   subjectIdentifier:string;encounters:readonly PortalEncounterRecord[];history:readonly PortalEncounterRecord[]
   services:readonly PortalEncounterService[];canManage:boolean
 }>
+export type PortalEncounterMutationResult=Readonly<{journey:PortalEncounterJourneyView;affectedEncounterReferences:readonly string[]}>
 
 const transitions:Partial<Record<S,readonly S[]>>={
   [S.Planned]:[S.InProgress,S.Cancelled],
@@ -60,7 +62,7 @@ function validate(entry:FlatClaimResourceEntry,subject:string):FlatClaimResource
 function withStatus(entry:FlatClaimResourceEntry,status:S,at:string):FlatClaimResourceEntry{
   const claims:Record<string,string>={...entry.claims,[E.Status]:status}
   if(status===S.InProgress&&!claims[E.ActualPeriodStart])claims[E.ActualPeriodStart]=at
-  if([S.Completed,S.Discharged,S.Discontinued,S.Cancelled].includes(status))claims[E.ActualPeriodEnd]=at
+  if([S.Completed,S.Discharged,S.Discontinued].includes(status))claims[E.ActualPeriodEnd]=at
   return buildFlatClaimResourceEntry({...entry,claims})
 }
 function history(entry:FlatClaimResourceEntry,id:string,at:string):FlatClaimResourceEntry{

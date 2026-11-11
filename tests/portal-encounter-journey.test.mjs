@@ -13,6 +13,12 @@ function encounter(which,status=S.InProgress){return buildFlatClaimResourceEntry
 const source=encounter(f.source),destination=encounter(f.destination,S.Planned)
 const input={subjectIdentifier:f.subjectReference,source,occurredAt:f.occurredAt,historyId:f.sourceHistory.id}
 
+test('cancelling a planned Encounter does not manufacture an actual clinical-care period',()=>{
+  const entries=data.planPortalEncounterChange({...input,source:encounter(f.source,S.Planned),status:S.Cancelled})
+  assert.equal(entries[0].claims[E.ActualPeriodStart],undefined)
+  assert.equal(entries[0].claims[E.ActualPeriodEnd],undefined)
+})
+
 test('status transitions create one canonical immutable history alongside the updated Encounter',()=>{
   const before=structuredClone(source)
   const entries=data.planPortalEncounterChange({...input,status:S.OnHold})

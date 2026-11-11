@@ -1,5 +1,3 @@
-import type { SoschainPersonalDemoSubjectId } from './portal-demo-fixtures.js'
-
 export const SoschainDemoMemberRoles = Object.freeze({
   FamilyMember: 'family-member',
   Caregiver: 'caregiver',
@@ -22,7 +20,7 @@ export type SoschainDemoMemberAction = typeof SoschainDemoMemberActions[keyof ty
 export type SoschainDemoMemberInvitation = Readonly<{
   id: string
   workspaceOwnerUid: string
-  subjectId: SoschainPersonalDemoSubjectId
+  subjectId: string
   inviteeEmailHash: string
   inviteeEmailHint: string
   role: SoschainDemoMemberRole
@@ -38,7 +36,7 @@ export type SoschainDemoMemberInvitation = Readonly<{
 export type CreateSoschainDemoMemberInvitation = Readonly<{
   id: string
   workspaceOwnerUid: string
-  subjectId: SoschainPersonalDemoSubjectId
+  subjectId: string
   inviteeEmailHash: string
   inviteeEmailHint: string
   role: SoschainDemoMemberRole
@@ -67,7 +65,7 @@ export function createSoschainDemoMemberInvitation(input: CreateSoschainDemoMemb
   return Object.freeze({
     id: required(input.id, 'demo_member_id_required'),
     workspaceOwnerUid: required(input.workspaceOwnerUid, 'demo_member_owner_required'),
-    subjectId: input.subjectId,
+    subjectId: subjectIdentifier(input.subjectId),
     inviteeEmailHash: emailHash(input.inviteeEmailHash),
     inviteeEmailHint: required(input.inviteeEmailHint, 'demo_member_email_hint_required'),
     role,
@@ -117,6 +115,11 @@ export function transitionSoschainDemoMemberInvitation(
 function demoMemberRole(value: unknown): SoschainDemoMemberRole {
   if (Object.values(SoschainDemoMemberRoles).includes(value as SoschainDemoMemberRole)) return value as SoschainDemoMemberRole
   throw new Error('demo_member_role_invalid')
+}
+
+function subjectIdentifier(value:unknown):string {
+  if(typeof value!=='string'||!/^[A-Za-z0-9][A-Za-z0-9:._/-]{0,1023}$/u.test(value))throw new Error('demo_member_subject_invalid')
+  return value
 }
 
 function required(value: unknown, code: string): string {
