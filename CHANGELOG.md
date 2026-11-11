@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+- Export the canonical general Encounter permission section and family/caregiver
+  role tokens. These tokens never turn membership or an emergency contact into
+  implicit health-data permission.
+
 - Add distinct governed synthetic organization domains and jurisdictions to the
   Demo catalog for country, organization and role Consent matching. Catalog
   selections still grant no real employment, identity or access authority.
