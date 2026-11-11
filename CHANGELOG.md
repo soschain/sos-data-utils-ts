@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+## 0.6.33 - 2026-11-11
+
 - Resolve Demo care timeline labels from shared organization/service metadata without storing display text in canonical Encounter service references or labelling human care as veterinary.
 
 - Export the canonical general Encounter permission section and family/caregiver
