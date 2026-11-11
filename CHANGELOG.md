@@ -3,6 +3,12 @@
 
 ## Unreleased
 
+- Add the shared Encounter journey/request contracts and deterministic R5
+  transition/transfer planner. Preserve exact subject/provider ownership,
+  parent-child continuity and an immutable EncounterHistory per changed stage.
+  Reject terminal reactivation, malformed times and cross-provider movements;
+  persistence and authorization remain responsibilities of the owning adapter.
+
 ## 0.6.32 - 2026-11-10
 
 - Add one repository-safe Demo veterinary service directory and a required-country,
