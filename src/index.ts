@@ -51,3 +51,4 @@ export * from './portal-demo-care-fixtures.js';
 export * from './portal-care-view.js';
 export * from './portal-demo-service-directory.js';
 export * from './portal-encounter-journey.js';
+export * from './portal-demo-encounter-services.js';
