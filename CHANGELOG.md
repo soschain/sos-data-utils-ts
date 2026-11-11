@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+- Add distinct governed synthetic organization domains and jurisdictions to the
+  Demo catalog for country, organization and role Consent matching. Catalog
+  selections still grant no real employment, identity or access authority.
+
 - Project the same minimal subject-bound Encounter journey for professional
   and delegated readers, excluding personnel/Group details, diagnoses and
   foreign subjects. Bound writer status choices by both provider policy and
