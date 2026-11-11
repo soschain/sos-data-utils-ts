@@ -1,4 +1,4 @@
-import {EncounterClaim as E,EncounterStatusR5 as S} from 'fhir-data-utils-ts/claims'
+import {EncounterClaim as E,EncounterHistoryClaim as H,EncounterStatusR5 as S} from 'fhir-data-utils-ts/claims'
 import {buildEncounterHistoryR5FlatEntry,type FlatClaimResourceEntry} from 'fhir-data-utils-ts'
 import {buildFlatClaimResourceEntry} from 'fhir-data-utils-ts/flat-claim-resource-graph'
 export {EncounterStatusR5} from 'fhir-data-utils-ts/claims'
@@ -25,6 +25,33 @@ const transitions:Partial<Record<S,readonly S[]>>={
 }
 /** This application's supported R5 transitions; these are policy, not a claim about every FHIR server. */
 export function portalEncounterNextStatuses(status:string):readonly S[]{return transitions[status as S]??[]}
+
+/** Shared minimal journey projection: no clinical detail, personnel directory or Group custody. */
+export function projectPortalEncounterJourney(input:Readonly<{
+  subjectIdentifier:string;resources:readonly PortalEncounterRecord[];services:readonly PortalEncounterService[]
+  canManage:boolean;allowedStatuses?:readonly S[]
+}>):PortalEncounterJourneyView{
+  const encounterKeys=new Set<string>([E.Identifier,E.Subject,E.Patient,E.Status,E.ServiceType,E.ServiceProvider,E.Class,E.Appointment,E.PartOf,E.PeriodStart,E.PeriodEnd,E.ActualPeriodStart,E.ActualPeriodEnd,E.Location])
+  const historyKeys=new Set<string>([H.Identifier,H.Encounter,H.Subject,H.Status,H.Class,H.ServiceType,H.ActualPeriodStart,H.ActualPeriodEnd,H.Location])
+  const encounters:PortalEncounterRecord[]=[],history:PortalEncounterRecord[]=[]
+  for(const row of input.resources){
+    const entry=row.entry
+    if(!entry||Object.keys(entry).some(key=>!['entryId','reference','resourceType','claims'].includes(key))||!Number.isInteger(row.revision)||row.revision<1)throw new TypeError('encounter_projection_invalid')
+    if(!['Encounter','EncounterHistory'].includes(entry.resourceType))continue
+    const owner=entry.resourceType==='Encounter'?(entry.claims[E.Subject]||entry.claims[E.Patient]):entry.claims[H.Subject]
+    if(owner!==input.subjectIdentifier)continue
+    const keys=entry.resourceType==='Encounter'?encounterKeys:historyKeys
+    const claims=Object.fromEntries(Object.entries(entry.claims).filter(([key])=>keys.has(key)))
+    const safe=buildFlatClaimResourceEntry({...entry,claims})
+    if(entry.resourceType==='Encounter')encounters.push({entry:safe,revision:row.revision,allowedStatuses:input.canManage
+      ?portalEncounterNextStatuses(claims[E.Status]).filter(status=>!input.allowedStatuses||input.allowedStatuses.includes(status)):[]})
+    else history.push({entry:safe,revision:row.revision})
+  }
+  const visible=new Set(encounters.map(row=>row.entry.reference))
+  return Object.freeze({subjectIdentifier:input.subjectIdentifier,canManage:input.canManage,services:input.services,
+    encounters:Object.freeze(encounters),history:Object.freeze(history.filter(row=>visible.has(row.entry.claims[H.Encounter])).sort((a,b)=>(a.entry.claims[H.ActualPeriodStart]||'').localeCompare(b.entry.claims[H.ActualPeriodStart]||''))),
+  })
+}
 
 /**
  * Deterministic claims-first plan; persistence and authorization belong to the provider.
