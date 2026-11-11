@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+- Resolve Demo care timeline labels from shared organization/service metadata without storing display text in canonical Encounter service references or labelling human care as veterinary.
+
 - Export the canonical general Encounter permission section and family/caregiver
   role tokens. These tokens never turn membership or an emergency contact into
   implicit health-data permission.
