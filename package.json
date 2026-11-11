@@ -218,6 +218,10 @@
     "./portal-demo-service-directory": {
       "types": "./dist/portal-demo-service-directory.d.ts",
       "default": "./dist/portal-demo-service-directory.js"
+    },
+    "./portal-encounter-journey": {
+      "types": "./dist/portal-encounter-journey.d.ts",
+      "default": "./dist/portal-encounter-journey.js"
     }
   },
   "files": [
