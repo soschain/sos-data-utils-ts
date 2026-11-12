@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+## 0.6.34 - 2026-11-12
+
 - Expose an optional trusted service label in the safe Encounter view; persisted flat claims remain unchanged.
 
 - Professional treatment Consent includes emergency treatment within the same actor, role, subject, period and target scope, preserving canonical deny/recipient precedence and exact related-person purposes. Use sector-first synthetic organization labels consistently in contacts and the service directory.
