@@ -15,3 +15,8 @@ test('each Demo organization has its own non-operational domain and country for 
  }
  assert.equal(domains.size,SOSCHAIN_DEMO_ORGANIZATIONS.length)
 })
+
+test('Demo organization labels begin with their sector for contact scanning',()=>{
+ const labels=['Healthcare example organization','Animal care example organization','Animal technology example organization','Public health example organization','Public safety example organization']
+ assert.deepEqual(SOSCHAIN_DEMO_ORGANIZATIONS.map(item=>item.titleEn),labels)
+})

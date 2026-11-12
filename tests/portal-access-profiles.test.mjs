@@ -36,7 +36,7 @@ test('offers a synthetic animal-tech organization to veterinarians and police wi
   assert.ok(profiles.every(({ grantsAuthority }) => grantsAuthority === false))
   assert.equal(
     SOSCHAIN_DEMO_ORGANIZATIONS.find(({ sector }) => sector === SoschainProfessionalDemoSectorIds.AnimalTech)?.titleEn,
-    'Example animal technology organization',
+    'Animal technology example organization',
   )
 })
 

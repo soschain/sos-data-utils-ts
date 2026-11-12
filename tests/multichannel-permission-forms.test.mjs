@@ -410,3 +410,25 @@ test('Consent search uses one shared native FHIR Communication request', () => {
   assert.equal(attachment.contentType, HttpMediaTypes.FhirJson);
   assert.equal(parameters.parameter[0].valueString, SUBJECT_REF);
 });
+
+// Treatment includes emergency treatment only for professional actors; scope, deny precedence and expiry remain canonical.
+test('professional treatment covers emergency but never the reverse or related-person access',async()=>{
+ const policy=await import('../dist/multichannel-permission-forms.js')
+ const {buildConsentClaimsSimple}=await import('gdc-common-utils-ts/utils/consent')
+ const {HealthcareConsentPurposes:P,HealthcareActorRoles:R}=await import('gdc-common-utils-ts/constants/healthcare')
+ const {ClaimConsent:C}=await import('gdc-common-utils-ts/models/consent-rule')
+ const {REPOSITORY_SAFE_EXAMPLES:E}=await import('../dist/repository-privacy.js')
+ const {IndividualLogicalSections:S}=await import('gdc-common-utils-ts/constants/individual-sections')
+ assert.equal(typeof policy.evaluateProfessionalConsentCoverage,'function')
+ const rule=(purpose,decision='permit',actor=E.countryIso2)=>buildConsentClaimsSimple({subjectDid:E.didWeb,actor,actorRole:R.MedicalDoctors,purpose,decision,actions:[S.Encounters.attributeValue],consentIdentifier:actor+purpose+decision}).consentClaims
+ const request={subject:E.didWeb,actor:{actorKind:'professional',email:E.firstContactEmail,organizationDid:E.didWeb,jurisdiction:E.countryIso2},actorRole:R.MedicalDoctors,purpose:P.EmergencyTreatment,sections:[S.Encounters.attributeValue]}
+ assert.equal(policy.evaluateProfessionalConsentCoverage([rule(P.Treatment)],request).allowed,true)
+ assert.equal(policy.evaluateProfessionalConsentCoverage([rule(P.EmergencyTreatment)],{...request,purpose:P.Treatment}).allowed,false)
+ assert.equal(policy.evaluateProfessionalConsentCoverage([rule(P.Treatment)],{...request,actor:{...request.actor,actorKind:'related-person'}}).allowed,false)
+ assert.equal(policy.evaluateProfessionalConsentCoverage([rule(P.Treatment),rule(P.EmergencyTreatment,'deny',E.didWeb)],request).allowed,false)
+ assert.equal(policy.evaluateProfessionalConsentCoverage([rule(P.Treatment,'deny'),rule(P.Treatment,'permit',E.didWeb)],request).allowed,true)
+ assert.equal(policy.evaluateProfessionalConsentCoverage([{...rule(P.Treatment),[C.status]:'draft'}],request).allowed,false)
+ assert.equal(policy.evaluateProfessionalConsentCoverage([rule(P.Treatment)],{...request,actorRole:R.NursingProfessional}).allowed,false)
+ assert.equal(policy.evaluateProfessionalConsentCoverage([rule(P.Treatment)],{...request,sections:[S.Appointments.attributeValue]}).allowed,false)
+ assert.equal(policy.evaluateProfessionalConsentCoverage([rule(P.Treatment)],request).winningRules[0].rule[C.purpose],P.Treatment)
+})

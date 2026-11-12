@@ -1,6 +1,6 @@
 import { BundleEditableResourceTypes, BundleEditor, BundleOperations, BundleTypes } from 'gdc-common-utils-ts/utils/bundle-editor';
 import { BundleReader } from 'gdc-common-utils-ts/utils/bundle-reader';
-import { buildConsentClaimsSimple } from 'gdc-common-utils-ts/utils/consent';
+import { evaluateConsentCoverage, buildConsentClaimsSimple } from 'gdc-common-utils-ts/utils/consent';
 import {
   exportConsentClaims,
   importConsentEntry,
@@ -11,7 +11,9 @@ import type { BundleEntry, BundleJsonApi } from 'gdc-common-utils-ts/models/bund
 import { Format as DataFormat } from 'gdc-common-utils-ts/constants/Schemas';
 import { HttpMediaTypes } from 'gdc-common-utils-ts/constants/http';
 import { DataspaceSectors } from 'gdc-common-utils-ts/constants/sectors';
-import { HealthcareActorRoles } from 'gdc-common-utils-ts/constants/healthcare';
+import type {ConsentCoverageRequest,EffectiveAccessEvaluation} from 'gdc-common-utils-ts/models/consent-access';
+import type {ConsentRule} from 'gdc-common-utils-ts/models/consent-rule';
+import { HealthcareConsentPurposes, HealthcareActorRoles } from 'gdc-common-utils-ts/constants/healthcare';
 import { EmergencyProfessionalRoles } from './emergency-professional-roles.js';
 import { CrossSectorOperationalSectors } from './cross-sector-access-policy.js';
 
@@ -836,4 +838,24 @@ function requiredText(value: unknown, code: string): string {
 function optionalText(value: unknown): string | undefined {
   const normalized = String(value || '').trim();
   return normalized || undefined;
+}
+
+/**
+ * Professional treatment includes emergency treatment within the same actor,
+ * role, subject, data and validity scope. Personal/related-person permissions
+ * remain exact-purpose. The canonical evaluator retains deny precedence and
+ * organization/professional overrides; no fallback bypasses an explicit denial.
+ */
+export function evaluateProfessionalConsentCoverage(rules: readonly ConsentRule[], request: ConsentCoverageRequest): EffectiveAccessEvaluation {
+  if(request.actor.actorKind!=='professional'||request.purpose!==HealthcareConsentPurposes.EmergencyTreatment)
+    return evaluateConsentCoverage([...rules],request);
+  const originals=new Map<ConsentRule,ConsentRule>();
+  const expanded=rules.map(rule=>{
+    if(rule[ClaimConsent.purpose]!==HealthcareConsentPurposes.Treatment)return rule;
+    const projected={...rule,[ClaimConsent.purpose]:HealthcareConsentPurposes.EmergencyTreatment};
+    originals.set(projected,rule);return projected;
+  });
+  const result=evaluateConsentCoverage(expanded,request);
+  const restore=(matches:EffectiveAccessEvaluation['matchedRules'])=>matches.map(match=>({...match,rule:originals.get(match.rule)??match.rule}));
+  return {...result,matchedRules:restore(result.matchedRules),winningRules:restore(result.winningRules),explicitDenials:restore(result.explicitDenials)};
 }

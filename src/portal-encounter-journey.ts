@@ -4,7 +4,7 @@ import {buildEncounterHistoryR5FlatEntry,type FlatClaimResourceEntry} from 'fhir
 import {buildFlatClaimResourceEntry} from 'fhir-data-utils-ts/flat-claim-resource-graph'
 export {EncounterStatusR5} from 'fhir-data-utils-ts/claims'
 
-export type PortalEncounterRecord=Readonly<{entry:FlatClaimResourceEntry;revision:number;allowedStatuses?:readonly S[]}>
+export type PortalEncounterRecord=Readonly<{entry:FlatClaimResourceEntry;revision:number;allowedStatuses?:readonly S[];serviceLabel?:string}>
 export type PortalEncounterSourceOutcome=S.OnHold|S.Completed
 export type PortalEncounterService=Readonly<{reference:string;label:string;organizationReference:string;locationReference?:string;classToken:string}>
 /** Browser intent only. The BFF resolves all service, provider and author identities. */
