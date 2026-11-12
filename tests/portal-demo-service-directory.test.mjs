@@ -5,6 +5,7 @@ import {
   PORTAL_DEMO_SERVICE_DIRECTORY,
   searchPortalDemoServices,
 } from '../dist/portal-demo-service-directory.js'
+import {SOSCHAIN_DEMO_ORGANIZATIONS} from '../dist/portal-access-profiles.data.js'
 import {REPOSITORY_SAFE_EXAMPLES as safe} from '../dist/repository-privacy.js'
 
 test('finds the shared veterinary emergency service by country, region and type',()=>{
@@ -14,7 +15,7 @@ test('finds the shared veterinary emergency service by country, region and type'
     serviceType:'emergency-veterinary-care',
   })
   assert.equal(results.length,1)
-  assert.equal(results[0].organization.name,safe.organizationLegalName)
+  assert.equal(results[0].organization.name,SOSCHAIN_DEMO_ORGANIZATIONS.find(item=>item.sector==='animal-care').titleEn)
   assert.equal(results[0].place.country,safe.countryIso2)
   assert.equal(results[0].place.region,'CA-BC')
   assert.equal(results[0].service.emergency,true)
@@ -41,4 +42,9 @@ test('returns no match for another region or service type',()=>{
   assert.deepEqual(searchPortalDemoServices(PORTAL_DEMO_SERVICE_DIRECTORY,{
     country:safe.countryIso2,serviceType:'human-emergency-care',
   }),[])
+})
+
+test('service directory and contact catalog use the same sector-first organization name',async()=>{
+ const {SOSCHAIN_DEMO_ORGANIZATIONS}=await import('../dist/portal-access-profiles.data.js')
+ assert.equal(PORTAL_DEMO_SERVICE_DIRECTORY[0].organization.name,SOSCHAIN_DEMO_ORGANIZATIONS.find(item=>item.sector==='animal-care').titleEn)
 })

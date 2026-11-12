@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+- Expose an optional trusted service label in the safe Encounter view; persisted flat claims remain unchanged.
+
+- Professional treatment Consent includes emergency treatment within the same actor, role, subject, period and target scope, preserving canonical deny/recipient precedence and exact related-person purposes. Use sector-first synthetic organization labels consistently in contacts and the service directory.
+
 ## 0.6.33 - 2026-11-11
 
 - Resolve Demo care timeline labels from shared organization/service metadata without storing display text in canonical Encounter service references or labelling human care as veterinary.

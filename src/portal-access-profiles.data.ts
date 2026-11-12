@@ -365,11 +365,11 @@ const demoOrganization = (
 
 /** Stable synthetic organizations used only by the resettable Demo adapter. */
 export const SOSCHAIN_DEMO_ORGANIZATIONS: readonly SoschainDemoOrganization[] = Object.freeze([
-  demoOrganization(SoschainProfessionalDemoSectorIds.HealthCare, REPOSITORY_SAFE_EXAMPLES.demoOrganizationUuids.healthCare, 'Example health-care organization'),
-  demoOrganization(SoschainProfessionalDemoSectorIds.AnimalCare, REPOSITORY_SAFE_EXAMPLES.demoOrganizationUuids.animalCare, 'Example animal-care organization'),
-  demoOrganization(SoschainProfessionalDemoSectorIds.AnimalTech, REPOSITORY_SAFE_EXAMPLES.demoOrganizationUuids.animalTech, 'Example animal technology organization'),
-  demoOrganization(SoschainProfessionalDemoSectorIds.PublicHealth, REPOSITORY_SAFE_EXAMPLES.demoOrganizationUuids.publicHealth, 'Example public-health organization'),
-  demoOrganization(SoschainProfessionalDemoSectorIds.PublicSafety, REPOSITORY_SAFE_EXAMPLES.demoOrganizationUuids.publicSafety, 'Example public-safety organization'),
+  demoOrganization(SoschainProfessionalDemoSectorIds.HealthCare, REPOSITORY_SAFE_EXAMPLES.demoOrganizationUuids.healthCare, 'Healthcare example organization'),
+  demoOrganization(SoschainProfessionalDemoSectorIds.AnimalCare, REPOSITORY_SAFE_EXAMPLES.demoOrganizationUuids.animalCare, 'Animal care example organization'),
+  demoOrganization(SoschainProfessionalDemoSectorIds.AnimalTech, REPOSITORY_SAFE_EXAMPLES.demoOrganizationUuids.animalTech, 'Animal technology example organization'),
+  demoOrganization(SoschainProfessionalDemoSectorIds.PublicHealth, REPOSITORY_SAFE_EXAMPLES.demoOrganizationUuids.publicHealth, 'Public health example organization'),
+  demoOrganization(SoschainProfessionalDemoSectorIds.PublicSafety, REPOSITORY_SAFE_EXAMPLES.demoOrganizationUuids.publicSafety, 'Public safety example organization'),
 ])
 
 /** Returns only currently enabled profiles for an exact governed sector. */

@@ -1,3 +1,4 @@
+import {SOSCHAIN_DEMO_ORGANIZATIONS} from './portal-access-profiles.data.js'
 import {REPOSITORY_SAFE_EXAMPLES as safe} from './repository-privacy.js'
 
 export type PortalDemoServiceDirectoryEntry=Readonly<{
@@ -17,7 +18,7 @@ export const PORTAL_DEMO_SERVICE_DIRECTORY:readonly PortalDemoServiceDirectoryEn
   Object.freeze({
     organization:Object.freeze({
       reference:`Organization/${safe.demoOrganizationUuids.animalCare}`,
-      name:safe.organizationLegalName,
+      name:SOSCHAIN_DEMO_ORGANIZATIONS.find(item=>item.sector==='animal-care')!.titleEn,
       description:'Synthetic veterinary organization for cross-portal Demo journeys.',
       logoUrl:`${safe.httpsBaseUrl}/assets/demo-animal-care-logo.png`,
     }),
