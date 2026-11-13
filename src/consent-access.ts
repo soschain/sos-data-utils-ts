@@ -55,6 +55,8 @@ export type ConsentCoverageRequest = Readonly<{
   purpose?: string;
   sections?: string[];
   resourceTypes?: string[];
+  /** Trusted resource-instance classification supplied by the owning service. */
+  resourceContext?: Readonly<{resourceType:string;provisionCodes:readonly string[]}>;
   now?: string | Date;
 }>;
 
