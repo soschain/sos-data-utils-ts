@@ -81,13 +81,16 @@ export class BundleEditor {
 /** Reads both operational data arrays and explicit native Bundle entry arrays. */
 export class BundleReader {
   private readonly entries:BundleEntry[]
+  private readonly type?:string
   constructor(input:Record<string,unknown>){
     if(input.resourceType!=='Bundle')throw new TypeError('fhir_bundle_required')
+    this.type=typeof input.type==='string'?input.type:undefined
     const entries=input.data??input.entry??[]
     if(!Array.isArray(entries))throw new TypeError('bundle_entries_required')
     this.entries=structuredClone(entries) as BundleEntry[]
   }
   getEntries():BundleEntry[]{return structuredClone(this.entries)}
+  getBundleType():string|undefined{return this.type}
   getEntryClaimsByArrayIndex(index:number):Record<string,any>{
     const entry=this.entries[index]
     if(!entry)throw new RangeError('bundle_entry_index_invalid')

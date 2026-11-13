@@ -7,6 +7,7 @@ test('stages exact claims and optimistic requests without exposing mutable edito
   const editor=new BundleEditor().setBundleOperation('create').setBundleType('batch').setAllowedResourceType('Consent')
   editor.newEntryAs('Consent','one').setIdentifier('one').setSubject('Patient/one').setSectionList(['section','section']).update().ifMatch('version')
   const bundle=editor.buildJsonApi()
+  assert.equal(new BundleReader(bundle).getBundleType(),'batch')
   assert.deepEqual(bundle.data[0].request,{method:'PUT',url:'Consent/one',ifMatch:'W/"version"'})
   assert.equal(bundle.data[0].resource.meta.claims['Consent.action'],'section')
   bundle.data[0].resource.meta.claims['Consent.subject']='Patient/changed'
