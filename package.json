@@ -7,6 +7,14 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./organization-authorization-urn": {
+      "types": "./dist/organization-authorization-urn.d.ts",
+      "default": "./dist/organization-authorization-urn.js"
+    },
+    "./employee-routing": {
+      "types": "./dist/employee-routing.d.ts",
+      "default": "./dist/employee-routing.js"
+    },
     "./healthcare-roles": {
       "types": "./dist/healthcare-roles.d.ts",
       "default": "./dist/healthcare-roles.js"
