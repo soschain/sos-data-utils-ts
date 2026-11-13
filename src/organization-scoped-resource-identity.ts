@@ -1,4 +1,4 @@
-import { encodeMultibaseSha3 } from 'gdc-common-utils-ts/utils/multibasehash'
+import { encodeMultibaseSha3 } from 'antifraud-data-utils-ts/encoding'
 
 export type OrganizationScopedResourceKind = 'department' | 'service' | 'place' | 'schedule'
 

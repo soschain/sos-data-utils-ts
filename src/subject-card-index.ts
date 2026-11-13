@@ -1,8 +1,7 @@
 // Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0.
 
-import { bytesToHexString } from 'gdc-common-utils-ts/utils/base-convert';
-import { SHA3_256_MULTIHASH_PROFILE } from 'gdc-common-utils-ts/utils/multiformat-profile';
-import { computeDammCheckDigit } from 'gdc-common-utils-ts/utils/unified-health-id';
+import { bytesToHexString, SHA3_256_MULTIHASH_PROFILE } from 'antifraud-data-utils-ts/encoding';
+import { computeDammCheckDigit } from './subject-card-checksum.js';
 
 export type SubjectSpeciesId7 = string;
 export type SubjectCardNumber21 = string;

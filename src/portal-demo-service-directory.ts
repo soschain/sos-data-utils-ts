@@ -1,6 +1,6 @@
 import {SOSCHAIN_DEMO_ORGANIZATIONS} from './portal-access-profiles.data.js'
 import {REPOSITORY_SAFE_EXAMPLES as safe} from './repository-privacy.js'
-import {bytesToBase58} from 'gdc-common-utils-ts/utils/base-convert'
+import {bytesToBase58} from 'antifraud-data-utils-ts/encoding'
 
 export function formatPortalDemoOrganizationName(name:string,uuid:string):string{
   if(typeof uuid!=='string'||!(/^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/iu.test(uuid)))throw new TypeError('demo_organization_uuid_invalid')

@@ -1,18 +1,19 @@
 // Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0.
-import { HealthcareConsentPurposes, HealthcareSummarySections } from 'gdc-common-utils-ts/constants/healthcare'
-import { ResourceTypesFhirR4 } from 'gdc-common-utils-ts/constants/fhir-resource-types'
+import { HealthcareConsentPurposes } from 'fhir-data-utils-ts'
+import { HealthcareSummarySections } from './healthcare-sections.js'
+import { ResourceTypesFhirR4 } from 'fhir-data-utils-ts'
 import {
   BundleEditableResourceTypes,
   BundleEditor,
   BundleOperations,
   BundleTypes,
-} from 'gdc-common-utils-ts/utils/bundle-editor'
-import { BundleReader } from 'gdc-common-utils-ts/utils/bundle-reader'
+} from './bundle-contract.js'
+import { BundleReader } from './bundle-contract.js'
 import {
   ClaimConsent,
   ConsentDecisions,
   ConsentStatuses,
-} from 'gdc-common-utils-ts/models/consent-rule'
+} from 'fhir-data-utils-ts'
 import {
   normalizeGroupR5FlatClaimsResource,
   projectGroupR5FlatClaimsResource,

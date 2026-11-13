@@ -1,4 +1,4 @@
-import {HL7_CODING_SYSTEM_V3_ROLE_CODE,HL7_RELATED_PERSON_FUNCTIONAL_ROLES} from 'gdc-common-utils-ts/constants/hl7-roles'
+import {HL7_CODING_SYSTEM_V3_ROLE_CODE,HL7_RELATED_PERSON_FUNCTIONAL_ROLES} from 'fhir-data-utils-ts'
 export const SoschainDemoMemberRoles = Object.freeze({
   FamilyMember: 'family-member',
   Caregiver: 'caregiver',

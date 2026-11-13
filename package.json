@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./healthcare-roles": {
+      "types": "./dist/healthcare-roles.d.ts",
+      "default": "./dist/healthcare-roles.js"
+    },
     "./portal-push": {
       "types": "./dist/portal-push.d.ts",
       "default": "./dist/portal-push.js"
@@ -226,6 +230,46 @@
     "./portal-demo-encounter-services": {
       "types": "./dist/portal-demo-encounter-services.d.ts",
       "default": "./dist/portal-demo-encounter-services.js"
+    },
+    "./bundle-contract": {
+      "types": "./dist/bundle-contract.d.ts",
+      "default": "./dist/bundle-contract.js"
+    },
+    "./bff-wire-contract": {
+      "types": "./dist/bff-wire-contract.d.ts",
+      "default": "./dist/bff-wire-contract.js"
+    },
+    "./dataspace-sectors": {
+      "types": "./dist/dataspace-sectors.d.ts",
+      "default": "./dist/dataspace-sectors.js"
+    },
+    "./service-capabilities": {
+      "types": "./dist/service-capabilities.d.ts",
+      "default": "./dist/service-capabilities.js"
+    },
+    "./individual-sections": {
+      "types": "./dist/individual-sections.d.ts",
+      "default": "./dist/individual-sections.js"
+    },
+    "./healthcare-sections": {
+      "types": "./dist/healthcare-sections.d.ts",
+      "default": "./dist/healthcare-sections.js"
+    },
+    "./consent-access": {
+      "types": "./dist/consent-access.d.ts",
+      "default": "./dist/consent-access.js"
+    },
+    "./consent-coverage": {
+      "types": "./dist/consent-coverage.d.ts",
+      "default": "./dist/consent-coverage.js"
+    },
+    "./permission-templates": {
+      "types": "./dist/permission-templates.d.ts",
+      "default": "./dist/permission-templates.js"
+    },
+    "./subject-card-checksum": {
+      "types": "./dist/subject-card-checksum.d.ts",
+      "default": "./dist/subject-card-checksum.js"
     }
   },
   "files": [
@@ -254,9 +298,8 @@
   },
   "private": false,
   "dependencies": {
-    "antifraud-data-utils-ts": "0.1.11",
+    "antifraud-data-utils-ts": "0.2.0",
     "fhir-data-utils-ts": "0.6.24",
-    "gdc-common-utils-ts": "2.9.31",
     "pako": "2.1.0"
   },
   "publishConfig": {

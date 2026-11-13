@@ -1,4 +1,4 @@
-import { ServiceCapability } from 'gdc-common-utils-ts/constants/service-capabilities';
+import { ServiceCapability } from './service-capabilities.js';
 
 /**
  * Cross-sector provider capabilities advertised through

@@ -1,4 +1,4 @@
-import { DataspaceSectors } from 'gdc-common-utils-ts/constants/sectors';
+import { DataspaceSectors } from './dataspace-sectors.js';
 
 /**
  * Operational sectors shared by SOS, Vet and UHC extensions.

@@ -13,9 +13,9 @@ import {
   ProcedureClaim,
 } from 'fhir-data-utils-ts/claims';
 import { ObservationClaim } from 'fhir-data-utils-ts/observation-claims';
-import { BundleEditor, BundleOperations, BundleTypes } from 'gdc-common-utils-ts/utils/bundle-editor';
-import { BundleReader } from 'gdc-common-utils-ts/utils/bundle-reader';
-import type { BundleEntry, BundleJsonApi } from 'gdc-common-utils-ts/models/bundle';
+import { BundleEditor, BundleOperations, BundleTypes } from './bundle-contract.js';
+import { BundleReader } from './bundle-contract.js';
+import type { BundleEntry, BundleJsonApi } from './bundle-contract.js';
 import { SchemaOrgActionClaim, SchemaOrgOrganizationClaim } from './schema-org-claims.js';
 import { TaskArtifactSchema, TaskClaim } from './task-artifact-schema.js';
 

@@ -1,4 +1,4 @@
-import { DataspaceSectors } from 'gdc-common-utils-ts/constants/sectors'
+import { DataspaceSectors } from './dataspace-sectors.js'
 
 /** Sectors whose Organizations can publish department service catalogs. */
 export const OrganizationServiceCatalogSector = Object.freeze({

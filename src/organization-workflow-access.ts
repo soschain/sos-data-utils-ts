@@ -1,17 +1,17 @@
 // Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0.
 import { createHash } from 'node:crypto'
-import { HealthcareConsentPurposes } from 'gdc-common-utils-ts/constants/healthcare'
+import { HealthcareConsentPurposes } from 'fhir-data-utils-ts'
 import {
   ClaimConsent,
   ConsentDecisions,
   ConsentStatuses,
-} from 'gdc-common-utils-ts/models/consent-rule'
+} from 'fhir-data-utils-ts'
 import {
   BundleEditableResourceTypes,
   BundleEditor,
   BundleOperations,
   BundleTypes,
-} from 'gdc-common-utils-ts/utils/bundle-editor'
+} from './bundle-contract.js'
 import {
   projectGroupPractitionerRoleMemberFlatClaimResources,
   projectGroupR5FlatClaimsResource,

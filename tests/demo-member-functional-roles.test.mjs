@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import {createHash} from 'node:crypto'
-import {HL7_RELATED_PERSON_FUNCTIONAL_ROLES} from 'gdc-common-utils-ts/constants/hl7-roles'
+import {HL7_RELATED_PERSON_FUNCTIONAL_ROLES} from 'fhir-data-utils-ts'
 import {REPOSITORY_SAFE_EXAMPLES as examples} from '../dist/repository-privacy.js'
 import {SoschainPersonalDemoSubjectIds} from '../dist/portal-demo-fixtures.js'
 import {SoschainDemoMemberActions,SoschainDemoMemberRoles,createSoschainDemoMemberInvitation,transitionSoschainDemoMemberInvitation} from '../dist/demo-member-lifecycle.js'

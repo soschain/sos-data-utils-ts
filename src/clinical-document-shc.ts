@@ -1,6 +1,6 @@
 // Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0.
-import { Content } from 'gdc-common-utils-ts/utils/content'
-import { canonicalizeFhirResource } from 'gdc-common-utils-ts/utils/fhir-cid'
+import { Content } from 'antifraud-data-utils-ts/cryptography'
+import { canonicalizeFhirResource } from 'fhir-data-utils-ts'
 import { deflateRaw } from 'pako'
 import {
   canonicalClinicalSubjectReference,
