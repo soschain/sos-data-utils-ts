@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./gateway-transport-contract": {
+      "types": "./dist/gateway-transport-contract.d.ts",
+      "default": "./dist/gateway-transport-contract.js"
+    },
     "./organization-authorization-urn": {
       "types": "./dist/organization-authorization-urn.d.ts",
       "default": "./dist/organization-authorization-urn.js"

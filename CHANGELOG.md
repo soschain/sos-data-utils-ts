@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+- Own neutral gateway routing, polling and organization-verification request
+  contracts. Keep public identity bindings, business claims and document evidence
+  distinct without selecting transport, admitting an organization or activating it.
+
 - Require trusted resource-instance classification for coded Consent permits.
   Missing or empty classification cannot discard a coded denial or broaden
   emergency-only access to unrelated encounter history.
