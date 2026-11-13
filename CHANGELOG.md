@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+- Require trusted resource-instance classification for coded Consent permits.
+  Missing or empty classification cannot discard a coded denial or broaden
+  emergency-only access to unrelated encounter history.
+
 - Own employee routing-grant/lifecycle contracts and jurisdiction-bound
   authorization URNs. Project sector-eligible professional roles from the
   shared occupation catalog without treating discovery as authority.
