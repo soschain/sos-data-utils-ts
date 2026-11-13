@@ -6,6 +6,7 @@ import { resolveProfessionalDemoCapabilities } from '../dist/professional-demo-c
 
 const expected = new Map([
   [SoschainProfessionalDemoProfileIds.Doctor, ['ips', 'attested-record', true]],
+  [SoschainProfessionalDemoProfileIds.Dentist, ['ips', 'attested-record', true]],
   [SoschainProfessionalDemoProfileIds.Nurse, ['ips', 'attested-record', true]],
   [SoschainProfessionalDemoProfileIds.Paramedic, ['ips', 'attested-record', true]],
   [SoschainProfessionalDemoProfileIds.MedicalSecretary, ['none', 'none', false]],
@@ -18,8 +19,8 @@ const expected = new Map([
   [SoschainProfessionalDemoProfileIds.Researcher, ['none', 'none', false]],
 ])
 
-test('publishes the exact positive and negative capability projection for all eleven Demo profiles', () => {
-  assert.equal(expected.size, 11)
+test('publishes the exact positive and negative capability projection for every governed Demo profile', () => {
+  assert.equal(expected.size,Object.keys(SoschainProfessionalDemoProfileIds).length)
   for (const [profileId, [healthScope, clinicalWriteScope, canRequestBreakGlass]] of expected) {
     const capabilities = resolveProfessionalDemoCapabilities(profileId)
     assert.equal(capabilities.healthScope, healthScope, profileId)

@@ -3,6 +3,18 @@
 
 ## Unreleased
 
+- Add the health-care Dentist Demo profile with its canonical occupation and clinical workflow projection. Instantiate organization and service identities per account; display a short Base58 UUID tag while retaining full UUID routing.
+
+- Publish the governed synthetic Dentist Demo Clinic service in ES-MD with human subject kind, explicit Demo labelling, emergency routing and appointment capability. Preserve the veterinary fixture and shared healthcare organization identity.
+
+- Preserve optional canonical RelatedPerson functional roles on member invitations
+  and lifecycle transitions. Emergency-contact status can coexist with family or
+  caregiver membership without granting controller authority or health-data Consent;
+  reject unknown roles and retain an immutable copy of the supplied markers.
+- Support telephone member recipients using an E.164 hash and redacted hint,
+  with exact authenticated telephone-hash acceptance and existing owner lifecycle
+  controls. Preserve legacy email invitations without synthesizing email identities.
+
 ## 0.6.34 - 2026-11-12
 
 - Expose an optional trusted service label in the safe Encounter view; persisted flat claims remain unchanged.
