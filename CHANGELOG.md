@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+- Support telephone member recipients using an E.164 hash and redacted hint,
+  with exact authenticated telephone-hash acceptance and existing owner lifecycle
+  controls. Preserve legacy email invitations without synthesizing email identities.
+
 ## 0.6.34 - 2026-11-12
 
 - Expose an optional trusted service label in the safe Encounter view; persisted flat claims remain unchanged.
