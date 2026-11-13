@@ -36,6 +36,7 @@ export const REPOSITORY_SAFE_EXAMPLES = Object.freeze({
   organizationBusinessNumber: SAFE_ORGANIZATION_BUSINESS_NUMBER,
   organizationIdentifierType: 'BN',
   countryIso2: 'CA',
+  secondaryCountryIso2: 'ES',
   sector: 'animal-care',
   subjectCardProviders: Object.freeze({
     cardDidHost: SAFE_DOMAIN,

@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+- Own employee routing-grant/lifecycle contracts and jurisdiction-bound
+  authorization URNs. Project sector-eligible professional roles from the
+  shared occupation catalog without treating discovery as authority.
+
 - Expose read-only batch type metadata to runtime-neutral Communication readers.
 
 - Replace frozen-project imports with owned batch, Consent, routing and service
