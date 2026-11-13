@@ -89,6 +89,7 @@ export type SoschainProfessionalDemoSectorId =
 
 export const SoschainProfessionalDemoProfileIds = Object.freeze({
   Doctor: 'doctor',
+  Dentist: 'dentist',
   Nurse: 'nurse',
   Paramedic: EmergencyProfessionalRoleIds.Paramedic,
   MedicalSecretary: 'medical-secretary',
@@ -141,6 +142,7 @@ export const SOSCHAIN_PROFESSIONAL_DEMO_PROFILES: readonly SoschainProfessionalD
     'Doctor',
     true,
   ),
+  demoProfile(SoschainProfessionalDemoProfileIds.Dentist, SoschainProfessionalDemoSectorIds.HealthCare, HealthcareActorRoles.Dentist, 'Dentist', true),
   demoProfile(
     SoschainProfessionalDemoProfileIds.Nurse,
     SoschainProfessionalDemoSectorIds.HealthCare,

@@ -12,6 +12,12 @@ import {
 } from '../dist/portal-access-profiles.data.js'
 
 const expectedAccessModeIds = ['personal', 'partner', 'test-network', 'demo']
+test('offers dentists only in health-care with their distinct occupation',()=>{
+  const dentists=getSoschainDemoProfilesForSector('health-care').filter(item=>item.id==='dentist')
+  assert.equal(dentists.length,1)
+  assert.equal(dentists[0].roleClaim,'ISCO-08|2261')
+  assert.equal(getSoschainDemoProfilesForSector('animal-care').some(item=>item.id==='dentist'),false)
+})
 const enabledProfessionalDemoSectors = Object.values(SoschainProfessionalDemoSectorIds)
 const priorityMvpProfileIds = [
   SoschainProfessionalDemoProfileIds.Doctor,

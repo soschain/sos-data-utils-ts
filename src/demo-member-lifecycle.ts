@@ -25,6 +25,8 @@ export type SoschainDemoMemberInvitation = Readonly<{
   inviteeEmailHash: string
   inviteeEmailHint: string
   role: SoschainDemoMemberRole
+  /** Canonical RelatedPerson functional-role codes; these grant no Consent or controller authority. */
+  functionalRoles?: readonly string[]
   access: SoschainDemoMemberAccess
   controller: false
   status: SoschainDemoMemberStatus
@@ -41,6 +43,8 @@ export type CreateSoschainDemoMemberInvitation = Readonly<{
   inviteeEmailHash: string
   inviteeEmailHint: string
   role: SoschainDemoMemberRole
+  /** Optional independent roles, including ECON alongside a family or caregiver membership. */
+  functionalRoles?: readonly string[]
   now: string
   expiresAt: string
 }>
@@ -63,6 +67,7 @@ export function createSoschainDemoMemberInvitation(input: CreateSoschainDemoMemb
   const expiresAt = instant(input.expiresAt, 'demo_member_expiry_invalid')
   if (Date.parse(expiresAt) <= Date.parse(createdAt)) throw new Error('demo_member_expiry_invalid')
   const role = demoMemberRole(input.role)
+  const functionalRoles = memberFunctionalRoles(input.functionalRoles)
   return Object.freeze({
     id: required(input.id, 'demo_member_id_required'),
     workspaceOwnerUid: required(input.workspaceOwnerUid, 'demo_member_owner_required'),
@@ -70,6 +75,7 @@ export function createSoschainDemoMemberInvitation(input: CreateSoschainDemoMemb
     inviteeEmailHash: emailHash(input.inviteeEmailHash),
     inviteeEmailHint: required(input.inviteeEmailHint, 'demo_member_email_hint_required'),
     role,
+    ...(functionalRoles === undefined ? {} : {functionalRoles}),
     access: roleAccess[role],
     controller: false,
     status: 'pending',
@@ -116,6 +122,14 @@ export function transitionSoschainDemoMemberInvitation(
 function demoMemberRole(value: unknown): SoschainDemoMemberRole {
   if (Object.values(SoschainDemoMemberRoles).includes(value as SoschainDemoMemberRole)) return value as SoschainDemoMemberRole
   throw new Error('demo_member_role_invalid')
+}
+
+function memberFunctionalRoles(value: unknown): readonly string[] | undefined {
+  if (value === undefined) return undefined
+  if (!Array.isArray(value) || value.some(code =>
+    typeof code !== 'string' || !HL7_RELATED_PERSON_FUNCTIONAL_ROLES.some(role => role.code === code)
+  )) throw new Error('demo_member_functional_role_invalid')
+  return Object.freeze([...value])
 }
 
 function subjectIdentifier(value:unknown):string {

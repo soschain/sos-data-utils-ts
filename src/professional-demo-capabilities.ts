@@ -17,7 +17,7 @@ export type ProfessionalDemoCapabilities = Readonly<{
 
 const section = (id: typeof ProfessionalDemoSectionIds[keyof typeof ProfessionalDemoSectionIds], mode: ProfessionalDemoSectionMode) => Object.freeze({ id, mode })
 const result = (value: Omit<ProfessionalDemoCapabilities, 'grantsRealAuthority'>): ProfessionalDemoCapabilities => Object.freeze({ ...value, grantsRealAuthority: false })
-const clinicalProfiles = new Set<SoschainProfessionalDemoProfileId>([SoschainProfessionalDemoProfileIds.Doctor, SoschainProfessionalDemoProfileIds.Nurse, SoschainProfessionalDemoProfileIds.Veterinarian])
+const clinicalProfiles = new Set<SoschainProfessionalDemoProfileId>([SoschainProfessionalDemoProfileIds.Doctor, SoschainProfessionalDemoProfileIds.Dentist, SoschainProfessionalDemoProfileIds.Nurse, SoschainProfessionalDemoProfileIds.Veterinarian])
 const operationalProfiles = new Set<SoschainProfessionalDemoProfileId>([SoschainProfessionalDemoProfileIds.Firefighter, SoschainProfessionalDemoProfileIds.Lifeguard])
 const administrativeProfiles = new Set<SoschainProfessionalDemoProfileId>([SoschainProfessionalDemoProfileIds.MedicalSecretary, SoschainProfessionalDemoProfileIds.Receptionist])
 
