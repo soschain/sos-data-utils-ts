@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+- Checkpoint dependency-boundary tests for direct imports, aliases and resolved
+  GDC dependencies. These tests currently fail; the migration is incomplete
+  and this checkpoint is not release-ready.
+
 ## 0.6.35 - 2026-11-13
 
 - Add the health-care Dentist Demo profile with its canonical occupation and clinical workflow projection. Instantiate organization and service identities per account; display a short Base58 UUID tag while retaining full UUID routing.
