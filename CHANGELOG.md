@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+## 0.6.35 - 2026-11-13
+
 - Add the health-care Dentist Demo profile with its canonical occupation and clinical workflow projection. Instantiate organization and service identities per account; display a short Base58 UUID tag while retaining full UUID routing.
 
 - Publish the governed synthetic Dentist Demo Clinic service in ES-MD with human subject kind, explicit Demo labelling, emergency routing and appointment capability. Preserve the veterinary fixture and shared healthcare organization identity.
