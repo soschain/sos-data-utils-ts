@@ -11,6 +11,9 @@
   and lifecycle transitions. Emergency-contact status can coexist with family or
   caregiver membership without granting controller authority or health-data Consent;
   reject unknown roles and retain an immutable copy of the supplied markers.
+- Support telephone member recipients using an E.164 hash and redacted hint,
+  with exact authenticated telephone-hash acceptance and existing owner lifecycle
+  controls. Preserve legacy email invitations without synthesizing email identities.
 
 ## 0.6.34 - 2026-11-12
 

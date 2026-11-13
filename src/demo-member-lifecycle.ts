@@ -22,8 +22,12 @@ export type SoschainDemoMemberInvitation = Readonly<{
   id: string
   workspaceOwnerUid: string
   subjectId: string
-  inviteeEmailHash: string
-  inviteeEmailHint: string
+  inviteeEmailHash?: string
+  inviteeEmailHint?: string
+  /** Hash of the normalized E.164 recipient; never a raw telephone number. */
+  inviteePhoneNumberHash?: string
+  /** Redacted recipient hint, consisting of three stars and the last four digits. */
+  inviteePhoneNumberHint?: string
   role: SoschainDemoMemberRole
   /** Canonical RelatedPerson functional-role codes; these grant no Consent or controller authority. */
   functionalRoles?: readonly string[]
@@ -40,8 +44,10 @@ export type CreateSoschainDemoMemberInvitation = Readonly<{
   id: string
   workspaceOwnerUid: string
   subjectId: string
-  inviteeEmailHash: string
-  inviteeEmailHint: string
+  inviteeEmailHash?: string
+  inviteeEmailHint?: string
+  inviteePhoneNumberHash?: string
+  inviteePhoneNumberHint?: string
   role: SoschainDemoMemberRole
   /** Optional independent roles, including ECON alongside a family or caregiver membership. */
   functionalRoles?: readonly string[]
@@ -53,6 +59,8 @@ export type TransitionSoschainDemoMemberInvitation = Readonly<{
   action: SoschainDemoMemberAction
   actorUid: string
   actorEmailHash?: string
+  /** Supplied only from the authenticated actor's verified E.164 telephone. */
+  actorPhoneNumberHash?: string
   now: string
 }>
 
@@ -68,12 +76,12 @@ export function createSoschainDemoMemberInvitation(input: CreateSoschainDemoMemb
   if (Date.parse(expiresAt) <= Date.parse(createdAt)) throw new Error('demo_member_expiry_invalid')
   const role = demoMemberRole(input.role)
   const functionalRoles = memberFunctionalRoles(input.functionalRoles)
+  const recipient = memberRecipient(input)
   return Object.freeze({
     id: required(input.id, 'demo_member_id_required'),
     workspaceOwnerUid: required(input.workspaceOwnerUid, 'demo_member_owner_required'),
     subjectId: subjectIdentifier(input.subjectId),
-    inviteeEmailHash: emailHash(input.inviteeEmailHash),
-    inviteeEmailHint: required(input.inviteeEmailHint, 'demo_member_email_hint_required'),
+    ...recipient,
     role,
     ...(functionalRoles === undefined ? {} : {functionalRoles}),
     access: roleAccess[role],
@@ -94,8 +102,10 @@ export function transitionSoschainDemoMemberInvitation(
   if (invitation.status === 'revoked') throw new Error('demo_member_revocation_terminal')
 
   if (input.action === SoschainDemoMemberActions.Accept) {
-    const actorEmailHash = emailHash(input.actorEmailHash || '')
-    if (actorEmailHash !== invitation.inviteeEmailHash) throw new Error('demo_member_invitee_required')
+    const actorHash = invitation.inviteePhoneNumberHash !== undefined
+      ? recipientHash(input.actorPhoneNumberHash, 'demo_member_phone_hash_invalid')
+      : emailHash(input.actorEmailHash || '')
+    if (actorHash !== (invitation.inviteePhoneNumberHash ?? invitation.inviteeEmailHash)) throw new Error('demo_member_invitee_required')
     if (invitation.status === 'active' && invitation.memberUid === actorUid) return invitation
     if (invitation.status !== 'pending') throw new Error('demo_member_acceptance_not_pending')
     if (Date.parse(now) >= Date.parse(invitation.expiresAt)) throw new Error('demo_member_invitation_expired')
@@ -144,9 +154,28 @@ function required(value: unknown, code: string): string {
 }
 
 function emailHash(value: unknown): string {
+  return recipientHash(value, 'demo_member_email_hash_invalid')
+}
+
+function recipientHash(value: unknown, code: string): string {
   const normalized = String(value || '').trim().toLowerCase()
-  if (!/^[a-f0-9]{64}$/u.test(normalized)) throw new Error('demo_member_email_hash_invalid')
+  if (typeof value !== 'string' || !/^[a-f0-9]{64}$/u.test(normalized)) throw new Error(code)
   return normalized
+}
+
+function memberRecipient(input: CreateSoschainDemoMemberInvitation) {
+  if ('recipientChannel' in input) throw new Error('demo_member_recipient_channel_invalid')
+  const phone = input.inviteePhoneNumberHash !== undefined || input.inviteePhoneNumberHint !== undefined
+  const email = input.inviteeEmailHash !== undefined || input.inviteeEmailHint !== undefined
+  if (phone && email) throw new Error('demo_member_recipient_channel_invalid')
+  if (!phone) return {
+    inviteeEmailHash: emailHash(input.inviteeEmailHash),
+    inviteeEmailHint: required(input.inviteeEmailHint, 'demo_member_email_hint_required'),
+  }
+  const inviteePhoneNumberHash = recipientHash(input.inviteePhoneNumberHash, 'demo_member_phone_hash_invalid')
+  const inviteePhoneNumberHint = input.inviteePhoneNumberHint
+  if (typeof inviteePhoneNumberHint !== 'string' || !/^\*{3}\d{4}$/u.test(inviteePhoneNumberHint)) throw new Error('demo_member_phone_hint_invalid')
+  return {inviteePhoneNumberHash, inviteePhoneNumberHint}
 }
 
 function instant(value: unknown, code: string): string {
