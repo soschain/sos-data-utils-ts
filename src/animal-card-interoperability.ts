@@ -1,4 +1,4 @@
-import { computeDammCheckDigit } from 'gdc-common-utils-ts/utils/unified-health-id'
+import { computeDammCheckDigit } from './subject-card-checksum.js'
 
 import { SchemaOrgOrganizationClaim } from './schema-org-claims.js'
 import { HUMAN_NCBI_TAXONOMY_ID, normalizeSubjectSpeciesId7 } from './subject-card-index.js'

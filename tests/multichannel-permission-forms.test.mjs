@@ -2,13 +2,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { ConsentDecisions } from 'gdc-common-utils-ts/models/consent-rule';
-import { HealthcareActorRoles, HealthcareConsentPurposes } from 'gdc-common-utils-ts/constants/healthcare';
-import { DataspaceSectors } from 'gdc-common-utils-ts/constants/sectors';
-import { importPermissionTemplate, resolvePermissionTemplate } from 'gdc-common-utils-ts/utils/permission-templates';
-import { BundleReader } from 'gdc-common-utils-ts/utils/bundle-reader';
-import { Format as DataFormat } from 'gdc-common-utils-ts/constants/Schemas';
-import { HttpMediaTypes } from 'gdc-common-utils-ts/constants/http';
+import { ConsentDecisions } from 'fhir-data-utils-ts';
+import { HealthcareActorRoles } from '../dist/healthcare-roles.js';
+import { HealthcareConsentPurposes } from 'fhir-data-utils-ts';
+import { DataspaceSectors } from '../dist/dataspace-sectors.js';
+import { importPermissionTemplate, resolvePermissionTemplate } from '../dist/permission-templates.js';
+import { BundleReader } from '../dist/bundle-contract.js';
+import { Format as DataFormat, HttpMediaTypes } from '../dist/bff-wire-contract.js';
 import {
   MULTICHANNEL_PERMISSION_SET_SCHEMA,
   MULTICHANNEL_PERMISSION_GRANT_SCHEMA,
@@ -414,11 +414,12 @@ test('Consent search uses one shared native FHIR Communication request', () => {
 // Treatment includes emergency treatment only for professional actors; scope, deny precedence and expiry remain canonical.
 test('professional treatment covers emergency but never the reverse or related-person access',async()=>{
  const policy=await import('../dist/multichannel-permission-forms.js')
- const {buildConsentClaimsSimple}=await import('gdc-common-utils-ts/utils/consent')
- const {HealthcareConsentPurposes:P,HealthcareActorRoles:R}=await import('gdc-common-utils-ts/constants/healthcare')
- const {ClaimConsent:C}=await import('gdc-common-utils-ts/models/consent-rule')
+ const {buildConsentClaimsSimple}=await import('../dist/consent-coverage.js')
+ const {HealthcareConsentPurposes:P}=await import('fhir-data-utils-ts')
+ const {HealthcareActorRoles:R}=await import('../dist/healthcare-roles.js')
+ const {ClaimConsent:C}=await import('fhir-data-utils-ts')
  const {REPOSITORY_SAFE_EXAMPLES:E}=await import('../dist/repository-privacy.js')
- const {IndividualLogicalSections:S}=await import('gdc-common-utils-ts/constants/individual-sections')
+ const {IndividualLogicalSections:S}=await import('../dist/individual-sections.js')
  assert.equal(typeof policy.evaluateProfessionalConsentCoverage,'function')
  const rule=(purpose,decision='permit',actor=E.countryIso2)=>buildConsentClaimsSimple({subjectDid:E.didWeb,actor,actorRole:R.MedicalDoctors,purpose,decision,actions:[S.Encounters.attributeValue],consentIdentifier:actor+purpose+decision}).consentClaims
  const request={subject:E.didWeb,actor:{actorKind:'professional',email:E.firstContactEmail,organizationDid:E.didWeb,jurisdiction:E.countryIso2},actorRole:R.MedicalDoctors,purpose:P.EmergencyTreatment,sections:[S.Encounters.attributeValue]}

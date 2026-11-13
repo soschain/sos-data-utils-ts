@@ -1,6 +1,6 @@
 // Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0.
 
-import { buildRawCidV1FromUtf8String } from 'gdc-common-utils-ts/utils/multiformat-profile';
+import { buildRawCidV1FromUtf8String } from 'antifraud-data-utils-ts/encoding';
 import { FHIR_CLAIMS_CONTEXT } from './emergency-group.js';
 
 export type SoschainAssociationTargetType = 'Place' | 'Vehicle';

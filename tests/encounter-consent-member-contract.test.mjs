@@ -3,8 +3,8 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import * as journey from '../dist/portal-encounter-journey.js'
 import * as members from '../dist/demo-member-lifecycle.js'
-import {IndividualLogicalSections} from 'gdc-common-utils-ts/constants/individual-sections'
-import {HL7_CODING_SYSTEM_V3_ROLE_CODE,HL7_RELATED_PERSON_FUNCTIONAL_ROLES} from 'gdc-common-utils-ts/constants/hl7-roles'
+import {IndividualLogicalSections} from '../dist/individual-sections.js'
+import {HL7_CODING_SYSTEM_V3_ROLE_CODE,HL7_RELATED_PERSON_FUNCTIONAL_ROLES} from 'fhir-data-utils-ts'
 test('publishes canonical general encounter scope and distinct member role tokens',()=>{
  assert.equal(journey.PortalEncounterPermissionSection,IndividualLogicalSections.Encounters.attributeValue)
  assert.equal(members.DemoMemberConsentRoleClaims.FamilyMember,`${HL7_CODING_SYSTEM_V3_ROLE_CODE}|FAMMEMB`)

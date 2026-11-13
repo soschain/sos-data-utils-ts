@@ -1,19 +1,19 @@
-import { BundleEditableResourceTypes, BundleEditor, BundleOperations, BundleTypes } from 'gdc-common-utils-ts/utils/bundle-editor';
-import { BundleReader } from 'gdc-common-utils-ts/utils/bundle-reader';
-import { evaluateConsentCoverage, buildConsentClaimsSimple } from 'gdc-common-utils-ts/utils/consent';
+import { BundleEditableResourceTypes, BundleEditor, BundleOperations, BundleTypes } from './bundle-contract.js';
+import { BundleReader } from './bundle-contract.js';
+import { evaluateConsentCoverage, buildConsentClaimsSimple } from './consent-coverage.js';
 import {
   exportConsentClaims,
   importConsentEntry,
   type PermissionGrantDecision,
-} from 'gdc-common-utils-ts/utils/permission-templates';
-import { ClaimConsent, ConsentStatuses, type ConsentStatus } from 'gdc-common-utils-ts/models/consent-rule';
-import type { BundleEntry, BundleJsonApi } from 'gdc-common-utils-ts/models/bundle';
-import { Format as DataFormat } from 'gdc-common-utils-ts/constants/Schemas';
-import { HttpMediaTypes } from 'gdc-common-utils-ts/constants/http';
-import { DataspaceSectors } from 'gdc-common-utils-ts/constants/sectors';
-import type {ConsentCoverageRequest,EffectiveAccessEvaluation} from 'gdc-common-utils-ts/models/consent-access';
-import type {ConsentRule} from 'gdc-common-utils-ts/models/consent-rule';
-import { HealthcareConsentPurposes, HealthcareActorRoles } from 'gdc-common-utils-ts/constants/healthcare';
+} from './permission-templates.js';
+import { ClaimConsent, ConsentStatuses, type ConsentStatus } from 'fhir-data-utils-ts';
+import type { BundleEntry, BundleJsonApi } from './bundle-contract.js';
+import { Format as DataFormat, HttpMediaTypes } from './bff-wire-contract.js';
+import { DataspaceSectors } from './dataspace-sectors.js';
+import type {ConsentCoverageRequest,EffectiveAccessEvaluation} from './consent-access.js';
+import type {ConsentRule} from 'fhir-data-utils-ts';
+import { HealthcareConsentPurposes } from 'fhir-data-utils-ts';
+import { HealthcareActorRoles } from './healthcare-roles.js';
 import { EmergencyProfessionalRoles } from './emergency-professional-roles.js';
 import { CrossSectorOperationalSectors } from './cross-sector-access-policy.js';
 

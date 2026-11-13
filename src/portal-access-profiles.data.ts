@@ -1,5 +1,5 @@
-import { HealthcareActorRoles } from 'gdc-common-utils-ts/constants/healthcare'
-import { DataspaceSectors } from 'gdc-common-utils-ts/constants/sectors'
+import { HealthcareActorRoles } from './healthcare-roles.js'
+import { DataspaceSectors } from './dataspace-sectors.js'
 import { CrossSectorOperationalSectors } from './cross-sector-access-policy.js'
 import {
   EmergencyProfessionalRoleIds,

@@ -3,6 +3,20 @@
 
 ## Unreleased
 
+- Replace frozen-project imports with owned batch, Consent, routing and service
+  contracts. Consume clinical vocabulary/canonicalization from FHIR utilities
+  and cross-sector occupation/encoding definitions from Antifraud utilities.
+- Implement independent card checksums, claims-first batch authoring/readback
+  and editable permission templates. Preserve historical wire identifiers
+  without requiring their former implementation package.
+- Pass all 274 package tests, including direct, emitted-module and transitive
+  dependency guards, against validated unpublished foundation archives. Registry
+  version promotion and downstream journey validation remain separate gates.
+
+- Checkpoint dependency-boundary tests for direct imports, aliases and resolved
+  GDC dependencies. These tests currently fail; the migration is incomplete
+  and this checkpoint is not release-ready.
+
 ## 0.6.35 - 2026-11-13
 
 - Add the health-care Dentist Demo profile with its canonical occupation and clinical workflow projection. Instantiate organization and service identities per account; display a short Base58 UUID tag while retaining full UUID routing.

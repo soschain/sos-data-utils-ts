@@ -2,7 +2,7 @@
 // Flow contract: reuse shared test fixtures and canonical types; do not introduce duplicated literals.
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { HealthcareActorRoles } from 'gdc-common-utils-ts/constants/healthcare'
+import { HealthcareActorRoles } from '../dist/healthcare-roles.js'
 
 import {
   OrganizationWorkflowCapabilities,

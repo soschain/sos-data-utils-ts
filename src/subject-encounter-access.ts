@@ -1,9 +1,9 @@
-import { HealthcareConsentPurposes } from 'gdc-common-utils-ts/constants/healthcare'
+import { HealthcareConsentPurposes } from 'fhir-data-utils-ts'
 import {
   ClaimConsent,
   ConsentDecisions,
   ConsentStatuses,
-} from 'gdc-common-utils-ts/models/consent-rule'
+} from 'fhir-data-utils-ts'
 
 export const SubjectEncounterAccessViews = Object.freeze({
   CurrentLocation: 'current-location',

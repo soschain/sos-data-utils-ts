@@ -1,4 +1,4 @@
-import {IndividualLogicalSections} from 'gdc-common-utils-ts/constants/individual-sections'
+import {IndividualLogicalSections} from './individual-sections.js'
 import {EncounterClaim as E,EncounterHistoryClaim as H,EncounterStatusR5 as S} from 'fhir-data-utils-ts/claims'
 import {buildEncounterHistoryR5FlatEntry,type FlatClaimResourceEntry} from 'fhir-data-utils-ts'
 import {buildFlatClaimResourceEntry} from 'fhir-data-utils-ts/flat-claim-resource-graph'
