@@ -2,7 +2,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { Isco08CodingSystem } from 'antifraud-data-utils-ts'
-import { ClaimConsent, ConsentStatuses } from 'fhir-data-utils-ts'
+import { ClaimConsent, ConsentStatuses, FHIR_IPS_DOCUMENT_CODE } from 'fhir-data-utils-ts'
 import { REPOSITORY_SAFE_EXAMPLES as SAFE } from '../dist/repository-privacy.js'
 import { HealthcareSummarySections as Sections } from '../dist/healthcare-sections.js'
 import { HealthcareActorRoles } from '../dist/healthcare-roles.js'
@@ -69,4 +69,6 @@ test('scope builder pins the subject, encodes its query and preserves the compat
   assert.equal(smart.buildScopeSmartCompositionAccess({subjectDid:subject,sections:[allergy]}),scope())
   assert.equal(smart.buildSmartCompositionReadScope({subjectDid:subject,sections:[allergy]}),scope())
   assert.throws(()=>smart.buildScopeSmartCompositionAccess({subjectDid:''}))
+  assert.equal(smart.buildScopeSmartCompositionAccess({subjectDid:subject}),scope(`LOINC|${FHIR_IPS_DOCUMENT_CODE}`))
+  assert.deepEqual(smart.deriveGrantedSmartScopes([rule()],input({requestedScopes:scope('*')})).grantedScopes,[scope(`LOINC|${Sections.AllergiesAndIntolerances.code}`)])
 })

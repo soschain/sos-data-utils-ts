@@ -1,4 +1,4 @@
-import { FHIR_IPS_DOCUMENT_CODE, FhirCodeSystems, type ConsentRule } from 'fhir-data-utils-ts'
+import { FHIR_IPS_DOCUMENT_CODE, type ConsentRule } from 'fhir-data-utils-ts'
 import type { ConsentActorDescriptor, EffectiveAccessEvaluation } from './consent-access.js'
 import { evaluateConsentCoverage } from './consent-coverage.js'
 import { HealthcareSummarySections } from './healthcare-sections.js'
@@ -35,7 +35,7 @@ const unique = (values: readonly string[]) => [...new Set(values)]
 export function buildScopeSmartCompositionAccess(options: ScopeSmartCompositionAccessOptions): string {
   const subject = String(options.subjectDid || '').trim()
   if (!subject) throw new Error('Composition scope requires a subject.')
-  const sections = (Array.isArray(options.sections) ? options.sections : [options.sections ?? `${FhirCodeSystems.Loinc}|${FHIR_IPS_DOCUMENT_CODE}`])
+  const sections = (Array.isArray(options.sections) ? options.sections : [options.sections ?? `LOINC|${FHIR_IPS_DOCUMENT_CODE}`])
     .map(section => section.trim()).filter(Boolean)
   const query = new URLSearchParams({ subject })
   if (sections.length) query.set('section', sections.join(','))
@@ -49,7 +49,7 @@ export function deriveGrantedSmartScopes(rules: readonly ConsentRule[], input: D
   const requested = (typeof input.requestedScopes === 'string' ? [input.requestedScopes] : input.requestedScopes)
     .map(value => value.trim()).filter(Boolean)
   if (!requested.length) throw new Error('At least one Composition scope is required.')
-  const available = unique((input.availableSections?.length ? input.availableSections : Object.values(HealthcareSummarySections).map(section => section.attributeValue))
+  const available = unique((input.availableSections?.length ? input.availableSections : Object.values(HealthcareSummarySections).map(section => `LOINC|${section.code}`))
     .map(value => value.trim()).filter(Boolean))
   const parsed = requested.map(raw => {
     const question = raw.indexOf('?')
