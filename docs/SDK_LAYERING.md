@@ -5,8 +5,9 @@ surface is limited to deterministic types, schemas, builders, parsers,
 validators, governed catalogs and repository-safe fixtures.
 
 Runtime and application layers import `sos-data-utils-ts`. This package imports
-the canonical FHIR utilities and Antifraud's cross-sector occupation and encoding
-contracts. Those lower-level packages do not import this package. FHIR utilities
+the canonical FHIR utilities and Antifraud's neutral identity, security,
+occupation and encoding contracts. Those lower-level packages do not import
+this package. FHIR utilities
 remain independent of Antifraud's occupation catalog.
 
 This repository does not list,
@@ -16,8 +17,8 @@ name or maintain a matrix of consumers.
 
 - Flat-claim data shapes and validation.
 - Deterministic resource-graph builders and parsers.
-- Cross-sector identifiers, terminology candidate shapes and governed
-  catalogs.
+- Cross-sector identifiers projected from Antifraud into SOS contracts,
+  terminology candidate shapes and SOS-owned catalogs.
 - Runtime-independent privacy-safe fixtures.
 - Explicit import and projection boundaries for standard representations.
 
