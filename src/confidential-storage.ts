@@ -1,10 +1,11 @@
 import type { FhirCoding } from 'fhir-data-utils-ts'
+import type { RecordBase } from 'antifraud-data-utils-ts/vault-repository'
+export type { RecordBase } from 'antifraud-data-utils-ts/vault-repository'
 
 export const CONFIDENTIAL_JWE_BLOB_CONTENT_TYPE = 'application/jose+json' as const
 
 /** Dynamic flat claims are interpreted by the owning resource validator. */
 export type ClaimsRecord = Record<string, any>
-export interface RecordBase { id: string }
 export interface VaultConfig extends RecordBase { custodian?: string }
 export type MetaTagCoding = FhirCoding
 

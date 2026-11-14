@@ -4,6 +4,12 @@ SOS owns its operational batch and JSON:API extensions, editable permission
 templates, deterministic Consent matching, route-sector taxonomy and service
 capability tokens. These modules execute independent implementations.
 
+Neutral record identity and the four-method storage port belong to Antifraud's
+`vault-repository` contract. SOS Data preserves its existing `RecordBase` export;
+SOS runtime layers consume the same neutral types. This does not unify the
+gateway's richer abstract repository or add indexed-attribute query semantics.
+Persistence adapters and key custody remain outside these data contracts.
+
 `gateway-sector-contract` retains the finite route-context enum and its public
 namespace typing. It is separate from the broader `DataspaceSectors` service
 catalogue; neither catalogue establishes actor eligibility. The reserved system
