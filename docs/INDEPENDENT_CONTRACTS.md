@@ -62,3 +62,7 @@ Antifraud. Decoding metadata is not proof of successful verification: the truste
 runtime must authenticate the signer and audience before using it as authority.
 The typed body can be narrowed by each operation's claims-first contract.
 
+`json-projection` removes undefined object properties and array entries from
+JSON-shaped records for index persistence. It preserves explicit null values
+and is separate from FHIR/JCS canonicalization and the confidential payload.
+

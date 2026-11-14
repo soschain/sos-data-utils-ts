@@ -3,6 +3,9 @@
 
 ## Unreleased
 
+- Own index-friendly undefined-value projection for JSON-shaped records and the
+  confidential JWE blob media type. Preserve explicit null/false/zero values and
+  own prototype-shaped keys without mutating input records.
 - Own explicit job routing, processing states and decoded message/crypto-metadata
   contracts. Preserve issuer, audience and thread fields without treating decoded
   metadata as verification evidence or selecting an execution adapter.
