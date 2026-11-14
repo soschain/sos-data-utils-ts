@@ -4,6 +4,18 @@ SOS owns its operational batch and JSON:API extensions, editable permission
 templates, deterministic Consent matching, route-sector taxonomy and service
 capability tokens. These modules execute independent implementations.
 
+`clinical-creator-contract` describes the SOS clinical actor profile. A binding
+keeps person, assignment and owner identities separate. Its historical
+`authorIdentifier` stores the assignment used for attestation and permission
+matching; it is not the person identifier or the document's source author.
+Channel aliases require caller verification. Replacement outcomes describe a
+narrow successor update and never grant delete access. Normalization, matching
+and policy evaluation belong to the SDK; authentication and repository authority
+remain in the gateway. Reviewed compatibility source:
+<https://github.com/Global-DataCare/gdc-common-utils-ts>, specifically its
+[creator profile](https://github.com/Global-DataCare/gdc-common-utils-ts/blob/f4031b221216cacd9917d1d20c5ff0b03bed7045/src/utils/fhir-ips-creator-identity.ts)
+and [replacement profile](https://github.com/Global-DataCare/gdc-common-utils-ts/blob/f4031b221216cacd9917d1d20c5ff0b03bed7045/src/utils/clinical-resource-replacement.ts).
+
 `gateway-response-contract` owns SOS route namespaces and terminal entry
 discriminators. Clinical OperationOutcome names still come from FHIR utilities.
 `IncludedResource` requires identity, type and the worker's claims container;
