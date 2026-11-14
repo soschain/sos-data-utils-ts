@@ -366,8 +366,8 @@
   },
   "private": false,
   "dependencies": {
-    "antifraud-data-utils-ts": "0.2.0",
-    "fhir-data-utils-ts": "0.6.24",
+    "antifraud-data-utils-ts": "0.3.0",
+    "fhir-data-utils-ts": "0.7.0",
     "pako": "2.1.0"
   },
   "publishConfig": {

@@ -123,4 +123,3 @@ and is separate from FHIR/JCS canonicalization and the confidential payload.
 Antifraud's generic DID service/document contracts. The generic standard model
 keeps unknown extensions unknown; this profile declares its own fields explicitly.
 An advertisement remains metadata and does not establish access authority.
-
