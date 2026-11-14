@@ -6,6 +6,8 @@
 - Define pending subject-document evidence separately from accepted controller
   relationships, trusted verification and signatures. Preserve explicit review
   methods, scanned identifier scopes and the existing three-file, 10 MiB policy.
+- Allow absent issued identifiers when recording pending evidence for a child
+  or another subject without one; reject incomplete identifiers when supplied.
 
 - Add strict provisional subject registration commands and pending-controller
   receipts, keeping human demographics, animal taxonomy and proposed responsible

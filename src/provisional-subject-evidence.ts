@@ -4,8 +4,8 @@ export const PendingSubjectEvidencePolicy=Object.freeze({maxFileBytes:10*1024*10
 export type PendingSubjectEvidenceSlot='subject'|'controller'|'relationship'
 export type PendingSubjectEvidenceCommand=Readonly<{
  operationId:string;registrationId:string;verificationMethod:IdentityEvidenceReviewMethod
- subject:Readonly<{identifier:Readonly<{system:string;value:string}>}>
- controller:Readonly<{identifier:Readonly<{type:string;value:string;country:string}>}>
+ subject:Readonly<{identifier?:Readonly<{system:string;value:string}>}>
+ controller:Readonly<{identifier?:Readonly<{type:string;value:string;country:string}>}>
 }>
 export type PendingSubjectEvidenceReceipt=Readonly<{
  evidenceId:string;registrationId:string;status:'pending'
@@ -26,13 +26,14 @@ function uuid(input:unknown):string{if(typeof input!=='string'||!UUID.test(input
 export function normalizePendingSubjectEvidenceCommand(input:unknown):PendingSubjectEvidenceCommand{
  const command=record(input,['operationId','registrationId','verificationMethod','subject','controller'])
  const subject=record(command.subject,['identifier']),controller=record(command.controller,['identifier'])
- const subjectId=record(subject.identifier,['system','value']),controllerId=record(controller.identifier,['type','value','country'])
+ const subjectId=Object.hasOwn(subject,'identifier')?record(subject.identifier,['system','value']):undefined
+ const controllerId=Object.hasOwn(controller,'identifier')?record(controller.identifier,['type','value','country']):undefined
  if(typeof command.verificationMethod!=='string'||!Object.values(IdentityEvidenceReviewMethods).some(method=>method===command.verificationMethod))throw new TypeError('subject_registration_evidence_method_invalid')
- const country=text(controllerId.country,2).toUpperCase()
- if(!/^[A-Z]{2}$/u.test(country))throw new TypeError('subject_registration_evidence_country_invalid')
+ const country=controllerId?text(controllerId.country,2).toUpperCase():undefined
+ if(country&&!/^[A-Z]{2}$/u.test(country))throw new TypeError('subject_registration_evidence_country_invalid')
  return Object.freeze({operationId:uuid(command.operationId),registrationId:uuid(command.registrationId),verificationMethod:command.verificationMethod as IdentityEvidenceReviewMethod,
-  subject:Object.freeze({identifier:Object.freeze({system:text(subjectId.system,256),value:text(subjectId.value,160)})}),
-  controller:Object.freeze({identifier:Object.freeze({type:text(controllerId.type,64),value:text(controllerId.value,160),country})})})
+  subject:Object.freeze(subjectId?{identifier:Object.freeze({system:text(subjectId.system,256),value:text(subjectId.value,160)})}:{}),
+  controller:Object.freeze(controllerId?{identifier:Object.freeze({type:text(controllerId.type,64),value:text(controllerId.value,160),country:country!})}:{})})
 }
 export function assertPendingSubjectEvidenceReceipt(input:unknown):asserts input is PendingSubjectEvidenceReceipt{
  const receipt=record(input,['evidenceId','registrationId','status','documents'])
