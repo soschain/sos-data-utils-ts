@@ -56,3 +56,9 @@ require their specific content type and omit the inline JWE field. These contrac
 do not select a database, store plaintext, externalize blobs or perform encryption;
 those operations belong to SDK runtime adapters behind the shared storage port.
 
+`confidential-job` owns SOS route selectors, processing-state values and decoded
+message envelopes over those records. Signing/encryption header shapes come from
+Antifraud. Decoding metadata is not proof of successful verification: the trusted
+runtime must authenticate the signer and audience before using it as authority.
+The typed body can be narrowed by each operation's claims-first contract.
+

@@ -3,6 +3,9 @@
 
 ## Unreleased
 
+- Own explicit job routing, processing states and decoded message/crypto-metadata
+  contracts. Preserve issuer, audience and thread fields without treating decoded
+  metadata as verification evidence or selecting an execution adapter.
 - Own operational HTTP status, method, header and media-type descriptors in the
   existing BFF wire contract, preserving its FHIR JSON media type.
 - Own typed batch request, terminal response and correlated error entry views,

@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./confidential-job": {
+      "types": "./dist/confidential-job.d.ts",
+      "default": "./dist/confidential-job.js"
+    },
     "./confidential-storage": {
       "types": "./dist/confidential-storage.d.ts",
       "default": "./dist/confidential-storage.js"
