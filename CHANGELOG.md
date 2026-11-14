@@ -3,6 +3,9 @@
 
 ## Unreleased
 
+- Own portable confidential record, index, provenance and blob-reference data
+  contracts. Keep decrypted content explicitly typed and in memory; backend
+  selection, encryption and persistence remain SDK runtime responsibilities.
 - Expose shared direct and split Person occupation claim keys for interoperable
   directory filters without a frozen-catalog import.
 - Recognize the HL7-endorsed ISCO OID URI in healthcare role lookup and Consent
