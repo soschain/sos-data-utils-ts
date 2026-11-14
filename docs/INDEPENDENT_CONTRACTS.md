@@ -2,8 +2,7 @@
 
 SOS owns its operational batch and JSON:API extensions, editable permission
 templates, deterministic Consent matching, route-sector taxonomy and service
-capability tokens. These modules execute directly; they do not delegate to a
-frozen project, package alias or compatibility wrapper.
+capability tokens. These modules execute independent implementations.
 
 Clinical/FHIR vocabulary and canonicalization come from FHIR data utilities.
 Occupation definitions and encoding primitives come from Antifraud data
@@ -24,9 +23,10 @@ active licence. Unrelated occupations remain outside the healthcare catalog.
 batch snapshots and preserves exact entry requests and optimistic versions.
 It does not authorize a request or select a transport or persistence adapter.
 
-The Consent matching implementation and its neutral input/output shapes were
-migrated from the reviewed Apache-licensed predecessor source. That predecessor
-is read-only evidence, not an installed runtime or test dependency. Canonical
+The Consent matching implementation and its neutral input/output shapes originate
+from <https://github.com/Global-DataCare/gdc-common-utils-ts>, specifically the
+reviewed [Consent implementation](https://github.com/Global-DataCare/gdc-common-utils-ts/blob/f4031b221216cacd9917d1d20c5ff0b03bed7045/src/utils/consent.ts).
+Canonical
 Consent claim names and resource shapes remain imported from FHIR utilities.
 
 Historical persisted wire identifiers, including the individual-section URN,

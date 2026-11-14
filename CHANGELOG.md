@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+- Link reviewed compatibility sources to the original GitHub repository and
+  source files; state import direction explicitly in the layering guide.
 - Own index-friendly undefined-value projection for JSON-shaped records and the
   confidential JWE blob media type. Preserve explicit null/false/zero values and
   own prototype-shaped keys without mutating input records.
@@ -17,7 +19,7 @@
   contracts. Keep decrypted content explicitly typed and in memory; backend
   selection, encryption and persistence remain SDK runtime responsibilities.
 - Expose shared direct and split Person occupation claim keys for interoperable
-  directory filters without a frozen-catalog import.
+  directory filters.
 - Recognize the HL7-endorsed ISCO OID URI in healthcare role lookup and Consent
   comparison through Antifraud's shared alias guard. Preserve exact occupation
   codes and existing stored values; unknown systems acquire no equivalence.
@@ -51,7 +53,8 @@
 
 - Expose read-only batch type metadata to runtime-neutral Communication readers.
 
-- Replace frozen-project imports with owned batch, Consent, routing and service
+- Replace imports from <https://github.com/Global-DataCare/gdc-common-utils-ts>
+  with owned batch, Consent, routing and service
   contracts. Consume clinical vocabulary/canonicalization from FHIR utilities
   and cross-sector occupation/encoding definitions from Antifraud utilities.
 - Implement independent card checksums, claims-first batch authoring/readback

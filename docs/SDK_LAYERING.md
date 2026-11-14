@@ -4,15 +4,12 @@
 surface is limited to deterministic types, schemas, builders, parsers,
 validators, governed catalogs and repository-safe fixtures.
 
-```text
-canonical vocabulary and FHIR utilities
-                    ↓
-          sos-data-utils-ts
-                    ↓
-       runtime and application layers
-```
+Runtime and application layers import `sos-data-utils-ts`. This package imports
+the canonical FHIR utilities and Antifraud's cross-sector occupation and encoding
+contracts. Those lower-level packages do not import this package. FHIR utilities
+remain independent of Antifraud's occupation catalog.
 
-The arrows express dependency direction only. This repository does not list,
+This repository does not list,
 name or maintain a matrix of consumers.
 
 ## Owned here
