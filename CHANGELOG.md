@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+- Define the SOS routing DID profile over Antifraud's neutral DID contracts,
+  with explicit selector and operation-list metadata instead of untyped extensions.
 - Link reviewed compatibility sources to the original GitHub repository and
   source files; state import direction explicitly in the layering guide.
 - Own index-friendly undefined-value projection for JSON-shaped records and the

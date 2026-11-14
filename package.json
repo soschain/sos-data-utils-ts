@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./gateway-did-profile": {
+      "types": "./dist/gateway-did-profile.d.ts",
+      "default": "./dist/gateway-did-profile.js"
+    },
     "./json-projection": {
       "types": "./dist/json-projection.d.ts",
       "default": "./dist/json-projection.js"
