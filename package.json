@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./provisional-subject-registration": {
+      "types": "./dist/provisional-subject-registration.d.ts",
+      "default": "./dist/provisional-subject-registration.js"
+    },
     "./gateway-sector-contract": {
       "types": "./dist/gateway-sector-contract.d.ts",
       "default": "./dist/gateway-sector-contract.js"

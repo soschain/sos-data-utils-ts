@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+- Add strict provisional subject registration commands and pending-controller
+  receipts, keeping human demographics, animal taxonomy and proposed responsible
+  parties separate from accepted ownership, permission or evidence verification.
+
 - Re-export neutral record identity from Antifraud at the existing SOS
   confidential-storage path, preserving its required identifier and public types.
 - Own the existing gateway route-sector enum independently of the broader
