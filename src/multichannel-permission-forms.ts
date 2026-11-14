@@ -647,6 +647,7 @@ const HEALTH_CARE_PERMISSION_ROLES = Object.freeze([
   HealthcareActorRoles.MedicalDoctors,
   HealthcareActorRoles.GeneralistMedicalPractitioner,
   HealthcareActorRoles.SpecialistMedicalPractitioner,
+  HealthcareActorRoles.Dentist,
   HealthcareActorRoles.NursingProfessional,
   HealthcareActorRoles.MidwiferyProfessional,
   HealthcareActorRoles.Receptionist,

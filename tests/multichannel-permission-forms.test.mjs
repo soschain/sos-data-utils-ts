@@ -39,6 +39,14 @@ const CONTACT_REFERENCE = `RelatedPerson/${REPOSITORY_SAFE_EXAMPLES.tenantId}-co
 const CONSENT_ID = `urn:uuid:${REPOSITORY_SAFE_EXAMPLES.tenantId}-consent`;
 const COUNTRY_ACTOR = 'CA';
 
+test('Dentist is governed for human health recipients without opening animal or narrowed jurisdiction roles', () => {
+  const context={targetSector:DataspaceSectors.HealthCare,recipientSector:MultichannelPermissionRecipientSectors.HealthCare,audienceKind:MultichannelPermissionAudienceKinds.Organization};
+  assert.ok(resolveMultichannelPermissionRoles(context).includes(HealthcareActorRoles.Dentist));
+  assert.ok(!resolveMultichannelPermissionRoles({...context,targetSector:DataspaceSectors.AnimalCare}).includes(HealthcareActorRoles.Dentist));
+  assert.throws(()=>resolveMultichannelPermissionRoles({...context,recipientSector:MultichannelPermissionRecipientSectors.AnimalCare}),/permission_recipient_sector_target_forbidden/);
+  assert.ok(!resolveMultichannelPermissionRoles({...context,countryCode:COUNTRY_ACTOR},{recipientRoleClaimsBySectorAndCountry:{[MultichannelPermissionRecipientSectors.HealthCare]:{[COUNTRY_ACTOR]:[HealthcareActorRoles.NursingProfessional]}}}).includes(HealthcareActorRoles.Dentist));
+});
+
 test('channel-neutral schemas own required and optional fields', () => {
   assert.deepEqual(MULTICHANNEL_RELATED_ENTITY_SCHEMA.required, [
     'subjectRef', 'name', 'entityType', 'actorIdentifiers',

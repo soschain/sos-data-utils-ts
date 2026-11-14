@@ -3,6 +3,12 @@
 
 ## Unreleased
 
+- Include dentists in the health-care permission-role policy while retaining
+  recipient, subject and country restrictions.
+- Define a request-bound individual registration receipt that separates the
+  canonical hosted subject DID from its public card alias and checks the actual
+  Organization UUID, provider and Offer. Receipt projection grants no authority.
+
 - Define pending subject-document evidence separately from accepted controller
   relationships, trusted verification and signatures. Preserve explicit review
   methods, scanned identifier scopes and the existing three-file, 10 MiB policy.

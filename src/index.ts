@@ -77,3 +77,4 @@ export * from './communication-message-contract.js';
 export * from './gateway-sector-contract.js';
 export * from './provisional-subject-registration.js';
 export * from './provisional-subject-evidence.js';
+export * from './individual-registration-contract.js';

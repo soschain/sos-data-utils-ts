@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./individual-registration-contract": {
+      "types": "./dist/individual-registration-contract.d.ts",
+      "default": "./dist/individual-registration-contract.js"
+    },
     "./provisional-subject-evidence": {
       "types": "./dist/provisional-subject-evidence.d.ts",
       "default": "./dist/provisional-subject-evidence.js"
