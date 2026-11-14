@@ -3,6 +3,11 @@
 
 ## Unreleased
 
+- Own healthcare role-code and family lookup, deriving occupations from
+  Antifraud and relationship descriptors from FHIR. Recognize Dentistry, keep
+  Controller and personal relationships outside the occupation family, preserve
+  selection order and legacy claim tokens, and reject prototype-shaped keys.
+
 - Own neutral gateway routing, polling and organization-verification request
   contracts. Keep public identity bindings, business claims and document evidence
   distinct without selecting transport, admitting an organization or activating it.
