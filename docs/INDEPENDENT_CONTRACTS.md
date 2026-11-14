@@ -4,6 +4,14 @@ SOS owns its operational batch and JSON:API extensions, editable permission
 templates, deterministic Consent matching, route-sector taxonomy and service
 capability tokens. These modules execute independent implementations.
 
+Service-capability parsing retains historical spellings, normalizes known tokens
+and preserves unknown extension tokens in first-occurrence order. Family lookup
+classifies advertisements; it does not validate operation suffixes or grant
+authority. Gateways must still apply their own known-service allowlists and
+authorization. Compatibility was reviewed against the original repository
+<https://github.com/Global-DataCare/gdc-common-utils-ts>, specifically its
+[service-capability source](https://github.com/Global-DataCare/gdc-common-utils-ts/blob/f4031b221216cacd9917d1d20c5ff0b03bed7045/src/constants/service-capabilities.ts).
+
 Clinical/FHIR vocabulary and canonicalization come from FHIR data utilities.
 Occupation definitions and encoding primitives come from Antifraud data
 utilities. `HealthcareActorRoles` projects the shared occupation codes into

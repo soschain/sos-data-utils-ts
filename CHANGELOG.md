@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+- Own deterministic service-capability CSV parsing and serialization, retaining
+  historical tokens and extensions without treating advertisements as authority.
 - Define the SOS routing DID profile over Antifraud's neutral DID contracts,
   with explicit selector and operation-list metadata instead of untyped extensions.
 - Link reviewed compatibility sources to the original GitHub repository and
