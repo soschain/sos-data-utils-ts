@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+## 0.7.0
+
 - Pin the published Antifraud Data Utilities 0.3.0 and FHIR Data Utilities
   0.7.0 foundations with registry integrity-backed dependency resolution.
 
