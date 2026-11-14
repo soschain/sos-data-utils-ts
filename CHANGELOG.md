@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+- Keep default Composition scope sections in the existing compact `LOINC|code`
+  wire format while accepting equivalent standard-URI section selectors.
 - Own the gateway Composition scope builder and read-only Consent projection in
   SOS Data. Grants contain only requested, actively consented sections for one
   subject; write scopes, unknown filters and repeated query parameters fail closed.
