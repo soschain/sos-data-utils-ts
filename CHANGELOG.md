@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+- Own operational HTTP status, method, header and media-type descriptors in the
+  existing BFF wire contract, preserving its FHIR JSON media type.
 - Own typed batch request, terminal response and correlated error entry views,
   reusing FHIR OperationOutcome diagnostics and the existing SOS batch shape.
 - Own portable confidential record, index, provenance and blob-reference data
