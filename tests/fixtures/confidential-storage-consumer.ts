@@ -1,10 +1,10 @@
 // Flow contract: index metadata, encrypted blob pointers and decrypted in-memory content remain distinct public data contracts.
-import type { ConfidentialStorageDoc, UnprotectedStorageDoc, VaultConfig } from 'sos-data-utils-ts/confidential-storage'
+import { CONFIDENTIAL_JWE_BLOB_CONTENT_TYPE, type ConfidentialStorageDoc, type UnprotectedStorageDoc, type VaultConfig } from 'sos-data-utils-ts/confidential-storage'
 import { REPOSITORY_SAFE_EXAMPLES as SAFE } from 'sos-data-utils-ts/repository-privacy'
 const config: VaultConfig = { id: SAFE.tenantId, custodian: SAFE.didWeb }
 const encrypted: ConfidentialStorageDoc = {
   id: SAFE.resourceUuid, status: 'active', sequence: 1,
-  blob: { blobRef: SAFE.resourceUuid, provider: 'mem', contentType: 'application/jose+json' },
+  blob: { blobRef: SAFE.resourceUuid, provider: 'mem', contentType: CONFIDENTIAL_JWE_BLOB_CONTENT_TYPE },
   indexed: { attributes: [{ name: 'protected-name', value: 'protected-value', unique: true, type: 'token' }] },
   audit: { creatorDid: SAFE.didWeb, sourceRecordId: SAFE.resourceUuid },
   tag: [{ system: 'urn:iso:std:iso:3166', code: SAFE.countryIso2 }],

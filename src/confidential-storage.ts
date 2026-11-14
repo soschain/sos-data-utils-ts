@@ -1,5 +1,7 @@
 import type { FhirCoding } from 'fhir-data-utils-ts'
 
+export const CONFIDENTIAL_JWE_BLOB_CONTENT_TYPE = 'application/jose+json' as const
+
 /** Dynamic flat claims are interpreted by the owning resource validator. */
 export type ClaimsRecord = Record<string, any>
 export interface RecordBase { id: string }
