@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./communication-message-contract": {
+      "types": "./dist/communication-message-contract.d.ts",
+      "default": "./dist/communication-message-contract.js"
+    },
     "./clinical-creator-contract": {
       "types": "./dist/clinical-creator-contract.d.ts",
       "default": "./dist/clinical-creator-contract.js"

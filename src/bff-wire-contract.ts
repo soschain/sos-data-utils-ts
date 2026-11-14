@@ -1,3 +1,5 @@
+import { DIDCOMM_PLAINTEXT_JSON_MEDIA_TYPE } from 'antifraud-data-utils-ts/didcomm-contracts'
+
 /** Shared operational route formats; native FHIR remains an explicit projection. */
 export const Format=Object.freeze({SCHEMA:'org.schema',FHIR_API:'org.hl7.fhir.api',FHIR_R4:'org.hl7.fhir.r4'} as const)
 /** Registered HTTP values used by SOS operational adapters, not resource authorization policy. */
@@ -12,6 +14,9 @@ export const HttpAuthorizationSchemes=Object.freeze({Bearer:'Bearer'} as const)
 export const HttpMediaTypes=Object.freeze({
   FhirJson:'application/fhir+json',ApiJson:'application/api+json',ApiJsonShort:'api+json',
   BundleApiJson:'application/bundle-api+json',DidcommEncryptedJson:'application/didcomm-encrypted+json',
-  DidcommPlainJson:'application/didcomm-plain+json',DidcommSignedJson:'application/didcomm-signed+json',
+  DidcommPlainJson:DIDCOMM_PLAINTEXT_JSON_MEDIA_TYPE,DidcommSignedJson:'application/didcomm-signed+json',
   Json:'application/json',JsonApi:'application/vnd.api+json',
 } as const)
+
+/** SOS submission response preference; the protocol media-type identity is neutral Antifraud data. */
+export const DIDCOMM_DEFAULT_ACCEPT_HEADER = `${HttpMediaTypes.Json}, ${DIDCOMM_PLAINTEXT_JSON_MEDIA_TYPE}, */*` as const
