@@ -13,8 +13,10 @@ authorization. Compatibility was reviewed against the original repository
 [service-capability source](https://github.com/Global-DataCare/gdc-common-utils-ts/blob/f4031b221216cacd9917d1d20c5ff0b03bed7045/src/constants/service-capabilities.ts).
 
 Clinical/FHIR vocabulary and canonicalization come from FHIR data utilities.
-Occupation definitions and encoding primitives come from Antifraud data
-utilities. `HealthcareActorRoles` projects the shared occupation codes into
+Neutral Schema.org identities, occupation definitions and encoding primitives
+come from Antifraud data utilities. The SOS claim exports retain their existing
+finite field selection and order rather than exposing every new cross-sector
+field. `HealthcareActorRoles` projects the shared occupation codes into
 SOS claim values; controller authority stays distinct from an occupation.
 
 Healthcare family lookup uses the same standard occupation and HL7 descriptor
