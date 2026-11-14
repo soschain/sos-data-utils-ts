@@ -70,3 +70,10 @@ test('does not project a pending per-entry status as a completed bootstrap ident
  const pending=row();pending.response.status='202'
  assert.throws(()=>readIndividualOrganizationBootstrapReceipt(response([pending]),binding),/binding|receipt/)
 })
+
+test('retains the existing GW reader normalization while the Network projection assertion stays strict',async()=>{
+ const {readIndividualOrganizationBootstrapReceipt}=await load()
+ const item=row();item.resource.id=organizationId.replaceAll('-','')
+ for(const key of ['org.schema.Organization.did','org.schema.Organization.sameAs','org.schema.Offer.offeredBy'])item.resource.meta.claims[key]=` ${item.resource.meta.claims[key]} `
+ assert.deepEqual(readIndividualOrganizationBootstrapReceipt(response([item]),binding),{identity:{organizationId,canonicalSubjectIdentifier,publicCardAlias,providerDid},offerId:'synthetic-offer'})
+})

@@ -3,6 +3,11 @@
 
 ## Unreleased
 
+- Validate an explicitly Network subject-registration projection directly,
+  preserving canonical identity, public alias and Offer while responsibility
+  remains pending. Keep Demo URN receipts separate and publish a governed
+  synthetic fixture solely for tests/examples.
+
 - Reject human taxonomy and identifiers outside the existing seven-digit animal
   card profile before provisional registration. Preserve supported animal
   taxonomy and the human command without an animal taxonomy field.

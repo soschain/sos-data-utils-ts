@@ -1,6 +1,16 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # sos-data-utils-ts
 
+`individual-registration-contract` exports `NetworkSubjectRegistrationResult`
+and `assertNetworkSubjectRegistrationResult` for the projected Network response.
+The validator checks its explicit mode, operation, canonical subject identity,
+separate public alias, Offer and pending responsibility directly. Callers may
+bind it to an expected operation or server-selected provider. This is data
+validation; account, signature, employee and recipient authority remain runtime
+responsibilities. Demo registration keeps its own provisional URN contract.
+The frozen `NETWORK_SUBJECT_REGISTRATION_EXAMPLE` is available only through
+`individual-registration-examples` for tests/examples, never provider selection.
+
 ## One persistence contract across runtimes
 
 Demo and Test Network execute the same use cases through the canonical
