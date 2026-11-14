@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+- Own typed batch request, terminal response and correlated error entry views,
+  reusing FHIR OperationOutcome diagnostics and the existing SOS batch shape.
 - Own portable confidential record, index, provenance and blob-reference data
   contracts. Keep decrypted content explicitly typed and in memory; backend
   selection, encryption and persistence remain SDK runtime responsibilities.

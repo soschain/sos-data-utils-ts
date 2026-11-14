@@ -1,13 +1,21 @@
 import {ClaimConsent as C, RelatedPersonClaim as R} from 'fhir-data-utils-ts'
+import type {OperationOutcome} from 'fhir-data-utils-ts'
 
 export type BundleRequest={method:'GET'|'POST'|'PUT'|'PATCH'|'DELETE';url:string;ifMatch?:string}
+export type BundleResponse={status:string;[key:string]:any}
 export type BundleEntry={
   id?:string;fullUrl?:string;type:string
   resource?:{resourceType?:string;id?:string;meta?:{claims?:Record<string,any>;[key:string]:any};[key:string]:any}
   meta?:{claims?:Record<string,any>;[key:string]:any}
   request?:BundleRequest
-  response?:{status:string;[key:string]:any}
+  response?:BundleResponse
 }
+/** Required operation view of an SOS batch entry, not native FHIR JSON. */
+export type BundleEntryRequest=BundleEntry&{request:BundleRequest}
+/** Terminal per-entry result; HTTP success does not imply all entries succeeded. */
+export type BundleEntryResponse=BundleEntry&{response:BundleResponse}
+/** Preserve the original entry metadata so callers can correlate its failure. */
+export type ErrorEntry=Pick<BundleEntry,'id'|'type'|'meta'>&{response:{status:string;outcome:OperationOutcome}}
 export interface BundleJsonApi<T=BundleEntry>{
   resourceType:'Bundle';type:string;data:T[];id?:string;total?:number
   meta?:{claims?:Record<string,any>;[key:string]:any}
