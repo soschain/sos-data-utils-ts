@@ -4,6 +4,8 @@ import assert from 'node:assert/strict'
 import {REPOSITORY_SAFE_EXAMPLES as safe} from '../dist/repository-privacy.js'
 import ts from 'typescript'
 import {fileURLToPath} from 'node:url'
+import {HUMAN_NCBI_TAXONOMY_ID} from '../dist/subject-card-index.js'
+import {ANIMAL_CARD_INTEROPERABILITY_EXAMPLES} from '../dist/animal-card-interoperability.js'
 
 const animal=()=>({operationId:safe.resourceUuid,subject:{kind:'animal',alternateName:'Provisional subject',ncbiTaxonomyId:'9615',gender:'unknown'},controller:{legalName:'Proposed responsible party',contact:{kind:'email',value:safe.firstContactEmail},relationship:'RESPRSN'}})
 const load=()=>import('../dist/provisional-subject-registration.js')
@@ -28,6 +30,21 @@ test('separates human demographics from mandatory animal taxonomy',async()=>{
   assert.equal(normalizeSubjectRegistrationCommand(human).subject.kind,'human')
   assert.throws(()=>normalizeSubjectRegistrationCommand({...human,subject:{...human.subject,ncbiTaxonomyId:'9615'}}))
   assert.throws(()=>normalizeSubjectRegistrationCommand({...animal(),subject:{kind:'animal',alternateName:'Subject'}}))
+})
+test('rejects Homo sapiens in the animal issued-card profile before registration',async()=>{
+ const {normalizeSubjectRegistrationCommand}=await load()
+ assert.throws(()=>normalizeSubjectRegistrationCommand({...animal(),subject:{...animal().subject,ncbiTaxonomyId:HUMAN_NCBI_TAXONOMY_ID}}),/card_profile_unsupported/)
+})
+test('rejects taxonomy values unsupported by the issued-card seven-digit profile without truncating them',async()=>{
+ const {normalizeSubjectRegistrationCommand}=await load()
+ for(const value of ['12345678','123456789012'])assert.throws(()=>normalizeSubjectRegistrationCommand({...animal(),subject:{...animal().subject,ncbiTaxonomyId:value}}),/card_profile_unsupported/)
+})
+test('retains valid existing animal-card taxonomy and a human subject without an animal field',async()=>{
+ const {normalizeSubjectRegistrationCommand}=await load()
+ const taxonomy=ANIMAL_CARD_INTEROPERABILITY_EXAMPLES.Dog.ncbiTaxonomyId
+ assert.equal(normalizeSubjectRegistrationCommand({...animal(),subject:{...animal().subject,ncbiTaxonomyId:taxonomy}}).subject.ncbiTaxonomyId,taxonomy)
+ const human=normalizeSubjectRegistrationCommand({...animal(),subject:{kind:'human',alternateName:'Dependent subject'}})
+ assert.equal(human.subject.kind,'human');assert.equal(Object.hasOwn(human.subject,'ncbiTaxonomyId'),false)
 })
 test('rejects impossible dates, unbounded fields and unknown subject kinds',async()=>{
   const {normalizeSubjectRegistrationCommand}=await load()

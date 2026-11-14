@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+- Reject human taxonomy and identifiers outside the existing seven-digit animal
+  card profile before provisional registration. Preserve supported animal
+  taxonomy and the human command without an animal taxonomy field.
+
 - Include dentists in the health-care permission-role policy while retaining
   recipient, subject and country restrictions.
 - Define a request-bound individual registration receipt that separates the

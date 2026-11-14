@@ -1,5 +1,6 @@
 import {HL7_RELATED_PERSON_FUNCTIONAL_ROLES} from 'fhir-data-utils-ts'
 import {normalizeProfileIndexContact,ProfileIndexContactKind} from './confidential-profile-index.js'
+import {HUMAN_SPECIES_ID7,normalizeSubjectSpeciesId7} from './subject-card-index.js'
 
 /** Proposed HL7 responsible-party role, never proof of a legal relationship. */
 export const ProposedSubjectControllerRelationship='RESPRSN' as const
@@ -46,6 +47,11 @@ export function normalizeSubjectRegistrationCommand(input:unknown):SubjectRegist
  if(subject.kind==='human'&&Object.hasOwn(subject,'ncbiTaxonomyId'))throw new TypeError('subject_registration_taxonomy_forbidden')
  const ncbiTaxonomyId=subject.kind==='animal'?text(subject.ncbiTaxonomyId,12):undefined
  if(ncbiTaxonomyId&&!/^[1-9][0-9]*$/u.test(ncbiTaxonomyId))throw new TypeError('subject_registration_taxonomy_invalid')
+ if(ncbiTaxonomyId){
+  let speciesId7:string
+  try{speciesId7=normalizeSubjectSpeciesId7(ncbiTaxonomyId)}catch{throw new TypeError('subject_registration_card_profile_unsupported')}
+  if(speciesId7===HUMAN_SPECIES_ID7)throw new TypeError('subject_registration_card_profile_unsupported')
+ }
  if(controller.relationship!==ProposedSubjectControllerRelationship)throw new TypeError('subject_registration_relationship_invalid')
  if(contact.kind!=='email'&&contact.kind!=='telephone')throw new TypeError('subject_registration_contact_invalid')
  const value=normalizeProfileIndexContact(contact.kind==='email'?ProfileIndexContactKind.Email:ProfileIndexContactKind.Telephone,text(contact.value,254))
