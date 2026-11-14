@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./gateway-sector-contract": {
+      "types": "./dist/gateway-sector-contract.d.ts",
+      "default": "./dist/gateway-sector-contract.js"
+    },
     "./communication-message-contract": {
       "types": "./dist/communication-message-contract.d.ts",
       "default": "./dist/communication-message-contract.js"

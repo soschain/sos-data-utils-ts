@@ -4,6 +4,13 @@ SOS owns its operational batch and JSON:API extensions, editable permission
 templates, deterministic Consent matching, route-sector taxonomy and service
 capability tokens. These modules execute independent implementations.
 
+`gateway-sector-contract` retains the finite route-context enum and its public
+namespace typing. It is separate from the broader `DataspaceSectors` service
+catalogue; neither catalogue establishes actor eligibility. The reserved system
+bootstrap context remains a compatibility value. Reviewed original source:
+<https://github.com/Global-DataCare/gdc-common-utils-ts>, specifically its
+[route context](https://github.com/Global-DataCare/gdc-common-utils-ts/blob/f4031b221216cacd9917d1d20c5ff0b03bed7045/src/models/urlPath.ts).
+
 `communication-message-contract` owns the internal SOS data-entry body over
 Antifraud's neutral DIDComm envelope. Its protocol type, entry type and native
 FHIR resource type describe distinct layers; none establishes authentication or

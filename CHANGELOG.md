@@ -3,6 +3,9 @@
 
 ## Unreleased
 
+- Own the existing gateway route-sector enum independently of the broader
+  service catalogue; preserve namespace typing and serialized values without
+  treating a route context as access authority.
 - Define the internal SOS communication entry/body projection over Antifraud's
   neutral DIDComm envelope, keeping protocol, entry and FHIR resource layers distinct.
   Preserve the SOS submission Accept preference while importing the neutral
