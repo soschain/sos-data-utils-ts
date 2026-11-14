@@ -45,6 +45,9 @@ export type SchemaOrgOrganizationClaimKey =
 
 /** Schema.org person/controller claims needed by shared onboarding forms. */
 export const SchemaOrgPersonClaim = Object.freeze({
+  HasOccupation: 'org.schema.Person.hasOccupation',
+  OccupationIdentifierValue: 'org.schema.Person.hasOccupation.identifier.value',
+  OccupationIdentifierSystem: 'org.schema.Person.hasOccupation.identifier.additionalType',
   AdditionalType: 'org.schema.Person.additionalType',
   AlternateName: 'org.schema.Person.alternateName',
   BirthDate: 'org.schema.Person.birthDate',

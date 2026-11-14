@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+- Expose shared direct and split Person occupation claim keys for interoperable
+  directory filters without a frozen-catalog import.
 - Recognize the HL7-endorsed ISCO OID URI in healthcare role lookup and Consent
   comparison through Antifraud's shared alias guard. Preserve exact occupation
   codes and existing stored values; unknown systems acquire no equivalence.
