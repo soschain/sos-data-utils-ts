@@ -1,4 +1,4 @@
-import {Isco08Occupations as Occupations, Isco08CodingSystem, findIsco08Occupation, type Isco08Occupation} from 'antifraud-data-utils-ts'
+import {Isco08Occupations as Occupations, isIsco08CodingSystem, findIsco08Occupation, type Isco08Occupation} from 'antifraud-data-utils-ts'
 import {DataspaceSectors as S} from './dataspace-sectors.js'
 import {HL7_CODING_SYSTEM_V3_ROLE_CODE, HL7_PERSONAL_RELATIONSHIP_ROLES, HL7_V3_ROLE_CODE_LEGAL_REPRESENTATIVE, type Hl7RoleEntry} from 'fhir-data-utils-ts'
 import {HealthcarePersonalRelationshipSelectionOrder} from './healthcare-relationship-selection.js'
@@ -108,9 +108,8 @@ export function getHealthcareRoleByClaim(claim: string): HealthcareActorRoleDesc
   const [system, code, ...unexpected] = normalized.split('|')
   if (unexpected.length || !code || !Object.hasOwn(HealthcareAllRolesByClaim, code)) return undefined
   const descriptor = HealthcareAllRolesByClaim[code]
-  const systems: readonly string[] = descriptor.family === HealthcareRoleFamilies.ProfessionalOccupationIsco08
-    ? ['ISCO-08', ISCO08_CODING_SYSTEM, 'org.ilo.isco-08', Isco08CodingSystem]
-    : ['v3-RoleCode', HL7_CODING_SYSTEM_V3_ROLE_CODE]
+  if (descriptor.family === HealthcareRoleFamilies.ProfessionalOccupationIsco08) return isIsco08CodingSystem(system) ? descriptor : undefined
+  const systems: readonly string[] = ['v3-RoleCode', HL7_CODING_SYSTEM_V3_ROLE_CODE]
   return systems.includes(system) ? descriptor : undefined
 }
 

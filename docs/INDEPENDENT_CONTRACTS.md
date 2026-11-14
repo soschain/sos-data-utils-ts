@@ -44,3 +44,9 @@ Existing reverse-DNS ISCO values remain valid and unchanged. The ILO page URL
 used by WHO SMART Base is an additional comparison alias, not a universally
 assigned ILO identifier, a storage migration or a network endpoint.
 
+The shared Antifraud guard also accepts HL7 Terminology's ISCO-08 identifier,
+`urn:oid:2.16.840.1.113883.2.9.6.2.7`. Lookup accepts it as the system part of a
+`system|code` token; native FHIR exchange can place it in `Coding.system` with
+the occupation code in `Coding.code`. This preserves profile-specific export
+identifiers without duplicating the cross-sector occupation catalog in FHIR.
+

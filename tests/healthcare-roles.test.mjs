@@ -1,7 +1,7 @@
 // Flow contract: SOS role claims derive occupations from the cross-sector Antifraud catalog; controller authority stays distinct and catalog membership never grants access.
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import {Isco08Occupations, Isco08CodingSystem} from 'antifraud-data-utils-ts'
+import {Isco08Occupations, Isco08CodingSystem, Isco08Hl7CodingSystem} from 'antifraud-data-utils-ts'
 import {HealthcareActorRoles} from '../dist/healthcare-roles.js'
 import * as catalog from '../dist/healthcare-roles.js'
 
@@ -45,7 +45,7 @@ test('looks up dentistry without classifying controller or personal roles as occ
 test('preserves role-code aliases and declared namespaces without prototype fallbacks',()=>{
   assert.equal(typeof catalog.getHealthcareRoleByClaim,'function')
   const dentist=catalog.getHealthcareRoleByClaim(HealthcareActorRoles.Dentist)
-  for(const alias of [Isco08Occupations.Dentist.code,`${Isco08CodingSystem}|${Isco08Occupations.Dentist.code}`,`${catalog.ISCO08_CODING_SYSTEM}|${Isco08Occupations.Dentist.code}`]){
+  for(const alias of [Isco08Occupations.Dentist.code,`${Isco08CodingSystem}|${Isco08Occupations.Dentist.code}`,`${Isco08Hl7CodingSystem}|${Isco08Occupations.Dentist.code}`,`${catalog.ISCO08_CODING_SYSTEM}|${Isco08Occupations.Dentist.code}`]){
     assert.equal(catalog.getHealthcareRoleByClaim(alias),dentist)
   }
   assert.equal(catalog.HealthcareActorRoleCodes.Dentist,Isco08Occupations.Dentist.code)
