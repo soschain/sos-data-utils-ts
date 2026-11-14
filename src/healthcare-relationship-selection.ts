@@ -1,0 +1,17 @@
+/** SOS relationship-picker compatibility order; codes and definitions are owned by FHIR. */
+export const HealthcarePersonalRelationshipSelectionOrder = Object.freeze([
+  'ONESELF', 'SPS', 'HUSB', 'WIFE', 'SIGOTHR', 'DOMPART', 'FMRSPS', 'ROOM',
+  'CHILD', 'SON', 'DAU', 'SONC', 'DAUC', 'NCHILD', 'CHLDADOPT', 'SONADOPT',
+  'DAUADOPT', 'CHLDFOST', 'SONFOST', 'DAUFOST', 'STPCHLD', 'STPSON', 'STPDAU', 'PRN',
+  'FTH', 'MTH', 'NFTH', 'NMTH', 'ADOPTP', 'ADOPTF', 'ADOPTM', 'FTHFOST',
+  'MTHFOST', 'PRNFOST', 'STPFTH', 'STPMTH', 'STPPRN', 'NPRN', 'SIB', 'BRO',
+  'SIS', 'NBRO', 'NSIS', 'NSIB', 'HBRO', 'HSIS', 'HSIB', 'TWIN',
+  'TWINBRO', 'TWINSIS', 'FTWIN', 'FTWINBRO', 'FTWINSIS', 'ITWIN', 'ITWINBRO', 'ITWINSIS',
+  'GRPRN', 'GRFTH', 'GRMTH', 'MGRPRN', 'PGRPRN', 'MGRFTH', 'PGRFTH', 'MGRMTH',
+  'PGRMTH', 'GGRPRN', 'GGRFTH', 'GGRMTH', 'MGGRPRN', 'PGGRPRN', 'MGGRFTH', 'PGGRFTH',
+  'MGGRMTH', 'PGGRMTH', 'GRNDCHILD', 'GRNDSON', 'GRNDDAU', 'CHLDINLAW', 'SONINLAW', 'DAUINLAW',
+  'PRNINLAW', 'FTHINLAW', 'MTHINLAW', 'SIBINLAW', 'BROINLAW', 'SISINLAW', 'UNCLE', 'AUNT',
+  'MUNCLE', 'PAUNT', 'NIENEPH', 'NEPHEW', 'NIECE', 'COUSN', 'MCOUSN', 'PCOUSN',
+  'FRND', 'NBOR', 'FAMMEMB', 'MAUNT', 'PUNCLE', 'NFTHF', 'GESTM', 'NMTHF',
+  'STPBRO', 'STPSIS', 'STPSIB',
+] as const)

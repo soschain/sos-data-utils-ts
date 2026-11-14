@@ -10,6 +10,15 @@ Occupation definitions and encoding primitives come from Antifraud data
 utilities. `HealthcareActorRoles` projects the shared occupation codes into
 SOS claim values; controller authority stays distinct from an occupation.
 
+Healthcare family lookup uses the same standard occupation and HL7 descriptor
+sources. Dentistry is an occupation; Controller and personal relationships are
+separate families. Lookup maps have no inherited role entries. Selection order
+is SOS policy, not a FHIR default or a permission grant. Descriptor coding-system
+fields contain standard URIs; the deprecated `ISCO08_CODING_SYSTEM` value retains
+the historical `org.ilo.isco` claim namespace solely for persisted-token
+compatibility. Alias lookup never makes a role into proof of employment or an
+active licence. Unrelated occupations remain outside the healthcare catalog.
+
 `bundle-contract` stages claims under `resource.meta.claims`, returns isolated
 batch snapshots and preserves exact entry requests and optimistic versions.
 It does not authorize a request or select a transport or persistence adapter.
