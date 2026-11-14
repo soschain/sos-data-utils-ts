@@ -1,7 +1,7 @@
 // Flow contract: authoritative Consent narrows read-only SMART scopes to one subject and explicitly allowed sections; aliases confer no extra authority.
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { Isco08CodingSystem } from 'antifraud-data-utils-ts'
+import { Isco08CodingSystem, Isco08Hl7CodingSystem } from 'antifraud-data-utils-ts'
 import { ClaimConsent, ConsentStatuses, FHIR_IPS_DOCUMENT_CODE } from 'fhir-data-utils-ts'
 import { REPOSITORY_SAFE_EXAMPLES as SAFE } from '../dist/repository-privacy.js'
 import { HealthcareSummarySections as Sections } from '../dist/healthcare-sections.js'
@@ -40,6 +40,10 @@ test('WHO SMART ISCO URI and persisted aliases match in either direction without
     assert.equal(smart.deriveGrantedSmartScopes([rule({[ClaimConsent.actorRole]:stored})],input({actorRole:requested})).decision,'granted')
   }
   assert.equal(smart.deriveGrantedSmartScopes([rule()],input({actorRole:'ISCO-08|2250'})).decision,'denied')
+  for(const [stored,requested] of [[`${Isco08Hl7CodingSystem}|2261`,role],[role,`${Isco08Hl7CodingSystem}|2261`]]) {
+    assert.equal(smart.deriveGrantedSmartScopes([rule({[ClaimConsent.actorRole]:stored})],input({actorRole:requested})).decision,'granted')
+  }
+  assert.equal(smart.deriveGrantedSmartScopes([rule()],input({actorRole:`${Isco08Hl7CodingSystem}|2250`})).decision,'denied')
 })
 test('rejects missing or mixed subjects and ambiguous repeated query filters',()=>{
   assert.throws(()=>smart.deriveGrantedSmartScopes([rule()],input({requestedScopes:[]})))

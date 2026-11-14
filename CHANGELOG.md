@@ -3,6 +3,9 @@
 
 ## Unreleased
 
+- Recognize the HL7-endorsed ISCO OID URI in healthcare role lookup and Consent
+  comparison through Antifraud's shared alias guard. Preserve exact occupation
+  codes and existing stored values; unknown systems acquire no equivalence.
 - Keep default Composition scope sections in the existing compact `LOINC|code`
   wire format while accepting equivalent standard-URI section selectors.
 - Own the gateway Composition scope builder and read-only Consent projection in
