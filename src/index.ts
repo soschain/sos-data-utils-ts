@@ -73,3 +73,4 @@ export * from './gateway-transport-contract.js';
 export * from './gateway-did-profile.js';
 export * from './gateway-response-contract.js';
 export * from './clinical-creator-contract.js';
+export * from './communication-message-contract.js';

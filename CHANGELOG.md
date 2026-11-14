@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+- Define the internal SOS communication entry/body projection over Antifraud's
+  neutral DIDComm envelope, keeping protocol, entry and FHIR resource layers distinct.
+  Preserve the SOS submission Accept preference while importing the neutral
+  plaintext media-type identity from Antifraud.
 - Define clinical creator bindings, caller-verified alias evidence, separate
   source authors and attesting assignments, and the narrow successor-update
   outcome as SOS profile contracts. Runtime policy stays in the SDK and gateway.

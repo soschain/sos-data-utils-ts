@@ -4,6 +4,16 @@ SOS owns its operational batch and JSON:API extensions, editable permission
 templates, deterministic Consent matching, route-sector taxonomy and service
 capability tokens. These modules execute independent implementations.
 
+`communication-message-contract` owns the internal SOS data-entry body over
+Antifraud's neutral DIDComm envelope. Its protocol type, entry type and native
+FHIR resource type describe distinct layers; none establishes authentication or
+resource authority. Existing gateway consumers retain mutable internal entry
+arrays. Reviewed original compatibility source:
+<https://github.com/Global-DataCare/gdc-common-utils-ts>, specifically its
+[message projection](https://github.com/Global-DataCare/gdc-common-utils-ts/blob/f4031b221216cacd9917d1d20c5ff0b03bed7045/src/models/comm.ts).
+The default submission Accept header is SOS adapter policy in `bff-wire-contract`;
+its plaintext DIDComm media type is imported from Antifraud's protocol contract.
+
 `clinical-creator-contract` describes the SOS clinical actor profile. A binding
 keeps person, assignment and owner identities separate. Its historical
 `authorIdentifier` stores the assignment used for attestation and permission
