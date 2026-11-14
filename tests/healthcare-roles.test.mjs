@@ -31,7 +31,7 @@ test('looks up dentistry without classifying controller or personal roles as occ
   assert.equal(typeof catalog.getHealthcareRoleByClaim,'function')
   const dentist=catalog.getHealthcareRoleByClaim(HealthcareActorRoles.Dentist)
   assert.equal(dentist.code,Isco08Occupations.Dentist.code)
-  assert.equal(dentist.codingSystem,Isco08CodingSystem)
+  assert.equal(dentist.codingSystem,catalog.ISCO08_CODING_SYSTEM)
   assert.equal(dentist.family,catalog.HealthcareRoleFamilies.ProfessionalOccupationIsco08)
   const controller=catalog.getHealthcareRoleByClaim(HealthcareActorRoles.Controller)
   const oneself=catalog.getHealthcareRoleByClaim('ONESELF')

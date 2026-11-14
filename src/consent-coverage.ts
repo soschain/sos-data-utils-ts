@@ -13,6 +13,7 @@ import type {
   ResolvedConsentActor,
 } from './consent-access.js';
 import { ClaimConsent, ConsentStatuses, type ConsentRule } from 'fhir-data-utils-ts';
+import { Isco08CodingSystem } from 'antifraud-data-utils-ts';
 
 /**
  * Legacy structured actor selector kept for backwards compatibility while the
@@ -399,6 +400,7 @@ function normalizeConsentRoleValue(value: string): string {
   const [system, code] = trimmed.includes('|') ? trimmed.split('|', 2) : ['', trimmed];
   const normalizedSystem = system.trim().toLowerCase();
   const canonicalSystem = [
+    Isco08CodingSystem.toLowerCase(),
     'isco-08',
     'org.ilo.isco',
     'org.ilo.isco-08',
