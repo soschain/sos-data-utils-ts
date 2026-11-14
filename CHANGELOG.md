@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+- Re-export neutral record identity from Antifraud at the existing SOS
+  confidential-storage path, preserving its required identifier and public types.
 - Own the existing gateway route-sector enum independently of the broader
   service catalogue; preserve namespace typing and serialized values without
   treating a route context as access authority.
