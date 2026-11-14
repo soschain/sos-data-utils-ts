@@ -9,6 +9,7 @@ export * from './continuity-service-capabilities.js';
 export * from './cross-sector-access-policy.js';
 export * from './confidential-profile-index.js';
 export * from './confidential-storage.js';
+export * from './confidential-job.js';
 export * from './emergency-evidence.js';
 export * from './emergency-group.js';
 export * from './emergency-professional-roles.js';
