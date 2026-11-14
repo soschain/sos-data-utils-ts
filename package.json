@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./gateway-response-contract": {
+      "types": "./dist/gateway-response-contract.d.ts",
+      "default": "./dist/gateway-response-contract.js"
+    },
     "./gateway-did-profile": {
       "types": "./dist/gateway-did-profile.d.ts",
       "default": "./dist/gateway-did-profile.js"
