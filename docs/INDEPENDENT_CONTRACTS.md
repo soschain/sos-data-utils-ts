@@ -50,3 +50,9 @@ The shared Antifraud guard also accepts HL7 Terminology's ISCO-08 identifier,
 the occupation code in `Coding.code`. This preserves profile-specific export
 identifiers without duplicating the cross-sector occupation catalog in FHIR.
 
+The `confidential-storage` subpath owns SOS record, index, audit and blob-reference
+shapes. Coding metadata reuses the generic FHIR Coding type. Decrypted projections
+require their specific content type and omit the inline JWE field. These contracts
+do not select a database, store plaintext, externalize blobs or perform encryption;
+those operations belong to SDK runtime adapters behind the shared storage port.
+
