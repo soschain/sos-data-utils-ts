@@ -16,6 +16,12 @@ test('normalizes a proposed controller contact without assigning ownership',asyn
   assert.equal(Object.hasOwn(command.controller,'verified'),false)
   assert.equal(Object.hasOwn(command.controller,'uid'),false)
 })
+test('retains a telephone-only proposed controller without manufacturing an email',async()=>{
+ const {normalizeSubjectRegistrationCommand}=await load()
+ const result=normalizeSubjectRegistrationCommand({...animal(),controller:{...animal().controller,contact:{kind:'telephone',value:safe.firstContactPhoneE164}}})
+ assert.deepEqual(result.controller.contact,{kind:'telephone',value:safe.firstContactPhoneE164})
+ assert.equal(Object.hasOwn(result.controller,'email'),false)
+})
 test('separates human demographics from mandatory animal taxonomy',async()=>{
   const {normalizeSubjectRegistrationCommand}=await load()
   const human={...animal(),subject:{kind:'human',alternateName:'Dependent subject',birthDate:'2015-01-01'}}

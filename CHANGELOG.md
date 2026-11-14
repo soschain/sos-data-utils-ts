@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+- Define pending subject-document evidence separately from accepted controller
+  relationships, trusted verification and signatures. Preserve explicit review
+  methods, scanned identifier scopes and the existing three-file, 10 MiB policy.
+
 - Add strict provisional subject registration commands and pending-controller
   receipts, keeping human demographics, animal taxonomy and proposed responsible
   parties separate from accepted ownership, permission or evidence verification.

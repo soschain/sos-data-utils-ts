@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./provisional-subject-evidence": {
+      "types": "./dist/provisional-subject-evidence.d.ts",
+      "default": "./dist/provisional-subject-evidence.js"
+    },
     "./provisional-subject-registration": {
       "types": "./dist/provisional-subject-registration.d.ts",
       "default": "./dist/provisional-subject-registration.js"
