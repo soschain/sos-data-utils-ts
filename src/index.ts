@@ -71,3 +71,4 @@ export * from './employee-routing.js';
 export * from './organization-authorization-urn.js';
 export * from './gateway-transport-contract.js';
 export * from './gateway-did-profile.js';
+export * from './gateway-response-contract.js';

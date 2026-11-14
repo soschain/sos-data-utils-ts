@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+- Own gateway routing and response-entry discriminators and the required
+  JSON:API included-resource shape, preserving existing serialized values.
 - Import neutral Schema.org identities from Antifraud while preserving the exact
   SOS public field selections, wire values and enumeration order.
 - Own deterministic service-capability CSV parsing and serialization, retaining

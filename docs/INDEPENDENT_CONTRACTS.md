@@ -4,6 +4,14 @@ SOS owns its operational batch and JSON:API extensions, editable permission
 templates, deterministic Consent matching, route-sector taxonomy and service
 capability tokens. These modules execute independent implementations.
 
+`gateway-response-contract` owns SOS route namespaces and terminal entry
+discriminators. Clinical OperationOutcome names still come from FHIR utilities.
+`IncludedResource` requires identity, type and the worker's claims container;
+the type alone does not validate or authorize a related resource. Compatibility
+was reviewed against <https://github.com/Global-DataCare/gdc-common-utils-ts>,
+specifically its [response vocabulary](https://github.com/Global-DataCare/gdc-common-utils-ts/blob/f4031b221216cacd9917d1d20c5ff0b03bed7045/src/constants/gateway-response.ts)
+and [included-resource shape](https://github.com/Global-DataCare/gdc-common-utils-ts/blob/f4031b221216cacd9917d1d20c5ff0b03bed7045/src/models/jsonapi.ts).
+
 Service-capability parsing retains historical spellings, normalizes known tokens
 and preserves unknown extension tokens in first-occurrence order. Family lookup
 classifies advertisements; it does not validate operation suffixes or grant

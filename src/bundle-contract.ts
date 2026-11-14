@@ -1,5 +1,13 @@
 import {ClaimConsent as C, RelatedPersonClaim as R} from 'fhir-data-utils-ts'
 import type {OperationOutcome} from 'fhir-data-utils-ts'
+import type {RecordBase, ClaimsRecord} from './confidential-storage.js'
+
+/** SOS JSON:API included resource; flat claims are present even when empty. */
+export interface IncludedResource extends RecordBase {
+  type: string
+  meta: {claims: ClaimsRecord; [key: string]: any}
+  [key: string]: any
+}
 
 export type BundleRequest={method:'GET'|'POST'|'PUT'|'PATCH'|'DELETE';url:string;ifMatch?:string}
 export type BundleResponse={status:string;[key:string]:any}
