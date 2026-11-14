@@ -3,6 +3,9 @@
 
 ## Unreleased
 
+- Pin the published Antifraud Data Utilities 0.3.0 and FHIR Data Utilities
+  0.7.0 foundations with registry integrity-backed dependency resolution.
+
 - Own the persisted PIN-plus-host profile-secret envelope and scrypt metadata
   contract. Preserve its existing discriminator without a legacy runtime
   dependency; leave cryptographic execution, custody and authority downstream.
