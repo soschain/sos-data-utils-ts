@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+- Import neutral Schema.org identities from Antifraud while preserving the exact
+  SOS public field selections, wire values and enumeration order.
 - Own deterministic service-capability CSV parsing and serialization, retaining
   historical tokens and extensions without treating advertisements as authority.
 - Define the SOS routing DID profile over Antifraud's neutral DID contracts,

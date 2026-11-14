@@ -1,43 +1,46 @@
 // Copyright 2026 ConnectHealth.info (Connecting Solution & Applications Ltd.) under the Apache License, Version 2.0.
 
-/**
- * Product-neutral Schema.org flat claims migrated from the frozen GDC v1
- * catalog. New SOS, Vet and UHC code imports this surface instead of adding
- * claims to, or copying literals from, `gdc-*` packages.
- */
+import {
+  SchemaOrgOrganizationClaim as AntifraudSchemaOrgOrganizationClaim,
+  SchemaOrgPersonClaim as AntifraudSchemaOrgPersonClaim,
+  SchemaOrgActionClaim as AntifraudSchemaOrgActionClaim,
+} from 'antifraud-data-utils-ts/schema-org-claims'
+
+
+/** Preserve the SOS public field selection while Antifraud owns neutral claim identities. */
 export const SchemaOrgOrganizationClaim = Object.freeze({
-  AdditionalType: 'org.schema.Organization.additionalType',
-  SameAs: 'org.schema.Organization.sameAs',
-  AddressCountry: 'org.schema.Organization.address.addressCountry',
-  AddressRegion: 'org.schema.Organization.address.addressRegion',
-  AddressLocality: 'org.schema.Organization.address.addressLocality',
-  PostalCode: 'org.schema.Organization.address.postalCode',
-  StreetAddress: 'org.schema.Organization.address.streetAddress',
-  IdentifierType: 'org.schema.Organization.identifier.additionalType',
-  IdentifierValue: 'org.schema.Organization.identifier.value',
-  LegalName: 'org.schema.Organization.legalName',
-  Name: 'org.schema.Organization.name',
-  AlternateName: 'org.schema.Organization.alternateName',
-  TaxId: 'org.schema.Organization.taxID',
-  Email: 'org.schema.Organization.email',
-  Telephone: 'org.schema.Organization.telephone',
-  OwnerAlternateName: 'org.schema.Organization.owner.alternateName',
-  OwnerEmail: 'org.schema.Organization.owner.email',
-  OwnerTelephone: 'org.schema.Organization.owner.telephone',
-  OwnerIdentifierValue: 'org.schema.Organization.owner.identifier.value',
-  MemberAlternateName: 'org.schema.Organization.member.alternateName',
-  MemberName: 'org.schema.Organization.member.name',
-  MemberAdditionalType: 'org.schema.Organization.member.additionalType',
-  MemberGivenName: 'org.schema.Organization.member.givenName',
-  MemberFamilyName: 'org.schema.Organization.member.familyName',
-  MemberBirthDate: 'org.schema.Organization.member.birthDate',
-  MemberGender: 'org.schema.Organization.member.gender',
-  MemberEmail: 'org.schema.Organization.member.email',
-  MemberTelephone: 'org.schema.Organization.member.telephone',
-  MemberIdentifierType: 'org.schema.Organization.member.identifier.additionalType',
-  MemberIdentifierValue: 'org.schema.Organization.member.identifier.value',
-  MemberRole: 'org.schema.Organization.member.role',
-  NumberOfEmployees: 'org.schema.Organization.numberOfEmployees.value',
+  AdditionalType: AntifraudSchemaOrgOrganizationClaim.AdditionalType,
+  SameAs: AntifraudSchemaOrgOrganizationClaim.SameAs,
+  AddressCountry: AntifraudSchemaOrgOrganizationClaim.AddressCountry,
+  AddressRegion: AntifraudSchemaOrgOrganizationClaim.AddressRegion,
+  AddressLocality: AntifraudSchemaOrgOrganizationClaim.AddressLocality,
+  PostalCode: AntifraudSchemaOrgOrganizationClaim.PostalCode,
+  StreetAddress: AntifraudSchemaOrgOrganizationClaim.StreetAddress,
+  IdentifierType: AntifraudSchemaOrgOrganizationClaim.IdentifierType,
+  IdentifierValue: AntifraudSchemaOrgOrganizationClaim.IdentifierValue,
+  LegalName: AntifraudSchemaOrgOrganizationClaim.LegalName,
+  Name: AntifraudSchemaOrgOrganizationClaim.Name,
+  AlternateName: AntifraudSchemaOrgOrganizationClaim.AlternateName,
+  TaxId: AntifraudSchemaOrgOrganizationClaim.TaxId,
+  Email: AntifraudSchemaOrgOrganizationClaim.Email,
+  Telephone: AntifraudSchemaOrgOrganizationClaim.Telephone,
+  OwnerAlternateName: AntifraudSchemaOrgOrganizationClaim.OwnerAlternateName,
+  OwnerEmail: AntifraudSchemaOrgOrganizationClaim.OwnerEmail,
+  OwnerTelephone: AntifraudSchemaOrgOrganizationClaim.OwnerTelephone,
+  OwnerIdentifierValue: AntifraudSchemaOrgOrganizationClaim.OwnerIdentifierValue,
+  MemberAlternateName: AntifraudSchemaOrgOrganizationClaim.MemberAlternateName,
+  MemberName: AntifraudSchemaOrgOrganizationClaim.MemberName,
+  MemberAdditionalType: AntifraudSchemaOrgOrganizationClaim.MemberAdditionalType,
+  MemberGivenName: AntifraudSchemaOrgOrganizationClaim.MemberGivenName,
+  MemberFamilyName: AntifraudSchemaOrgOrganizationClaim.MemberFamilyName,
+  MemberBirthDate: AntifraudSchemaOrgOrganizationClaim.MemberBirthDate,
+  MemberGender: AntifraudSchemaOrgOrganizationClaim.MemberGender,
+  MemberEmail: AntifraudSchemaOrgOrganizationClaim.MemberEmail,
+  MemberTelephone: AntifraudSchemaOrgOrganizationClaim.MemberTelephone,
+  MemberIdentifierType: AntifraudSchemaOrgOrganizationClaim.MemberIdentifierType,
+  MemberIdentifierValue: AntifraudSchemaOrgOrganizationClaim.MemberIdentifierValue,
+  MemberRole: AntifraudSchemaOrgOrganizationClaim.MemberRole,
+  NumberOfEmployees: AntifraudSchemaOrgOrganizationClaim.NumberOfEmployees,
 } as const);
 
 export type SchemaOrgOrganizationClaimKey =
@@ -45,32 +48,32 @@ export type SchemaOrgOrganizationClaimKey =
 
 /** Schema.org person/controller claims needed by shared onboarding forms. */
 export const SchemaOrgPersonClaim = Object.freeze({
-  HasOccupation: 'org.schema.Person.hasOccupation',
-  OccupationIdentifierValue: 'org.schema.Person.hasOccupation.identifier.value',
-  OccupationIdentifierSystem: 'org.schema.Person.hasOccupation.identifier.additionalType',
-  AdditionalType: 'org.schema.Person.additionalType',
-  AlternateName: 'org.schema.Person.alternateName',
-  BirthDate: 'org.schema.Person.birthDate',
-  Email: 'org.schema.Person.email',
-  FamilyName: 'org.schema.Person.familyName',
-  Gender: 'org.schema.Person.gender',
-  GivenName: 'org.schema.Person.givenName',
-  Identifier: 'org.schema.Person.identifier',
-  IdentifierType: 'org.schema.Person.identifier.additionalType',
-  IdentifierValue: 'org.schema.Person.identifier.value',
-  SameAs: 'org.schema.Person.sameAs',
-  Name: 'org.schema.Person.name',
-  Telephone: 'org.schema.Person.telephone',
+  HasOccupation: AntifraudSchemaOrgPersonClaim.HasOccupation,
+  OccupationIdentifierValue: AntifraudSchemaOrgPersonClaim.OccupationIdentifierValue,
+  OccupationIdentifierSystem: AntifraudSchemaOrgPersonClaim.OccupationIdentifierSystem,
+  AdditionalType: AntifraudSchemaOrgPersonClaim.AdditionalType,
+  AlternateName: AntifraudSchemaOrgPersonClaim.AlternateName,
+  BirthDate: AntifraudSchemaOrgPersonClaim.BirthDate,
+  Email: AntifraudSchemaOrgPersonClaim.Email,
+  FamilyName: AntifraudSchemaOrgPersonClaim.FamilyName,
+  Gender: AntifraudSchemaOrgPersonClaim.Gender,
+  GivenName: AntifraudSchemaOrgPersonClaim.GivenName,
+  Identifier: AntifraudSchemaOrgPersonClaim.Identifier,
+  IdentifierType: AntifraudSchemaOrgPersonClaim.IdentifierType,
+  IdentifierValue: AntifraudSchemaOrgPersonClaim.IdentifierValue,
+  SameAs: AntifraudSchemaOrgPersonClaim.SameAs,
+  Name: AntifraudSchemaOrgPersonClaim.Name,
+  Telephone: AntifraudSchemaOrgPersonClaim.Telephone,
 } as const);
 
 export type SchemaOrgPersonClaimKey = typeof SchemaOrgPersonClaim[keyof typeof SchemaOrgPersonClaim];
 
 /** Schema.org Action claims used to retain who initiated an onboarding write and when. */
 export const SchemaOrgActionClaim = Object.freeze({
-  AgentIdentifier: 'org.schema.Action.agent.identifier',
-  ParticipantIdentifier: 'org.schema.Action.participant.identifier',
-  ProviderIdentifier: 'org.schema.Action.provider.identifier',
-  StartTime: 'org.schema.Action.startTime',
+  AgentIdentifier: AntifraudSchemaOrgActionClaim.AgentIdentifier,
+  ParticipantIdentifier: AntifraudSchemaOrgActionClaim.ParticipantIdentifier,
+  ProviderIdentifier: AntifraudSchemaOrgActionClaim.ProviderIdentifier,
+  StartTime: AntifraudSchemaOrgActionClaim.StartTime,
 } as const);
 
 export type SchemaOrgActionClaimKey = typeof SchemaOrgActionClaim[keyof typeof SchemaOrgActionClaim];
