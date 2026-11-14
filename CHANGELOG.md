@@ -3,6 +3,9 @@
 
 ## Unreleased
 
+- Define clinical creator bindings, caller-verified alias evidence, separate
+  source authors and attesting assignments, and the narrow successor-update
+  outcome as SOS profile contracts. Runtime policy stays in the SDK and gateway.
 - Own gateway routing and response-entry discriminators and the required
   JSON:API included-resource shape, preserving existing serialized values.
 - Import neutral Schema.org identities from Antifraud while preserving the exact

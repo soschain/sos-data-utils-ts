@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./clinical-creator-contract": {
+      "types": "./dist/clinical-creator-contract.d.ts",
+      "default": "./dist/clinical-creator-contract.js"
+    },
     "./gateway-response-contract": {
       "types": "./dist/gateway-response-contract.d.ts",
       "default": "./dist/gateway-response-contract.js"
