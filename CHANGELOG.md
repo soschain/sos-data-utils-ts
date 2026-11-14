@@ -6,6 +6,8 @@
 - Add strict provisional subject registration commands and pending-controller
   receipts, keeping human demographics, animal taxonomy and proposed responsible
   parties separate from accepted ownership, permission or evidence verification.
+- Match provisional alternate names to the existing card provider's 80-character
+  limit, rejecting longer input before registration rather than truncating at claim.
 
 - Re-export neutral record identity from Antifraud at the existing SOS
   confidential-storage path, preserving its required identifier and public types.

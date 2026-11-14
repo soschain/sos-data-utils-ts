@@ -29,6 +29,11 @@ test('rejects impossible dates, unbounded fields and unknown subject kinds',asyn
     assert.throws(()=>normalizeSubjectRegistrationCommand({...animal(),subject}))
   }
 })
+test('rejects an alternate name exceeding the existing card provider 80-character limit',async()=>{
+ const {normalizeSubjectRegistrationCommand}=await load()
+ assert.equal(normalizeSubjectRegistrationCommand({...animal(),subject:{...animal().subject,alternateName:'x'.repeat(80)}}).subject.alternateName.length,80)
+ assert.throws(()=>normalizeSubjectRegistrationCommand({...animal(),subject:{...animal().subject,alternateName:'x'.repeat(81)}}))
+})
 test('rejects caller authority at every nested command boundary',async()=>{
   const {normalizeSubjectRegistrationCommand}=await load()
   for(const field of ['uid','organizationReference','actorIdentifier','workspaceOwnerUid','personalPin','status'])assert.throws(()=>normalizeSubjectRegistrationCommand({...animal(),[field]:'forged'}))

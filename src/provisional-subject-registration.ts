@@ -36,7 +36,7 @@ export function normalizeSubjectRegistrationCommand(input:unknown):SubjectRegist
  const controller=record(command.controller,['legalName','contact','relationship'])
  const contact=record(controller.contact,['kind','value'])
  if(subject.kind!=='human'&&subject.kind!=='animal')throw new TypeError('subject_registration_kind_invalid')
- const alternateName=text(subject.alternateName,160)
+ const alternateName=text(subject.alternateName,80)
  const now=new Date(),today=now.toISOString().slice(0,10)
  const birthDate=subject.birthDate===undefined?undefined:text(subject.birthDate,10)
  if(birthDate&&(!/^\d{4}-\d{2}-\d{2}$/u.test(birthDate)||!Number.isFinite(Date.parse(birthDate))||new Date(birthDate).toISOString().slice(0,10)!==birthDate||birthDate<'1900-01-01'||birthDate>today))throw new TypeError('subject_registration_birth_invalid')
