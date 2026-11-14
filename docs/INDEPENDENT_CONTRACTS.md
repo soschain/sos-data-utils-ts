@@ -66,3 +66,8 @@ The typed body can be narrowed by each operation's claims-first contract.
 JSON-shaped records for index persistence. It preserves explicit null values
 and is separate from FHIR/JCS canonicalization and the confidential payload.
 
+`gateway-did-profile` adds SOS route selectors and advertised operation lists to
+Antifraud's generic DID service/document contracts. The generic standard model
+keeps unknown extensions unknown; this profile declares its own fields explicitly.
+An advertisement remains metadata and does not establish access authority.
+
