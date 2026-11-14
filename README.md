@@ -1,6 +1,11 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # sos-data-utils-ts
 
+`server-profile-secret-contract` owns the existing PIN-plus-host encrypted
+secret envelope and public scrypt metadata. It contains no cryptographic
+execution or profile authority. The persisted format discriminator remains
+unchanged so runtimes can open stored ciphertext without replacing keys.
+
 `individual-registration-contract` exports `NetworkSubjectRegistrationResult`
 and `assertNetworkSubjectRegistrationResult` for the projected Network response.
 The validator checks its explicit mode, operation, canonical subject identity,

@@ -1,4 +1,5 @@
 // Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0.
+export * from './server-profile-secret-contract.js';
 export * from './bff-api.js';
 export * from './public-notifications.js';
 export * from './public-health-statistics-policy.js';

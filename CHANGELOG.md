@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+- Own the persisted PIN-plus-host profile-secret envelope and scrypt metadata
+  contract. Preserve its existing discriminator without a legacy runtime
+  dependency; leave cryptographic execution, custody and authority downstream.
+
 - Validate an explicitly Network subject-registration projection directly,
   preserving canonical identity, public alias and Offer while responsibility
   remains pending. Keep Demo URN receipts separate and publish a governed

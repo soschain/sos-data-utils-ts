@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./server-profile-secret-contract": {
+      "types": "./dist/server-profile-secret-contract.d.ts",
+      "default": "./dist/server-profile-secret-contract.js"
+    },
     "./individual-registration-examples": {
       "types": "./dist/individual-registration-examples.d.ts",
       "default": "./dist/individual-registration-examples.js"
