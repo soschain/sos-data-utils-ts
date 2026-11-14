@@ -35,7 +35,7 @@ export const HealthcareActorRoleCodes = Object.freeze({
   PhysicianBroad: actorCodes.MedicalDoctors,
 })
 
-/** @deprecated Persisted claim namespace, not the canonical ILO coding-system URI. */
+/** SOS persisted claim namespace. External interoperability identifiers are profile-specific. */
 export const ISCO08_CODING_SYSTEM = 'org.ilo.isco' as const
 export const HealthcareRoleFamilies = Object.freeze({
   ProfessionalOccupationIsco08: 'professionalOccupationIsco08',
@@ -64,7 +64,7 @@ const professionalRoles: Readonly<Record<string, HealthcareActorRoleDescriptor>>
     if (!occupation) throw new TypeError('healthcare_occupation_catalog_missing')
     return [code, Object.freeze({
       family: HealthcareRoleFamilies.ProfessionalOccupationIsco08,
-      codingSystem: occupation.system, code, claim: value,
+      codingSystem: ISCO08_CODING_SYSTEM, code, claim: value,
       i18nKey: `org.ilo.isco-08.${code}` as const, titleEn: occupation.display,
     })]
   }),
@@ -109,7 +109,7 @@ export function getHealthcareRoleByClaim(claim: string): HealthcareActorRoleDesc
   if (unexpected.length || !code || !Object.hasOwn(HealthcareAllRolesByClaim, code)) return undefined
   const descriptor = HealthcareAllRolesByClaim[code]
   const systems: readonly string[] = descriptor.family === HealthcareRoleFamilies.ProfessionalOccupationIsco08
-    ? ['ISCO-08', ISCO08_CODING_SYSTEM, Isco08CodingSystem]
+    ? ['ISCO-08', ISCO08_CODING_SYSTEM, 'org.ilo.isco-08', Isco08CodingSystem]
     : ['v3-RoleCode', HL7_CODING_SYSTEM_V3_ROLE_CODE]
   return systems.includes(system) ? descriptor : undefined
 }
@@ -138,6 +138,6 @@ export function getHealthcareProfessionalRolesBySector(sector:string):Readonly<R
   return Object.freeze(Object.fromEntries((Object.hasOwn(bySector,sector)?bySector[sector]:[]).map(claim=>{
     const code=claim.split('|').at(-1)!
     const occupation=findIsco08Occupation(code)
-    return [code,Object.freeze({code,claim,titleEn:occupation?.display??'Organization controller',codingSystem:occupation?.system??HL7_CODING_SYSTEM_V3_ROLE_CODE,i18nKey:occupation?`org.ilo.isco-08.${code}`:'org.hl7.terminology.CodeSystem.v3-RoleCode.RESPRSN'})]
+    return [code,Object.freeze({code,claim,titleEn:occupation?.display??'Organization controller',codingSystem:occupation?ISCO08_CODING_SYSTEM:HL7_CODING_SYSTEM_V3_ROLE_CODE,i18nKey:occupation?`org.ilo.isco-08.${code}`:'org.hl7.terminology.CodeSystem.v3-RoleCode.RESPRSN'})]
   })))
 }

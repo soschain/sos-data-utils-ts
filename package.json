@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./consent-smart-scopes": {
+      "types": "./dist/consent-smart-scopes.d.ts",
+      "default": "./dist/consent-smart-scopes.js"
+    },
     "./gateway-transport-contract": {
       "types": "./dist/gateway-transport-contract.d.ts",
       "default": "./dist/gateway-transport-contract.js"

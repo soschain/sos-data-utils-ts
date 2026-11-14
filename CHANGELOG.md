@@ -3,6 +3,15 @@
 
 ## Unreleased
 
+- Own the gateway Composition scope builder and read-only Consent projection in
+  SOS Data. Grants contain only requested, actively consented sections for one
+  subject; write scopes, unknown filters and repeated query parameters fail closed.
+- Accept the ILO page URI used by WHO SMART Base as a comparison alias alongside
+  existing reverse-DNS and compact ISCO spellings, without rewriting stored claims.
+
+- Preserve reverse-DNS ISCO coding-system values in SOS role descriptors;
+  external interoperability identifiers belong to their specific profiles.
+
 - Own healthcare role-code and family lookup, deriving occupations from
   Antifraud and relationship descriptors from FHIR. Recognize Dentistry, keep
   Controller and personal relationships outside the occupation family, preserve

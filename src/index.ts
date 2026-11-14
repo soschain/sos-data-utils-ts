@@ -61,6 +61,7 @@ export * from './individual-sections.js';
 export * from './healthcare-sections.js';
 export * from './consent-access.js';
 export * from './consent-coverage.js';
+export * from './consent-smart-scopes.js';
 export * from './permission-templates.js';
 export * from './bff-wire-contract.js';
 export * from './employee-routing.js';
