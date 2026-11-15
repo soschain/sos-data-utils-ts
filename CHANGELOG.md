@@ -3,6 +3,11 @@
 
 ## Unreleased
 
+- Preserve existing email workforce DTOs while adding an explicit, mutually
+  exclusive phone contact branch and the seven-field numeric licence inventory
+  summary. Strict consumer fixtures reject mixed/missing contacts and invalid
+  count types; these data contracts do not grant employment or capacity.
+
 - Own business search and operational lifecycle wire catalogs plus the existing
   DSP version-metadata shape/builder. Preserve full catalog values, readonly
   metadata types and independent response objects without adding access policy.

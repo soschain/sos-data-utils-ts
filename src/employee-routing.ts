@@ -14,7 +14,12 @@ export type OrganizationEmployeeLicenseRecord=Readonly<{
   id:string;status:string;maxDevices:number;activeDevices:number
   devices:readonly OrganizationEmployeeDeviceRecord[]
 }>
-export type OrganizationEmployeeLifecycleRecord=Readonly<{
-  resourceId:string;email:string;roleCode:string;employeeDid:string
-  status:'active'|'inactive'|'purged'|'unknown';license?:OrganizationEmployeeLicenseRecord
+/** Inventory counts projected from authoritative seat records; no local capacity grant. */
+export type LicenseListSummary=Readonly<{
+  contracted:number;free:number;used:number;available:number;issued:number;active:number;inactive:number
 }>
+/** A returned contact label is not proof of possession or authority. */
+export type OrganizationEmployeeLifecycleRecord=Readonly<{
+  resourceId:string;roleCode:string;employeeDid:string
+  status:'active'|'inactive'|'purged'|'unknown';license?:OrganizationEmployeeLicenseRecord
+}>&(Readonly<{email:string;contactKind?:'email';telephone?:never}>|Readonly<{contactKind:'phone';telephone:string;email?:never}>)
