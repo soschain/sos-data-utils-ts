@@ -3,6 +3,14 @@
 
 ## Unreleased
 
+- Add an explicit operational flat-claim content projection for deduplication,
+  preserving exact canonical UTF-8 against original compatibility vectors while
+  keeping canonical FHIR sorting generic. Envelope/identifier/version omissions
+  are caller-controlled, top-level only; Status, Entry and nested data remain.
+  Reject own prototype-control keys recursively instead of repeating the
+  original serializer's silent loss; ordinary data-field names remain supported.
+
+
 - Own persisted DeviceLicense, DeviceInfo, DeviceBinding and DeviceRestrictions
   contracts with immutable existing user-class, app-type, binding and seat-status
   wire values. Preserve legacy optional fields, owner/contact separation and
