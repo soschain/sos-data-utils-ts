@@ -91,3 +91,4 @@ export * from './device-license-contract.js';
 export * from './operational-claim-content.js';
 export * from './identity-auth-wire-contract.js';
 export * from './gateway-dataspace-routing.js';
+export * from './controller-identity-evidence.js'

@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./controller-identity-evidence": {
+      "types": "./dist/controller-identity-evidence.d.ts",
+      "default": "./dist/controller-identity-evidence.js"
+    },
     "./device-license-contract": {
       "types": "./dist/device-license-contract.d.ts",
       "default": "./dist/device-license-contract.js"
