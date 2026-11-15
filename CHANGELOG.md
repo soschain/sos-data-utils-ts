@@ -3,6 +3,14 @@
 
 ## Unreleased
 
+- Own classified Consent editor contracts and operational healthcare permission
+  descriptors. Keep the published native Summary URI projection unchanged;
+  expose the explicit permission Summary using the existing `LOINC|code` wire profile.
+- Project the published FHIR subject-domain catalog, including Dentistry, through
+  explicitly bounded permission metadata lookups without claiming workbook parity.
+- Own persisted registered-profile/session field contracts and protected-envelope
+  types. Stored metadata does not verify credentials or confer runtime authority.
+
 ## 0.7.0
 
 - Pin the published Antifraud Data Utilities 0.3.0 and FHIR Data Utilities

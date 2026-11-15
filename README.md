@@ -6,6 +6,19 @@ secret envelope and public scrypt metadata. It contains no cryptographic
 execution or profile authority. The persisted format discriminator remains
 unchanged so runtimes can open stored ciphertext without replacing keys.
 
+`consent-access-editor-contract` owns classified actor, role, purpose and target
+view models; the mutable editor belongs in SOS SDK Core. The operational
+`HealthcareCoreSections` and `HealthcarePermissionSummarySections` descriptors
+use `LOINC|code` permission tokens. Existing `HealthcareSummarySections` keeps
+its native `http://loinc.org|code` projection unchanged. Descriptor selection,
+occupation metadata and editor state never authorize a recipient or approve
+a proposed permission.
+`getHealthcarePermissionSectionByCode` and
+`getHealthcarePermissionSectionFamilyByCode` cover this bounded operational
+profile: Core selections, the IPS document and the canonical FHIR subject-domain
+catalog, including Dentistry. They do not claim parity with the broader
+document/service workbook catalogs. Native FHIR definitions remain in FHIR utilities.
+
 `individual-registration-contract` exports `NetworkSubjectRegistrationResult`
 and `assertNetworkSubjectRegistrationResult` for the projected Network response.
 The validator checks its explicit mode, operation, canonical subject identity,

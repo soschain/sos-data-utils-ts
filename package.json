@@ -338,6 +338,14 @@
     "./subject-card-checksum": {
       "types": "./dist/subject-card-checksum.d.ts",
       "default": "./dist/subject-card-checksum.js"
+    },
+    "./consent-access-editor-contract": {
+      "types": "./dist/consent-access-editor-contract.d.ts",
+      "default": "./dist/consent-access-editor-contract.js"
+    },
+    "./registered-profile-contract": {
+      "types": "./dist/registered-profile-contract.d.ts",
+      "default": "./dist/registered-profile-contract.js"
     }
   },
   "files": [
