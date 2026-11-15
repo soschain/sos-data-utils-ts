@@ -1,6 +1,12 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # sos-data-utils-ts
 
+`employee-routing` preserves email workforce records and an explicit phone
+contact branch, without placing a telephone number in an email field. Shared
+role, lifecycle and installation fields remain unchanged. `LicenseListSummary`
+retains seven numeric inventory counts; neither contract verifies possession,
+grants employment or authorizes capacity.
+
 `device-license-contract` owns persisted seat, installation-binding and device
 fingerprint types with immutable user-class, form-factor and lifecycle catalogs.
 Pool owner, invited member, contact, accessible subject and installation remain
