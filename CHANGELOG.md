@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+- Reject inherited object-property names in bounded permission-section lookup.
+
 - Own classified Consent editor contracts and operational healthcare permission
   descriptors. Keep the published native Summary URI projection unchanged;
   expose the explicit permission Summary using the existing `LOINC|code` wire profile.

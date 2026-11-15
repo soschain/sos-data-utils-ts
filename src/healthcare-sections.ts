@@ -77,7 +77,7 @@ export type HealthcareCanonicalSectionFamily=typeof HealthcareCanonicalSectionFa
 /** Bounded permission profile: Core, IPS document and canonical FHIR subject domains; no workbook parity. */
 export function getHealthcarePermissionSectionByCode(value:string):HealthcareSectionDescriptor|undefined{
   const code=String(value??'').trim().split('|').at(-1)
-  return code===FHIR_IPS_DOCUMENT_CODE?patientSummaryDocument:Object.values(HealthcareCoreSections).find(section=>section.code===code)??permissionSubjectDomains[code??'']
+  return code===FHIR_IPS_DOCUMENT_CODE?patientSummaryDocument:Object.values(HealthcareCoreSections).find(section=>section.code===code)??(code!==undefined&&Object.hasOwn(permissionSubjectDomains,code)?permissionSubjectDomains[code]:undefined)
 }
 
 /** Metadata lookup only; a recognized selection never authorizes access. */
