@@ -5,6 +5,17 @@ not inferred from `latest`, a moving branch or a staging deployment.
 
 ## Release transaction
 
+Select the access path before interpreting a gate. Online Demo promotion needs
+the relevant local Demo checks, exact published registry dependencies/lockfiles
+and portal build, then Demo deployment and observed revision verification.
+Online dev:staging/Test Network lifecycle checks run afterward; fixes repeat
+the affected local checks and redeploy. Their unfinished state does not block
+Demo deployment or imply that Test Network/production is ready. Demo remains
+BFF-only with shared vault ports; no GW tenant bootstrap is added to its gate.
+The following network promotion steps apply only to network-backed cases.
+Package-local tests, architecture, privacy and immutable source/integrity checks
+remain mandatory for every published package used by either access path.
+
 1. Merge and push every validated shared dependency source and release version
    to `main`; prove each local shared `main` equals `origin/main`.
 2. Build those unpublished shared main commits with `npm pack` and install each
