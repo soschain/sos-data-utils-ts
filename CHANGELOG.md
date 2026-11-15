@@ -3,6 +3,9 @@
 
 ## Unreleased
 
+- Expose the existing pure Organization identity reader for provider-confirmed
+  directory rows, preserving canonical UUID/provider/subject and alias validation.
+
 - Own exact ordered Test Network application PDF fields and separate BFF metadata,
   representative and technical-controller contracts. Own seven immutable
   participation-role identifiers without importing product-specific catalogs.
