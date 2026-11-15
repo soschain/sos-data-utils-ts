@@ -427,3 +427,13 @@ FHIR owns stable JSON sorting; the CID codec/hash belongs to the independent
 Antifraud primitive. Eight read-only original implementation vectors are retained
 under `tests/fixtures/operational-claim-content-vectors.json` with their full
 source URL and hash provenance; new tests have no original-package dependency.
+
+### Controller-owned identity evidence
+
+`controller-identity-evidence` defines pending private evidence intake for an
+already authorized subject controller. Subject, controller and relationship
+files share one command and opaque receipt; controller-only and relationship-only
+submissions are valid. Server-owned card, account and generation bindings never
+come from the command. This is separate from provisional registration and
+professional attestation. A pending receipt does not verify identity, sign a
+credential or expose file names, content identifiers or external download URLs.

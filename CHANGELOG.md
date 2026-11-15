@@ -3,6 +3,20 @@
 
 ## Unreleased
 
+- Distinguish Group POST/PATCH from governed organization Consent POST/PATCH/PUT.
+  Retain the routed inactive-only PATCH and original assignment claims; typing
+  does not introduce a document attachment or alter Gateway authorization policy.
+
+- Add a strict controller-owned identity-evidence command, pending opaque receipt
+  and frozen upload policy. Allow any distinct subject/controller/relationship
+  slots without requiring a subject file; reject browser authority, verification
+  flags, private receipt metadata and accessor-backed input. This contract does
+  not create a provisional subject or professional creator.
+
+- Preserve existing email recovery record and notification fields alongside a
+  separate phone contact/version branch. These storage contracts contain no
+  seed, decrypted share or recovery authorization.
+
 - Preserve explicit controller and legal-representative telephone bindings in
   Organization verification transactions alongside the existing email wire.
 

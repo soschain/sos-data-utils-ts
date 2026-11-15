@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./controller-identity-evidence": {
+      "types": "./dist/controller-identity-evidence.d.ts",
+      "default": "./dist/controller-identity-evidence.js"
+    },
     "./device-license-contract": {
       "types": "./dist/device-license-contract.d.ts",
       "default": "./dist/device-license-contract.js"
@@ -74,6 +78,10 @@
     "./organization-authorization-urn": {
       "types": "./dist/organization-authorization-urn.d.ts",
       "default": "./dist/organization-authorization-urn.js"
+    },
+    "./profile-recovery-contract": {
+      "types": "./dist/profile-recovery-contract.d.ts",
+      "default": "./dist/profile-recovery-contract.js"
     },
     "./organization-lifecycle-contract": {
       "types": "./dist/organization-lifecycle-contract.d.ts",

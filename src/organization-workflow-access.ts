@@ -46,15 +46,24 @@ export const OrganizationWorkflowGroupKinds = Object.freeze({
 export type OrganizationWorkflowGroupKind =
   typeof OrganizationWorkflowGroupKinds[keyof typeof OrganizationWorkflowGroupKinds]
 
-export type OrganizationWorkflowFlatEntry = Readonly<{
-  type: 'Group-v5.0.0' | 'Consent-v5.0.0'
-  resource: GroupR5FlatClaimsResource | Readonly<{
+export type OrganizationWorkflowGroupEntry = Readonly<{
+  type: 'Group-v5.0.0'
+  resource: GroupR5FlatClaimsResource
+  request: Readonly<{ method: 'POST' | 'PATCH'; url: string }>
+}>
+
+export type OrganizationWorkflowConsentEntry = Readonly<{
+  type: 'Consent-v5.0.0'
+  resource: Readonly<{
     resourceType: 'Consent'
     id: string
     meta: Readonly<{ claims: Readonly<Record<string, string>> }>
   }>
-  request: Readonly<{ method: 'POST' | 'PATCH'; url: string }>
+  request: Readonly<{ method: 'POST' | 'PATCH' | 'PUT'; url: string }>
 }>
+
+/** The actual workflow GW wire differs between Group membership patches and full Consent updates. */
+export type OrganizationWorkflowFlatEntry = OrganizationWorkflowGroupEntry | OrganizationWorkflowConsentEntry
 
 type TestNetworkControllerWorkflowAssignmentInput = Readonly<{
   networkKind: string
@@ -84,9 +93,9 @@ export type TestNetworkControllerWorkflowAssignment = Readonly<{
   organizationReference: string
   capabilities: readonly OrganizationWorkflowCapability[]
   assignedAt: string
-  group: OrganizationWorkflowFlatEntry
-  membership: OrganizationWorkflowFlatEntry
-  authorization: OrganizationWorkflowFlatEntry
+  group: OrganizationWorkflowGroupEntry
+  membership: OrganizationWorkflowGroupEntry
+  authorization: OrganizationWorkflowConsentEntry
 }>
 
 export type TestNetworkControllerWorkflowSelfAssignment = TestNetworkControllerWorkflowAssignment & Readonly<{

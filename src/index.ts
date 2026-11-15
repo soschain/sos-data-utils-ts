@@ -70,6 +70,7 @@ export * from './permission-templates.js';
 export * from './bff-wire-contract.js';
 export * from './employee-routing.js';
 export * from './organization-lifecycle-contract.js';
+export * from './profile-recovery-contract.js';
 export * from './organization-authorization-urn.js';
 export * from './gateway-transport-contract.js';
 export * from './gateway-did-profile.js';
@@ -90,3 +91,4 @@ export * from './device-license-contract.js';
 export * from './operational-claim-content.js';
 export * from './identity-auth-wire-contract.js';
 export * from './gateway-dataspace-routing.js';
+export * from './controller-identity-evidence.js'
