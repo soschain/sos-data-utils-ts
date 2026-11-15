@@ -5,9 +5,10 @@
 Apply
 [`preserve-demo-test-network-adapter-parity`](.codex/skills/preserve-demo-test-network-adapter-parity/SKILL.md)
 to every Demo, portal, channel, persistence or Expo change. Demo and Test
-Network execute the same use cases through `IVaultRepository`. Firestore must
-not become a Demo store; all-local uses memory and Expo uses SQLite through the
-same Confidential Storage port.
+Network execute the same use cases through `IVaultRepository`. Demo must not
+own a separate datastore or import database drivers directly. Configured
+durable composition roots may inject Firestore or PostgreSQL through that same
+Confidential Storage port; all-local uses memory and Expo uses SQLite.
 The CH all-local portal gate must not start or require Chat, a telephone
 assistant or a web assistant. RTC is a separate provider boundary; only its
 invitation, terminal state and unanswered audio attachment enter Communication.
