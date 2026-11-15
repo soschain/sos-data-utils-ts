@@ -1,5 +1,18 @@
 import {DataspaceWellKnownPaths} from './gateway-did-profile.js'
 
+/** Version advertised by this existing gateway DSP compatibility profile. */
+export const GatewayDataspaceProtocolVersions=Object.freeze({Current:'2025-1'} as const)
+export type GatewayDataspaceProtocolVersion=typeof GatewayDataspaceProtocolVersions[keyof typeof GatewayDataspaceProtocolVersions]
+export type GatewayDataspaceProtocolVersionEntry=Readonly<{version:string;path:string}>
+export type GatewayDataspaceVersionMetadata=Readonly<{
+  protocolVersions:readonly GatewayDataspaceProtocolVersionEntry[]
+}>
+
+/** Return independent metadata objects without rewriting the supplied path. */
+export function buildGatewayDataspaceVersionMetadata(path:string,version:GatewayDataspaceProtocolVersion=GatewayDataspaceProtocolVersions.Current):GatewayDataspaceVersionMetadata{
+  return {protocolVersions:[{version,path}]}
+}
+
 /** Explicit relative-path selectors. Formatting these fields confers no access. */
 export type GatewayDataspaceRouteContext=Readonly<{
   participantId?:string
