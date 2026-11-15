@@ -40,3 +40,9 @@ the affected local journey through every changed boundary without skips. Merge
 and push validated consumer sources to `main`, publish those exact commits to
 the public registry, reinstall exact registry versions, and only then promote
 to staging.
+
+Promotion is access-path scoped: online Demo follows relevant local Demo
+checks, exact registry pins/lockfiles and portal build. Online dev:staging /
+Test Network lifecycle checks follow Demo deployment; fixes are checked locally
+and redeployed. None of this waives the privacy gates or proves production
+readiness. Network-backed cases retain their separate GW/Fabric prerequisites.

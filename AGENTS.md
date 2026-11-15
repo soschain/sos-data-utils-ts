@@ -35,8 +35,15 @@ never depends on reconstructing history. Never increment once per feature.
 
 Follow `docs/MVP_SNAPSHOT_RELEASES.md`. Merge and push validated shared sources
 to `main`, then use immutable `npm pack` artifacts with temporary `--no-save`
-installs to prove the real local Vet channel (portal, phone service, chatbot or
-other supported channel) -> BFF or channel service -> high-level SDK -> GW VET
-journey without skips. Merge and push validated consumer sources to `main`,
+installs to prove the affected local journey for its selected access path
+without skips. Demo proves the BFF/SDK/vault boundary; network cases include GW.
+Merge and push validated consumer sources to `main`,
 publish exact commits to the public registry, pin exact registry versions, and
 only then promote to staging.
+
+Select gates by access path. Demo needs relevant local Demo checks, exact
+published dependencies/lockfiles and portal build before online Demo deployment.
+Run dev:staging/Test Network lifecycle checks afterward and redeploy fixes;
+they do not hold Demo or establish production readiness. Demo is BFF-only and
+does not require a GW business journey. Network-backed cases retain their GW
+and Fabric gates. Package tests, no-GDC architecture and privacy remain required.

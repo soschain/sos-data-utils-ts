@@ -10,6 +10,12 @@ occupation and encoding contracts. Those lower-level packages do not import
 this package. FHIR utilities
 remain independent of Antifraud's occupation catalog.
 
+SOS packages never import, depend on, wrap or re-export GDC, directly or
+transitively. Release gates follow the selected access path in
+[MVP snapshot releases](MVP_SNAPSHOT_RELEASES.md): local Demo proof and exact
+registry-backed builds permit online Demo deployment; online Test Network
+validation follows separately and does not establish production readiness.
+
 This repository does not list,
 name or maintain a matrix of consumers.
 
