@@ -1,5 +1,18 @@
 import { ResourceTypesFhirR4 } from 'fhir-data-utils-ts'
 
+/** Business search envelope discriminators, deliberately distinct from native FHIR searchset. */
+export const GatewaySearchBundleTypes = Object.freeze({
+  Search: 'search', SearchResponse: 'search-response',
+} as const)
+export type GatewaySearchBundleType = typeof GatewaySearchBundleTypes[keyof typeof GatewaySearchBundleTypes]
+
+/** Operational record states; selecting a state does not authorize a lifecycle transition. */
+export const GatewayResourceLifecycleStatuses = Object.freeze({
+  Pending: 'pending', Active: 'active', Inactive: 'inactive',
+  Purged: 'purged', Suspended: 'suspended', Revoked: 'revoked',
+} as const)
+export type GatewayResourceLifecycleStatus = typeof GatewayResourceLifecycleStatuses[keyof typeof GatewayResourceLifecycleStatuses]
+
 /** Accepted URL sections; advertising a route does not establish permission. */
 export const GatewayRouteSections = Object.freeze({
   Entity: 'entity', Identity: 'identity', Individual: 'individual',

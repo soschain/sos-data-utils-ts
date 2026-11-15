@@ -372,6 +372,12 @@ plan exposes only a static prefix and independently reusable digit prompts.
 
 ## Verify
 
+`GatewaySearchBundleTypes` and `GatewayResourceLifecycleStatuses` in
+`gateway-response-contract` describe business wire envelopes and operational
+states, not native FHIR bundle types or authorized transitions. The DSP routing
+leaf also builds independent version metadata with the existing `2025-1`
+compatibility profile, preserving the supplied path without resolving it.
+
 `sos-data-utils-ts/gateway-dataspace-routing` formats relative DSP discovery and
 catalog paths from explicit tenant/host context. Incomplete context preserves
 the unscoped `/dsp` and metadata-path compatibility defaults. It trims selector

@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+- Own business search and operational lifecycle wire catalogs plus the existing
+  DSP version-metadata shape/builder. Preserve full catalog values, readonly
+  metadata types and independent response objects without adding access policy.
+
 - Own deterministic DSP relative-path formatters with the existing tenant/host
   selector precedence and unscoped fallbacks. Preserve wire whitespace/slash
   behavior and explicit dataset IDs without adding URL resolution or authority.
