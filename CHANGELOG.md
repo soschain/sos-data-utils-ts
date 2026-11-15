@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+- Own deterministic DSP relative-path formatters with the existing tenant/host
+  selector precedence and unscoped fallbacks. Preserve wire whitespace/slash
+  behavior and explicit dataset IDs without adding URL resolution or authority.
+
 - Own the complete existing DID-service fragment/type and DSP metadata-path
   advertisement profile in gateway-did-profile, preserving seventeen literal
   members and generic Antifraud DID types without adding URL or access policy.
