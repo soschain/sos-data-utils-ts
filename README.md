@@ -372,6 +372,14 @@ plan exposes only a static prefix and independently reusable digit prompts.
 
 ## Verify
 
+`sos-data-utils-ts/identity-auth-wire-contract` owns the operational identity
+action, request-field, DCR metadata, resource and response-type catalogs plus
+SMART post-DCR polling literals. The complete frozen profile preserves `token`,
+`token-response` and the compatibility `_batch-response`; it does not add
+`_token`. Response-entry discriminators remain in `gateway-response-contract`.
+These wire constants do not authenticate a caller or grant registration,
+licence, clinical or controller authority.
+
 ```bash
 npm ci
 npm run check
