@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+- Preserve existing email recovery record and notification fields alongside a
+  separate phone contact/version branch. These storage contracts contain no
+  seed, decrypted share or recovery authorization.
+
 - Preserve explicit controller and legal-representative telephone bindings in
   Organization verification transactions alongside the existing email wire.
 

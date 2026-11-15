@@ -75,6 +75,10 @@
       "types": "./dist/organization-authorization-urn.d.ts",
       "default": "./dist/organization-authorization-urn.js"
     },
+    "./profile-recovery-contract": {
+      "types": "./dist/profile-recovery-contract.d.ts",
+      "default": "./dist/profile-recovery-contract.js"
+    },
     "./organization-lifecycle-contract": {
       "types": "./dist/organization-lifecycle-contract.d.ts",
       "default": "./dist/organization-lifecycle-contract.js"
