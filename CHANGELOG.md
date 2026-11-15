@@ -1,6 +1,13 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # Changelog
 
+## Unreleased
+
+- Own persisted DeviceLicense, DeviceInfo, DeviceBinding and DeviceRestrictions
+  contracts with immutable existing user-class, app-type, binding and seat-status
+  wire values. Preserve legacy optional fields, owner/contact separation and
+  epoch-second timestamps without importing a legacy or OIDC registration model.
+
 ## 0.8.0 - 2026-11-15
 
 - Expose the existing pure Organization identity reader for provider-confirmed
