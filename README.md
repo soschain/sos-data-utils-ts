@@ -380,3 +380,19 @@ npm run check
 ## Shared Demo care examples
 
 `createPortalDemoCareEntries` from `sos-data-utils-ts/portal-demo-care-fixtures` returns independent flat Appointment, Encounter and Task entries for an authenticated, selected synthetic subject. Supply the subject reference, an idempotent generation-specific ID prefix and the BFF clock. The Task references the Appointment and is due one minute after seeding; the planned Encounter also references that Appointment. These are data fixtures, not persistence, authorization, delivery or gateway clients. Consumers must use the same providers and use cases as their Network workflows.
+
+
+### Operational content projection
+
+`canonicalizeOperationalClaimsForContentId` from
+`sos-data-utils-ts/operational-claim-content` prepares stable JSON for operational
+deduplication. Its explicit options default to omitting top-level JSON-LD envelope,
+logical identifier and derived version claims. It preserves Status, Entry,
+nested identifiers, numeric types, Unicode and significant array order. Own `__proto__` control keys are unsupported and rejected recursively before
+projection; ordinary `constructor` and `prototype` data fields remain supported.
+It does
+not mutate the canonical stored/signed resource or produce a FHIR view or CID.
+FHIR owns stable JSON sorting; the CID codec/hash belongs to the independent
+Antifraud primitive. Eight read-only original implementation vectors are retained
+under `tests/fixtures/operational-claim-content-vectors.json` with their full
+source URL and hash provenance; new tests have no original-package dependency.

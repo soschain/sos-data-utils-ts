@@ -85,3 +85,5 @@ export * from './registered-profile-contract.js';
 export * from './test-network-organization-registration-form.js';
 export * from './organization-participation-roles.js';
 export * from './device-license-contract.js';
+
+export * from './operational-claim-content.js';

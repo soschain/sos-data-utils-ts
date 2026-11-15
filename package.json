@@ -358,6 +358,10 @@
     "./organization-participation-roles": {
       "types": "./dist/organization-participation-roles.d.ts",
       "default": "./dist/organization-participation-roles.js"
+    },
+    "./operational-claim-content": {
+      "types": "./dist/operational-claim-content.d.ts",
+      "default": "./dist/operational-claim-content.js"
     }
   },
   "files": [
