@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+- Own the complete existing DID-service fragment/type and DSP metadata-path
+  advertisement profile in gateway-did-profile, preserving seventeen literal
+  members and generic Antifraud DID types without adding URL or access policy.
+
 - Own the six identity/auth operation, request, metadata and SMART polling wire
   catalogs with all thirty existing literal members and readonly public types.
   Keep response-entry discriminators separate; constants confer no admission.
