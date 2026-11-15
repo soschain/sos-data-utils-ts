@@ -3,9 +3,9 @@
 
 ## Unreleased
 
-- Match workflow entry types to actual Group POST/PATCH and full-claim Consent
-  POST/PUT; preserve the original assignment claims. This typing change does
-  not introduce a document attachment or alter Gateway authorization policy.
+- Distinguish Group POST/PATCH from governed organization Consent POST/PATCH/PUT.
+  Retain the routed inactive-only PATCH and original assignment claims; typing
+  does not introduce a document attachment or alter Gateway authorization policy.
 
 - Add a strict controller-owned identity-evidence command, pending opaque receipt
   and frozen upload policy. Allow any distinct subject/controller/relationship

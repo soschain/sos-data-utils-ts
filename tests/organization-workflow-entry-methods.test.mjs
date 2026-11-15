@@ -1,4 +1,4 @@
-// Flow contract: Group workflow wire keeps POST/PATCH while actual Consent assignment/revocation uses POST/PUT with the complete original claims. Neither method selection nor attachment omission is authority; the GW must enforce its exact governed profile.
+// Flow contract: Group workflow wire keeps POST/PATCH, while routed Consent retains POST/status-PATCH and a full-resource PUT form. Method selection and attachment omission confer no authority; actual routed manager controls remain required.
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import ts from 'typescript'
@@ -8,7 +8,7 @@ import {REPOSITORY_SAFE_EXAMPLES as safe} from '../dist/repository-privacy.js'
 import {HealthcareActorRoles} from '../dist/healthcare-roles.js'
 import {ClaimConsent} from 'fhir-data-utils-ts'
 
-test('public workflow entry typing admits actual Consent PUT and rejects unsupported Group/Consent methods',()=>{
+test('public workflow typing retains Consent PATCH/PUT and rejects unsupported Group updates or batch reads',()=>{
  const program=ts.createProgram([fileURLToPath(new URL('./fixtures/organization-workflow-consent-put-consumer.ts',import.meta.url))],{target:ts.ScriptTarget.ES2023,module:ts.ModuleKind.NodeNext,moduleResolution:ts.ModuleResolutionKind.NodeNext,strict:true,noEmit:true,skipLibCheck:true,types:[]})
  assert.deepEqual(ts.getPreEmitDiagnostics(program).map(value=>ts.flattenDiagnosticMessageText(value.messageText,'\n')),[])
 })

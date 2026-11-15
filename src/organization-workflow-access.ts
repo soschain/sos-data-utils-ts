@@ -59,7 +59,7 @@ export type OrganizationWorkflowConsentEntry = Readonly<{
     id: string
     meta: Readonly<{ claims: Readonly<Record<string, string>> }>
   }>
-  request: Readonly<{ method: 'POST' | 'PUT'; url: string }>
+  request: Readonly<{ method: 'POST' | 'PATCH' | 'PUT'; url: string }>
 }>
 
 /** The actual workflow GW wire differs between Group membership patches and full Consent updates. */
