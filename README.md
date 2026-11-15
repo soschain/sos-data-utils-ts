@@ -372,6 +372,11 @@ plan exposes only a static prefix and independently reusable digit prompts.
 
 ## Verify
 
+`sos-data-utils-ts/gateway-did-profile` composes generic Antifraud DID types
+with SOS routing selectors and immutable service fragment/type and DSP metadata
+path catalogs. These advertisement values do not resolve endpoints, validate
+published DID documents or grant tenant access.
+
 `sos-data-utils-ts/identity-auth-wire-contract` owns the operational identity
 action, request-field, DCR metadata, resource and response-type catalogs plus
 SMART post-DCR polling literals. The complete frozen profile preserves `token`,
