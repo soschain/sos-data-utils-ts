@@ -346,6 +346,14 @@
     "./registered-profile-contract": {
       "types": "./dist/registered-profile-contract.d.ts",
       "default": "./dist/registered-profile-contract.js"
+    },
+    "./test-network-organization-registration-form": {
+      "types": "./dist/test-network-organization-registration-form.d.ts",
+      "default": "./dist/test-network-organization-registration-form.js"
+    },
+    "./organization-participation-roles": {
+      "types": "./dist/organization-participation-roles.d.ts",
+      "default": "./dist/organization-participation-roles.js"
     }
   },
   "files": [
