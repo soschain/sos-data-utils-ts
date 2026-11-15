@@ -366,6 +366,10 @@
     "./identity-auth-wire-contract": {
       "types": "./dist/identity-auth-wire-contract.d.ts",
       "default": "./dist/identity-auth-wire-contract.js"
+    },
+    "./gateway-dataspace-routing": {
+      "types": "./dist/gateway-dataspace-routing.d.ts",
+      "default": "./dist/gateway-dataspace-routing.js"
     }
   },
   "files": [

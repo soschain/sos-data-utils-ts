@@ -372,6 +372,12 @@ plan exposes only a static prefix and independently reusable digit prompts.
 
 ## Verify
 
+`sos-data-utils-ts/gateway-dataspace-routing` formats relative DSP discovery and
+catalog paths from explicit tenant/host context. Incomplete context preserves
+the unscoped `/dsp` and metadata-path compatibility defaults. It trims selector
+whitespace but preserves supplied slashes and dataset IDs; it is not a URL
+validator, endpoint resolver or access check.
+
 `sos-data-utils-ts/gateway-did-profile` composes generic Antifraud DID types
 with SOS routing selectors and immutable service fragment/type and DSP metadata
 path catalogs. These advertisement values do not resolve endpoints, validate
