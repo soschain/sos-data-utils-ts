@@ -69,6 +69,7 @@ export * from './consent-smart-scopes.js';
 export * from './permission-templates.js';
 export * from './bff-wire-contract.js';
 export * from './employee-routing.js';
+export * from './organization-lifecycle-contract.js';
 export * from './organization-authorization-urn.js';
 export * from './gateway-transport-contract.js';
 export * from './gateway-did-profile.js';

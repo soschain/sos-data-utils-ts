@@ -75,6 +75,10 @@
       "types": "./dist/organization-authorization-urn.d.ts",
       "default": "./dist/organization-authorization-urn.js"
     },
+    "./organization-lifecycle-contract": {
+      "types": "./dist/organization-lifecycle-contract.d.ts",
+      "default": "./dist/organization-lifecycle-contract.js"
+    },
     "./employee-routing": {
       "types": "./dist/employee-routing.d.ts",
       "default": "./dist/employee-routing.js"

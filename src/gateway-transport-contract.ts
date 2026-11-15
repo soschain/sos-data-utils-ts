@@ -18,13 +18,13 @@ export type LegalOrganizationOrderInput=Readonly<{
   dataType?:string;additionalClaims?:Readonly<Record<string,unknown>>;timeoutSeconds?:number;intervalSeconds?:number
 }>
 export type OrganizationVerificationBinding=Readonly<{
-  did?:string;email?:string;sameAs?:string;url?:string;publicKeyJwk?:Readonly<Record<string,unknown>>
+  did?:string;email?:string;telephone?:string;sameAs?:string;url?:string;publicKeyJwk?:Readonly<Record<string,unknown>>
   jwks?:Readonly<{keys:ReadonlyArray<Readonly<Record<string,unknown>>>}>
 }>
 export type LegalOrganizationVerificationTransactionInput=Readonly<{
   claims:Readonly<Record<string,unknown>>;controller:OrganizationVerificationBinding
   organization?:OrganizationVerificationBinding
-  legalRepresentativePayload?:Readonly<{email?:string;sameAs?:string}>
+  legalRepresentativePayload?:Readonly<{email?:string;telephone?:string;sameAs?:string}>
   verification?:Readonly<{resourceType?:string}>
   organizationTestNetworkCredential?:object;testNetworkCredentials?:readonly object[];attachments?:readonly unknown[]
 }>

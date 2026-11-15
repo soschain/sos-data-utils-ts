@@ -3,6 +3,13 @@
 
 ## Unreleased
 
+- Preserve explicit controller and legal-representative telephone bindings in
+  Organization verification transactions alongside the existing email wire.
+
+- Own existing host-registry lifecycle claim keys and distinct status/purge
+  readback contracts; retain an optional actual correlated Occupation resource
+  ID in workforce inventory without inferring FHIR identity or authority.
+
 - Preserve existing email workforce DTOs while adding an explicit, mutually
   exclusive phone contact branch and the seven-field numeric licence inventory
   summary. Strict consumer fixtures reject mixed/missing contacts and invalid

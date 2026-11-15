@@ -21,5 +21,7 @@ export type LicenseListSummary=Readonly<{
 /** A returned contact label is not proof of possession or authority. */
 export type OrganizationEmployeeLifecycleRecord=Readonly<{
   resourceId:string;roleCode:string;employeeDid:string
+  /** Actual correlated Occupation record ID; no inferred or pre-existing FHIR PractitionerRole is asserted. */
+  occupationResourceId?:string
   status:'active'|'inactive'|'purged'|'unknown';license?:OrganizationEmployeeLicenseRecord
 }>&(Readonly<{email:string;contactKind?:'email';telephone?:never}>|Readonly<{contactKind:'phone';telephone:string;email?:never}>)
