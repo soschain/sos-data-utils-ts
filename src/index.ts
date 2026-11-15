@@ -81,3 +81,6 @@ export * from './provisional-subject-evidence.js';
 export * from './individual-registration-contract.js';
 export * from './consent-access-editor-contract.js';
 export * from './registered-profile-contract.js';
+
+export * from './test-network-organization-registration-form.js';
+export * from './organization-participation-roles.js';

@@ -3,6 +3,12 @@
 
 ## Unreleased
 
+- Own exact ordered Test Network application PDF fields and separate BFF metadata,
+  representative and technical-controller contracts. Own seven immutable
+  participation-role identifiers without importing product-specific catalogs.
+  Exact runtime and strict typed consumer regressions preserve wire values;
+  catalog membership does not verify signed evidence or grant authority.
+
 - Reject inherited object-property names in bounded permission-section lookup.
 
 - Own classified Consent editor contracts and operational healthcare permission

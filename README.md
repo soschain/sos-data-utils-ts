@@ -29,6 +29,26 @@ responsibilities. Demo registration keeps its own provisional URN contract.
 The frozen `NETWORK_SUBJECT_REGISTRATION_EXAMPLE` is available only through
 `individual-registration-examples` for tests/examples, never provider selection.
 
+## Organization application PDF and participation contracts
+
+`test-network-organization-registration-form` owns the immutable ordered
+41-field AcroForm catalog and separate provider, legal organization, legal
+representative, technical controller and BFF metadata types. The supplied
+sentence-shaped checkbox names remain exact. Document version and controller
+key commitment are supplied by the BFF; these types do not verify a signature,
+certificate, representative authority or ICA admission.
+
+`organization-participation-roles` owns seven distinct application-role
+identifiers for individual index, personal backup and digital-twin participation.
+Role selection is not an operational capability grant. Neither module imports
+product-specific catalogs or implements PDF rendering or persistence.
+
+The original PDF field contract was reviewed at
+[the original source](https://github.com/Global-DataCare/gdc-common-utils-ts/blob/f4031b221216cacd9917d1d20c5ff0b03bed7045/src/models/test-network-organization-registration-form.ts).
+This package owns independent pure contracts and has no dependency on that repository.
+The participation values were checked against the installed product application
+catalog; no original repository URL is asserted without verified provenance.
+
 ## One persistence contract across runtimes
 
 Demo and Test Network execute the same use cases through the canonical
