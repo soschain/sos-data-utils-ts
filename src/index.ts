@@ -79,3 +79,5 @@ export * from './gateway-sector-contract.js';
 export * from './provisional-subject-registration.js';
 export * from './provisional-subject-evidence.js';
 export * from './individual-registration-contract.js';
+export * from './consent-access-editor-contract.js';
+export * from './registered-profile-contract.js';
