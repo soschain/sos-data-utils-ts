@@ -1,6 +1,13 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # sos-data-utils-ts
 
+`device-license-contract` owns persisted seat, installation-binding and device
+fingerprint types with immutable user-class, form-factor and lifecycle catalogs.
+Pool owner, invited member, contact, accessible subject and installation remain
+separate. Timestamps retain numeric epoch seconds; optional legacy single-device
+fields remain supported. These contracts do not authorize admission, grant
+permissions or execute activation, capacity checks or revocation.
+
 `server-profile-secret-contract` owns the existing PIN-plus-host encrypted
 secret envelope and public scrypt metadata. It contains no cryptographic
 execution or profile authority. The persisted format discriminator remains

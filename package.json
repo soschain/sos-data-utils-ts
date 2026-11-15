@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./device-license-contract": {
+      "types": "./dist/device-license-contract.d.ts",
+      "default": "./dist/device-license-contract.js"
+    },
     "./server-profile-secret-contract": {
       "types": "./dist/server-profile-secret-contract.d.ts",
       "default": "./dist/server-profile-secret-contract.js"
