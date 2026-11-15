@@ -41,7 +41,8 @@ function claim(values:Record<string,unknown>,key:string):unknown{
  if(full!==undefined)return full
  return values['@context']==='org.schema'?short:undefined
 }
-function identityProjection(input:Readonly<{organizationId:unknown;providerDid:unknown;canonicalSubjectIdentifier:unknown;publicCardAlias:unknown}>):IndividualOrganizationBootstrapIdentity{
+/** Pure identity projection shared by provider-confirmed registration and directory rows; does not verify issuer authority. */
+export function readIndividualOrganizationIdentity(input:Readonly<{organizationId:unknown;providerDid:unknown;canonicalSubjectIdentifier:unknown;publicCardAlias:unknown}>):IndividualOrganizationBootstrapIdentity{
  const organizationId=uuid(input.organizationId),providerDid=text(input.providerDid)
  if(!providerDid.startsWith('did:web:'))throw new TypeError('individual_registration_receipt_binding_invalid')
  const canonicalSubjectIdentifier=text(input.canonicalSubjectIdentifier)
@@ -65,7 +66,7 @@ export function assertNetworkSubjectRegistrationResult(
  const result=exact(value,['mode','operationId','registration','controllerInvitation'])
  if(result.mode!=='network'||typeof result.operationId!=='string'||uuid(result.operationId)!==result.operationId)throw new TypeError('network_subject_registration_result_invalid')
  const registration=exact(result.registration,['identity','offerId']),rawIdentity=exact(registration.identity,['organizationId','canonicalSubjectIdentifier','publicCardAlias','providerDid'])
- const identity=identityProjection({organizationId:rawIdentity.organizationId,providerDid:rawIdentity.providerDid,canonicalSubjectIdentifier:rawIdentity.canonicalSubjectIdentifier,publicCardAlias:rawIdentity.publicCardAlias})
+ const identity=readIndividualOrganizationIdentity({organizationId:rawIdentity.organizationId,providerDid:rawIdentity.providerDid,canonicalSubjectIdentifier:rawIdentity.canonicalSubjectIdentifier,publicCardAlias:rawIdentity.publicCardAlias})
  const didWeb=/^did:web:[^:\s/?#,]+(?::[^:\s/?#,]+)*$/u
  if(!didWeb.test(identity.providerDid)||!didWeb.test(identity.publicCardAlias))throw new TypeError('network_subject_registration_result_invalid')
  for(const key of Object.keys(identity) as (keyof IndividualOrganizationBootstrapIdentity)[])if(rawIdentity[key]!==identity[key])throw new TypeError('network_subject_registration_result_invalid')
@@ -97,6 +98,6 @@ export function readIndividualOrganizationBootstrapReceipt(
  if((status!=='200'&&status!=='201')||resource.resourceType!=='Organization'||uuid(resource.id)!==organizationId)throw new TypeError('individual_registration_receipt_binding_invalid')
  const values=record(record(resource.meta).claims)
  if(text(claim(values,'org.schema.Offer.offeredBy'))!==providerDid)throw new TypeError('individual_registration_receipt_binding_invalid')
- const identity=identityProjection({organizationId,providerDid,canonicalSubjectIdentifier:claim(values,'org.schema.Organization.did'),publicCardAlias:claim(values,'org.schema.Organization.sameAs')})
+ const identity=readIndividualOrganizationIdentity({organizationId,providerDid,canonicalSubjectIdentifier:claim(values,'org.schema.Organization.did'),publicCardAlias:claim(values,'org.schema.Organization.sameAs')})
  return {identity,offerId:text(claim(values,'org.schema.Offer.identifier'),512)}
 }
