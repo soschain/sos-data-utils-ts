@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+- Own the six identity/auth operation, request, metadata and SMART polling wire
+  catalogs with all thirty existing literal members and readonly public types.
+  Keep response-entry discriminators separate; constants confer no admission.
+
 - Add an explicit operational flat-claim content projection for deduplication,
   preserving exact canonical UTF-8 against original compatibility vectors while
   keeping canonical FHIR sorting generic. Envelope/identifier/version omissions

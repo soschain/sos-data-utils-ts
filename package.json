@@ -362,6 +362,10 @@
     "./operational-claim-content": {
       "types": "./dist/operational-claim-content.d.ts",
       "default": "./dist/operational-claim-content.js"
+    },
+    "./identity-auth-wire-contract": {
+      "types": "./dist/identity-auth-wire-contract.d.ts",
+      "default": "./dist/identity-auth-wire-contract.js"
     }
   },
   "files": [

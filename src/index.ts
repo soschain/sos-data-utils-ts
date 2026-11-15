@@ -87,3 +87,4 @@ export * from './organization-participation-roles.js';
 export * from './device-license-contract.js';
 
 export * from './operational-claim-content.js';
+export * from './identity-auth-wire-contract.js';
