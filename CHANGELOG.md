@@ -1,7 +1,7 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # Changelog
 
-## Unreleased
+## 0.8.0 - 2026-11-15
 
 - Expose the existing pure Organization identity reader for provider-confirmed
   directory rows, preserving canonical UUID/provider/subject and alias validation.
