@@ -1,11 +1,24 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # sos-data-utils-ts
 
+`gateway-data-collections` defines logical storage/index IDs and the existing
+FHIR resource-family and operational permission-summary fan-out maps. Use
+canonical FHIR resource names from `fhir-data-utils-ts`; these SOS mappings
+select logical collections rather than prescribing a FHIR database schema.
+The permission map uses `LOINC|code` tokens and remains distinct from native
+URI-qualified summary tokens. Catalogs and nested arrays are immutable.
+
+`gateway-parameter-contract` owns the existing private configuration/search
+parameter shape, including explicit scalar value, uniqueness metadata, open
+configured type and optional display/choice fields. It is distinct from native
+FHIR search types and does not validate, index, encrypt or authorize a value.
+
 `employee-routing` preserves email workforce records and an explicit phone
 contact branch, without placing a telephone number in an email field. Shared
 role, lifecycle and installation fields remain unchanged. `LicenseListSummary`
-retains seven numeric inventory counts; neither contract verifies possession,
-grants employment or authorizes capacity.
+retains seven numeric inventory counts. The frozen catalogs for directory states,
+mutations and inventory queries preserve the existing workforce wire codes.
+Runtime providers authorize the operations.
 
 `device-license-contract` owns persisted seat, installation-binding and device
 fingerprint types with immutable user-class, form-factor and lifecycle catalogs.

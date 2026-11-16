@@ -3,6 +3,19 @@
 
 ## Unreleased
 
+- Own the complete logical collection IDs and resource/permission-summary
+  fan-out mappings with canonical FHIR resource names and unchanged operational
+  wire values, including immutable nested arrays and public literal types.
+
+- Own the exact controller workforce mutation and inventory-query codes alongside
+  the directory states, retaining their complete public type unions and wire values.
+
+- Own the existing private gateway parameter shape without narrowing configured
+  type extensions or changing required value, uniqueness and display fields.
+- Publish the three operational gateway response-envelope discriminators as
+  immutable data; serialization does not establish successful authorization.
+- Expose the complete owned employee directory states without changing the
+  existing phone/email DTO wire values or authority.
 - Scope jurisdiction-specific integration acceptance to affected flows, while
   retaining mandatory affected regressions and truthful failure reporting.
 

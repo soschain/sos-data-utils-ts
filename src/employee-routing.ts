@@ -1,3 +1,13 @@
+/** Complete operational directory states; a stored state alone grants no authority. */
+export const EmployeeDirectoryStatuses=Object.freeze({Active:'active',Inactive:'inactive',Purged:'purged',Unknown:'unknown'} as const)
+export type EmployeeDirectoryStatus=typeof EmployeeDirectoryStatuses[keyof typeof EmployeeDirectoryStatuses]
+
+/** Exact controller mutation codes used by workforce lifecycle providers. */
+export const EmployeeLifecycleActions=Object.freeze({Disable:'disable',Purge:'purge',RevokeDevice:'revoke_device'} as const)
+export type EmployeeLifecycleAction=typeof EmployeeLifecycleActions[keyof typeof EmployeeLifecycleActions]
+/** Inventory queries remain separate from state-changing actions. */
+export const EmployeeLifecycleQueryActions=Object.freeze({List:'list'} as const)
+
 /** Routing metadata only; a V1 grant is not contact possession, employment, a licence or a device grant. */
 export const EmployeeActivationGrantVersions=Object.freeze({V1:'employee-activation-grant-v1'} as const)
 export type EmployeeActivationGrant=Readonly<{
@@ -23,5 +33,5 @@ export type OrganizationEmployeeLifecycleRecord=Readonly<{
   resourceId:string;roleCode:string;employeeDid:string
   /** Actual correlated Occupation record ID; no inferred or pre-existing FHIR PractitionerRole is asserted. */
   occupationResourceId?:string
-  status:'active'|'inactive'|'purged'|'unknown';license?:OrganizationEmployeeLicenseRecord
+  status:EmployeeDirectoryStatus;license?:OrganizationEmployeeLicenseRecord
 }>&(Readonly<{email:string;contactKind?:'email';telephone?:never}>|Readonly<{contactKind:'phone';telephone:string;email?:never}>)

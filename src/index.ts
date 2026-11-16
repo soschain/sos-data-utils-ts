@@ -1,5 +1,6 @@
 // Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0.
 export * from './server-profile-secret-contract.js';
+export * from './gateway-parameter-contract.js';
 export * from './bff-api.js';
 export * from './public-notifications.js';
 export * from './public-health-statistics-policy.js';
@@ -92,3 +93,5 @@ export * from './operational-claim-content.js';
 export * from './identity-auth-wire-contract.js';
 export * from './gateway-dataspace-routing.js';
 export * from './controller-identity-evidence.js'
+
+export * from './gateway-data-collections.js'
