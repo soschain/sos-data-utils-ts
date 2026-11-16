@@ -1,6 +1,11 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # sos-data-utils-ts
 
+`gateway-parameter-contract` owns the existing private configuration/search
+parameter shape, including explicit scalar value, uniqueness metadata, open
+configured type and optional display/choice fields. It is distinct from native
+FHIR search types and does not validate, index, encrypt or authorize a value.
+
 `employee-routing` preserves email workforce records and an explicit phone
 contact branch, without placing a telephone number in an email field. Shared
 role, lifecycle and installation fields remain unchanged. `LicenseListSummary`

@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./gateway-parameter-contract": {
+      "types": "./dist/gateway-parameter-contract.d.ts",
+      "default": "./dist/gateway-parameter-contract.js"
+    },
     "./controller-identity-evidence": {
       "types": "./dist/controller-identity-evidence.d.ts",
       "default": "./dist/controller-identity-evidence.js"

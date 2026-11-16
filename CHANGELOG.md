@@ -1,6 +1,15 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # Changelog
 
+## Unreleased
+
+- Own the existing private gateway parameter shape without narrowing configured
+  type extensions or changing required value, uniqueness and display fields.
+- Publish the three operational gateway response-envelope discriminators as
+  immutable data; serialization does not establish successful authorization.
+- Expose the complete owned employee directory states without changing the
+  existing phone/email DTO wire values or authority.
+
 ## 0.8.1
 
 - Pin the verified Antifraud 0.3.2 registry contract alongside the existing

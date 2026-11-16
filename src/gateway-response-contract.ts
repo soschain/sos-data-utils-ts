@@ -6,6 +6,14 @@ export const GatewaySearchBundleTypes = Object.freeze({
 } as const)
 export type GatewaySearchBundleType = typeof GatewaySearchBundleTypes[keyof typeof GatewaySearchBundleTypes]
 
+/** Operational response envelope types; entry discriminators and native FHIR documents remain separate. */
+export const GatewayEnvelopeTypes = Object.freeze({
+  BatchResponse: 'batch-response',
+  MessagingResponse: 'messaging-response',
+  TransactionResponse: 'transaction-response',
+} as const)
+export type GatewayEnvelopeType = typeof GatewayEnvelopeTypes[keyof typeof GatewayEnvelopeTypes]
+
 /** Operational record states; selecting a state does not authorize a lifecycle transition. */
 export const GatewayResourceLifecycleStatuses = Object.freeze({
   Pending: 'pending', Active: 'active', Inactive: 'inactive',
