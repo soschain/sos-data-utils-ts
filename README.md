@@ -450,3 +450,17 @@ submissions are valid. Server-owned card, account and generation bindings never
 come from the command. This is separate from provisional registration and
 professional attestation. A pending receipt does not verify identity, sign a
 credential or expose file names, content identifiers or external download URLs.
+
+### Explicit gateway profiles
+
+`individual-onboarding` owns subject/controller form mapping and claims-only
+PDF references. PDF construction stays in the Node gateway; mapping does not
+verify KYC or authorize access. `gateway-transport-values` owns response status
+text, URL edge joining and claim namespaces. `gateway-profile-values` contains
+the existing entry discriminators, LOINC permission tokens and bounded animal
+emergency vocabulary. Runtime identity, consent and scope checks remain required.
+
+`animal-insurance-consent` is an explicit eligibility profile, separate from
+emergency authorization. It retains the existing ODRL IRIs and rejects policy
+attachments that disagree with the canonical Consent claims. Native FHIR views
+are generated only at the requested adapter boundary.

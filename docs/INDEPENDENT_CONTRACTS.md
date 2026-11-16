@@ -123,3 +123,106 @@ and is separate from FHIR/JCS canonicalization and the confidential payload.
 Antifraud's generic DID service/document contracts. The generic standard model
 keeps unknown extensions unknown; this profile declares its own fields explicitly.
 An advertisement remains metadata and does not establish access authority.
+
+
+## Identity presentations and access evidence
+
+`professional-smart` and `individual-smart` own the SOS employee, individual
+controller and authorized-member credential projections. A professional
+occupation, legal representation, controller role and personal relationship
+remain distinct. Builders preserve the existing public contact hashes and
+signing-material fields; readers decode and match claims after an enclosing
+verifier has checked their signatures and current authority.
+
+`vp-token` and `jwt` assemble presentation data and exact compact signing inputs.
+They reuse Antifraud's credential models, unverified data readers and byte
+encoding. They perform no signature verification. Unsigned builders are explicit
+fixture utilities; they do not select a runtime verification mode. Real signature
+verification belongs to `antifraud-data-utils-ts/clearing-house` and the owning
+cryptography engine.
+
+`subject-identity-binding` matches trusted individual alias sets while excluding
+physical-card DIDs. `inter-tenant-access-contract` projects the FHIR Contract,
+its legally authorized signatories and bilateral agreement-proof bindings.
+Consent delegation reuses FHIR's claim keys. These helpers match already-verified
+evidence; ledger state, credential status and cryptographic proof validation
+remain responsibilities of the trusted application verifier.
+
+`smart-authorization-profile` distinguishes direct VC Data Model 2.0 presentations
+from explicitly reported legacy JWT wrappers, rejects ambiguous forms and
+projects read-only emergency authorization details. `activation-policy` keeps
+controller authority and service permissions separate from identity decoding.
+
+The bounded compatibility reference is the reviewed credential/presentation
+helper source at commit
+[`74479fa3fc8d8cbf92a9ff13dd626ccf8d6f2b1e`](https://github.com/Global-DataCare/gdc-common-utils-ts/tree/74479fa3fc8d8cbf92a9ff13dd626ccf8d6f2b1e/src/utils).
+The implementation imports no predecessor package. Synthetic golden projections
+retain the reviewed contact-hash and signing-byte profile. Fresh deterministic
+fixtures come from `identity-presentation-examples`, which derives all example
+identities from `repository-privacy` and returns unsigned presentation data.
+
+
+## Gateway scheduling, catalogue and signed health-card contracts
+
+The gateway-facing neutral contracts selectively retain the reviewed
+scheduling, Provenance, claims-only directory, HealthDCAT publication, ISO
+jurisdiction and signed-SHC preparation behavior from the prior package.
+The source and dataset attribution are recorded in NOTICE. Static vectors
+retain exact outputs for governed synthetic examples without importing the
+prior package at test time.
+
+- Scheduling reuses the canonical FHIR Schedule/Slot graphs and existing
+  organization-scoped resource identity helpers. Optional appointment-response
+  notifications require an explicit topic profile; there is no product topic
+  selected by default.
+- Directory resources remain claims-only Organization, Place, Service and
+  Product records. The neutral module does not contain veterinary service
+  category allowlists, sector presentation rules or marketplace routing.
+- HealthDCAT builders preserve explicit controller checks, data-holder and
+  intermediary provenance, editorial record status and discovery distinctions.
+- ISO country/subdivision data retains the Debian iso-codes provenance and
+  complete reviewed dataset, rather than a partial country allowlist.
+- Signed health-card preparation reuses FHIR canonicalization and neutral
+  encoding. It produces exact ES256 signing input, not a positive signature
+  verification result. QR encoding remains in the existing clinical-document
+  helper; detached PQC proof encoding remains with neutral cryptography.
+- Payment exposes provider identifiers and non-operational test values, not
+  provider reconciliation, signing keys or RPC configuration.
+
+Animal-specific insurance consent and emergency policy retain separate domain
+ownership. Reminder authorization orchestration and research-study workflow
+builders belong to their SDK owners. Removing a dependency never substitutes
+an unsigned demonstration card or relaxes current identity and consent checks.
+
+## Hosted identity routing and Subject lookup
+
+The hosted DID and actor contracts preserve the established path and terminal
+role parsing rules. UUID identifiers are hashed as canonical 16-byte values;
+email, telephone and governed identifiers retain their exact normalization and
+SHA3-384 multihash profile. Clinical identifier code values come from FHIR,
+encoding comes from neutral Antifraud, and member parsing reuses the existing
+SOS routing contract. A parsed role or opaque hash is never an authorization.
+
+Subject entries preserve semantic Person, Animal or Place resources and stable
+card references in protected claims. Their public ledger payload contains only
+the index-provider DID; it never exposes the private identifier or card mapping.
+Organization DID binding replaces aliases for the tenant selected by the host,
+and rejects alternate payload identity locators. Postal binding exports only
+its protected-code wire types and lifecycle; host-only code verification and
+pepper custody remain in the Node gateway. These modules are browser-safe.
+
+Organization role-licence identities retain their jurisdiction, official legal
+identifier, opaque stable contact and licensed-role preimage. Exact-sector
+policies reject wildcards, duplicate sectors and non-positive device limits.
+Revoked licences never permit a sector. Legal-sector organization bindings
+retain their canonical ten-part grammar and SHA3-256 lookup; public aliases
+retain their distinct SHA3-384 lookup. These are protocol identities, not grants.
+
+### Synthetic gateway flow examples
+
+`gateway-flow-examples` owns the shared synthetic descriptors used by gateway
+consumer tests. Hosted individual and member DIDs, organization authorization
+URNs, multibase values and FHIR claim names come from their independent owners.
+Reserved contact origins and governed telephone values come from
+`repository-privacy`. Linked fixture values remain consistent across flows;
+using a fixture does not confer authentication, task permission or consent.

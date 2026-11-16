@@ -36,6 +36,7 @@ const artifacts = trackedFiles
       'hl7.org',
       'loinc.org',
       'purl.obolibrary.org',
+      'schema.org',
       'snomed.info',
       'terminology.hl7.org',
       'www.hl7.org',

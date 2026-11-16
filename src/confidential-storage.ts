@@ -68,3 +68,8 @@ export interface ConfidentialStorageDoc extends RecordBase {
 }
 /** In-memory projection only. Persistence and encryption belong to the SDK adapter. */
 export type UnprotectedStorageDoc<T> = Omit<ConfidentialStorageDoc, 'jwe' | 'content'> & { content: T }
+
+/** Canonical searchable provenance metadata; these attributes do not grant access. */
+export const ConfidentialDocumentIndex = Object.freeze({
+  Sector:'sector', CreatorDid:'audit.creatorDid', SubmitterDid:'audit.submitterDid', SigningKeyId:'audit.signingKeyId',
+} as const)

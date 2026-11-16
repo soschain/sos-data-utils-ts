@@ -1,6 +1,46 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # Changelog
 
+## Unreleased
+
+- Own commercial seat purchase/search request metadata, employee batch wire identifiers
+  and confidential provenance index names as pure neutral contracts. Preserve
+  existing wire values; request construction never grants runtime authority.
+
+- Preserve claims-first subject/controller onboarding and PDF reference contracts
+  with neutral Schema.org and FHIR dependencies. Own transport formatting and
+  the existing discovery and emergency profile vocabulary.
+- Keep the animal-insurance eligibility ODRL contract in an explicit profile
+  subpath, preserving its policy IRIs and consent parity checks independently
+  of emergency access authority.
+
+- Preserve historical organization authorization URNs alongside the existing
+  jurisdiction-qualified CDS contract.
+- Preserve organization role-licence and legal-sector ledger identities with
+  exact SHA3 profiles, canonical public-alias lookup and strict sector/device
+  limits. Keep current active authorization distinct from public identifiers.
+
+- Own hosted identity and Subject lookup contracts with exact historical hash
+  bytes, neutral actor parsing, tenant-scoped organization alias binding and
+  postal-code binding types. Reuse FHIR identifier codes, neutral encoding and
+  existing member routing without moving Node cryptography into Data.
+
+- Add independent scheduling, provenance, claims-only directory, HealthDCAT,
+  ISO jurisdiction, payment-provider and signed health-card preparation
+  contracts used by the gateway. Reuse the neutral FHIR, cryptography and
+  organization-identity owners, retain reviewed wire vectors and explicit
+  controller policy, and require an explicit scheduling notification profile.
+  Keep veterinary service presentation, marketplace routing, animal insurance
+  policy and emergency authority out of these neutral contracts.
+
+- Own the employee, individual controller/member, subject-alias and inter-tenant
+  access-contract presentation helpers over neutral Antifraud identity and
+  credential contracts and FHIR consent claims, without predecessor imports.
+- Preserve credential projections, contact hashes and compact signing bytes;
+  keep decoding separate from signatures, current authority and consent policy.
+- Add direct/legacy presentation parsing, read-only SMART emergency details,
+  activation credential policy and governed deterministic identity examples.
+
 ## 0.8.2
 
 - Pin verified Antifraud 0.3.3 while retaining all other direct dependency

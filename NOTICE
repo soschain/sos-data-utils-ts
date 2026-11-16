@@ -1,2 +1,37 @@
 sos-data-utils-ts
 Copyright 2026 Connecting Solution & Applications Ltd.
+
+Adapted identity-presentation and access-evidence helpers retain their original
+Copyright 2026 Antifraud Services Inc. attribution under Apache License 2.0.
+
+The neutral scheduling, Provenance, claims-only directory, HealthDCAT,
+jurisdiction and signed health-card preparation contracts selectively adapted
+from vet-data-utils-ts 0.8.7 retain Copyright 2026 Connecting Solution &
+Applications Ltd. under Apache License 2.0. The reviewed source revision is
+ce71d5c4f43f99e73bf56c1168030228e2f89cb9. The ISO country/subdivision dataset
+retains its Debian iso-codes 4.20.1-1 provenance. Product sector presentation,
+veterinary service categories and marketplace routing were not migrated.
+
+The selective hosted DID, actor parsing, Subject identity and tenant DID/postal
+binding contracts retain Antifraud Services Inc. Apache-2.0 attribution from
+reviewed source revision 74479fa3fc8d8cbf92a9ff13dd626ccf8d6f2b1e. Golden
+identity vectors were captured from released gdc-common-utils-ts 2.9.30 using
+governed synthetic inputs. No runtime dependency on that package is required.
+
+Selective organization role-licence, public-alias ledger and legal-sector
+organization contracts retain their Antifraud Services Inc. and Connecting
+Solution & Applications Ltd. attribution from the same reviewed revision.
+
+Selective claims-first onboarding and transport formatting retain their original
+Apache-2.0 attribution from reviewed gdc-common-utils-ts revision
+74479fa3fc8d8cbf92a9ff13dd626ccf8d6f2b1e. The animal-insurance ODRL profile is
+adapted from vet-data-utils-ts 0.8.7, revision
+ce71d5c4f43f99e73bf56c1168030228e2f89cb9. Existing profile IRIs remain wire
+identifiers, independent of package ownership.
+
+Selected synthetic gateway flow fixtures retain the Antifraud Services Inc.
+Apache-2.0 attribution of the reviewed shared-example source. Their linked
+identity and clinical descriptors now use independently owned SOS, Antifraud
+and FHIR builders; contact origins and telephone values come from the SOS
+repository privacy catalogue. These fixtures are not issued credentials or
+operational configuration.

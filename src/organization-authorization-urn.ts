@@ -20,3 +20,26 @@ export function buildOrganizationEmployeeAuthorizationUrnCds(input:Readonly<{org
   const bytes=Uint8Array.from(hex.match(/../gu)!,value=>Number.parseInt(value,16))
   return `${organization}:member:${encodeBase58btc(bytes)}:${role}`
 }
+
+// Legacy ledger grammar reviewed from source revision
+// 74479fa3fc8d8cbf92a9ff13dd626ccf8d6f2b1e; Apache-2.0 Antifraud Services Inc.
+export type OrganizationAuthorizationUrnInput=Readonly<{identifierType:string;identifierValue:string}>
+/** Readable historical ledger identity. New identities use the jurisdiction-qualified CDS grammar. */
+export function buildOrganizationAuthorizationUrn(input:OrganizationAuthorizationUrnInput):string{
+ const identifierType=String(input.identifierType||'').trim().toLowerCase()
+ const identifierValue=String(input.identifierValue||'').trim()
+ if(!identifierType||!identifierValue)throw new Error('Organization authorization URN requires identifierType and identifierValue.')
+ return `urn:org:${identifierType}:${identifierValue}`
+}
+/** Normalize the historical TYPE|VALUE or urn:org form without rewriting official-value bytes. */
+export function normalizeOrganizationAuthorizationUrn(input:string):string{
+ const normalized=String(input||'').trim()
+ if(!normalized)throw new Error('Organization authorization identifier cannot be empty.')
+ if(normalized.toLowerCase().startsWith('urn:org:')){
+  const parts=normalized.split(':')
+  return buildOrganizationAuthorizationUrn({identifierType:String(parts[2]||'').trim(),identifierValue:parts.slice(3).join(':').trim()})
+ }
+ const legacyMatch=normalized.match(/^([^|:]+)\|(.+)$/)
+ if(legacyMatch)return buildOrganizationAuthorizationUrn({identifierType:legacyMatch[1]!,identifierValue:legacyMatch[2]!})
+ throw new Error('Unsupported organization authorization identifier format.')
+}
