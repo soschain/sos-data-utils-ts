@@ -1,7 +1,7 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # Changelog
 
-## Unreleased
+## 0.8.1
 
 - Pin the verified Antifraud 0.3.2 registry contract alongside the existing
   FHIR 0.7.0 owner without changing other dependency versions.
