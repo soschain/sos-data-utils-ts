@@ -45,6 +45,7 @@ export const OrganizationEmployeeSearchResponseEntryTypes = Object.freeze({
 
 /** Versioned SOS response-entry discriminators; the terminal response still carries its own status. */
 export const GatewayResponseEntryTypes = Object.freeze({
+  IndividualCustomer: 'Customer',
   BundleSearch: 'Bundle-search-response-v1.0',
   BundleSummary: 'Bundle-summary-response-v1.0',
   CommunicationIngestionRequest: 'Communication-ingestion-request-v1.0',
