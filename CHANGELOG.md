@@ -3,6 +3,9 @@
 
 ## Unreleased
 
+- Pin the verified Antifraud 0.3.2 registry contract alongside the existing
+  FHIR 0.7.0 owner without changing other dependency versions.
+
 - Distinguish Group POST/PATCH from governed organization Consent POST/PATCH/PUT.
   Retain the routed inactive-only PATCH and original assignment claims; typing
   does not introduce a document attachment or alter Gateway authorization policy.

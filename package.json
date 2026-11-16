@@ -410,7 +410,7 @@
   },
   "private": false,
   "dependencies": {
-    "antifraud-data-utils-ts": "0.3.0",
+    "antifraud-data-utils-ts": "0.3.2",
     "fhir-data-utils-ts": "0.7.0",
     "pako": "2.1.0"
   },
