@@ -3,6 +3,14 @@
 
 ## Unreleased
 
+- Describe completed employee enrollment and its public draft-requester
+  identity using the existing stored consumption record. Preserve the stored
+  grant format and distinguish invitation expiry from a current PIN session.
+
+- Define correlated permission-request Communication inputs and draft outputs,
+  retaining the existing Consent create-request entry type and requiring
+  explicit resource and thread identifiers for retries.
+
 - Define the two stored-profile signature commands and their public-only
   result, and retain revision-zero compatibility for sealed wallet sessions.
 

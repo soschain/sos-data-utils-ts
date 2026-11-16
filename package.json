@@ -7,6 +7,14 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./registered-employee-draft-requester-contract": {
+      "types": "./dist/registered-employee-draft-requester-contract.d.ts",
+      "default": "./dist/registered-employee-draft-requester-contract.js"
+    },
+    "./permission-request-contract": {
+      "types": "./dist/permission-request-contract.d.ts",
+      "default": "./dist/permission-request-contract.js"
+    },
     "./individual-access-role-profile": {
       "types": "./dist/individual-access-role-profile.d.ts",
       "default": "./dist/individual-access-role-profile.js"

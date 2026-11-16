@@ -66,6 +66,17 @@ profile: Core selections, the IPS document and the canonical FHIR subject-domain
 catalog, including Dentistry. They do not claim parity with the broader
 document/service workbook catalogs. Native FHIR definitions remain in FHIR utilities.
 
+`registered-employee-draft-requester-contract` describes the completed
+enrollment record and the public identity used to propose access. Its recorded
+role comes from verified enrollment. Current profile custody and enrollment
+validation belong in the Node runtime.
+
+`permission-request-contract` defines the identifiers, requester and missing
+access in a Communication proposal. Callers supply both resource identifiers
+and a thread identifier, allowing retries to retain their correlation. SOS SDK
+Core builds the draft Consent; the controller approves access through the
+normal Consent workflow.
+
 `individual-registration-contract` exports `NetworkSubjectRegistrationResult`
 and `assertNetworkSubjectRegistrationResult` for the projected Network response.
 The validator checks its explicit mode, operation, canonical subject identity,
