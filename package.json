@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./gateway-data-collections": {
+      "types": "./dist/gateway-data-collections.d.ts",
+      "default": "./dist/gateway-data-collections.js"
+    },
     "./gateway-parameter-contract": {
       "types": "./dist/gateway-parameter-contract.d.ts",
       "default": "./dist/gateway-parameter-contract.js"
