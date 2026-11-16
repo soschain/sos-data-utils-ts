@@ -16,6 +16,21 @@ transitively. Release gates follow the selected access path in
 registry-backed builds permit online Demo deployment; online Test Network
 validation follows separately and does not establish production readiness.
 
+## Jurisdiction-scoped integration acceptance
+
+Jurisdiction-specific integration journeys are optional and nonblocking unless
+the change affects that exact flow. Unaffected Demo and general technology-
+sector lifecycles must not wait for Spain's certificate-signed PDF or another
+jurisdiction's documents, provider or private fixture. Their own authentication,
+authority, privacy and custody checks remain required.
+
+An affected jurisdiction regression is mandatory. A change to Spanish signed-
+PDF admission, for example, requires its signing, upload and verification
+proof. Select and record scope before the gate; keep unrelated prerequisites
+out of scope. A selected failure remains a failure, never a skip, synthetic
+success or green release claim. Count user journeys separately from viewport,
+theme, flavour and access-mode execution variants.
+
 This repository does not list,
 name or maintain a matrix of consumers.
 

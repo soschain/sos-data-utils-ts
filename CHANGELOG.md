@@ -16,6 +16,8 @@
   immutable data; serialization does not establish successful authorization.
 - Expose the complete owned employee directory states without changing the
   existing phone/email DTO wire values or authority.
+- Scope jurisdiction-specific integration acceptance to affected flows, while
+  retaining mandatory affected regressions and truthful failure reporting.
 
 ## 0.8.1
 
