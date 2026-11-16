@@ -1,7 +1,7 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # Changelog
 
-## Unreleased
+## 0.8.2
 
 - Pin verified Antifraud 0.3.3 while retaining all other direct dependency
   versions and the existing FHIR payload.
