@@ -95,3 +95,4 @@ export * from './gateway-dataspace-routing.js';
 export * from './controller-identity-evidence.js'
 
 export * from './gateway-data-collections.js'
+export * from './individual-access-role-profile.js';

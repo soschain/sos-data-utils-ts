@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./individual-access-role-profile": {
+      "types": "./dist/individual-access-role-profile.d.ts",
+      "default": "./dist/individual-access-role-profile.js"
+    },
     "./gateway-data-collections": {
       "types": "./dist/gateway-data-collections.d.ts",
       "default": "./dist/gateway-data-collections.js"

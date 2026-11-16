@@ -1,6 +1,16 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # sos-data-utils-ts
 
+`individual-access-role-profile` defines the compact, ordered fifteen-choice
+individual-member picker and the separate `ONESELF` / `RESPRSN` access-role
+type. It reuses descriptors and their vocabulary version from the declared
+FHIR dependency. This SOS application profile is a subset of the canonical
+HL7 vocabulary, which remains in FHIR utilities. Use
+`normalizeIndividualMemberRelationshipCode` to obtain a canonical code from
+case-insensitive, whitespace-trimmed string input. The boolean membership
+check does not narrow its original input. Codes describe a relationship;
+the runtime must still verify subject binding, evidence and permissions.
+
 `gateway-response-contract` includes `IndividualCustomer: 'Customer'` in
 `GatewayResponseEntryTypes` for the existing individual-registration response.
 This operational envelope tag does not define a Schema.org class or alter the
