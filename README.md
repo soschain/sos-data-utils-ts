@@ -42,6 +42,12 @@ separate. Timestamps retain numeric epoch seconds; optional legacy single-device
 fields remain supported. These contracts do not authorize admission, grant
 permissions or execute activation, capacity checks or revocation.
 
+`registered-profile-contract` defines fixed individual-presentation and
+organization detached-credential signature commands. Hosts admit the operation
+before calling the Node signer; its result contains the signature, verification
+method and public JWK. Sealed wallet-session rows can carry a credential
+revision; historical rows without one have revision zero.
+
 `server-profile-secret-contract` owns the existing PIN-plus-host encrypted
 secret envelope and public scrypt metadata. It contains no cryptographic
 execution or profile authority. The persisted format discriminator remains

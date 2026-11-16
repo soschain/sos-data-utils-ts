@@ -3,6 +3,9 @@
 
 ## Unreleased
 
+- Define the two stored-profile signature commands and their public-only
+  result, and retain revision-zero compatibility for sealed wallet sessions.
+
 - Own the compact fifteen-code individual-member application profile and
   two-code personal-access type, composing canonical FHIR descriptors without
   broadening the selection list. Normalize accepted strings explicitly and
