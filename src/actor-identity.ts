@@ -1,5 +1,6 @@
 // Selective hosted identity contract reviewed from source revision 74479fa3fc8d8cbf92a9ff13dd626ccf8d6f2b1e.
 // Copyright 2025-2026 Antifraud Services Inc. under Apache-2.0. Parsing and hashing never grant authority.
+import {getOrganizationDidFromIndividualDid} from './individual-did-routing.js'
 
 
 export type ParsedActor = {
@@ -25,7 +26,9 @@ export function parseActorFromSub(sub: string): ParsedActor {
 
     const after = trimmed.replace(/^did:web:/, '');
     const host = after.split(':')[0];
-    if (host) parsed.organization = `did:web:${host}`;
+    if (host) parsed.organization = trimmed.includes(':employee:')
+      ? getOrganizationDidFromIndividualDid(trimmed)
+      : `did:web:${host}`;
 
 
 

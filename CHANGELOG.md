@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+- Preserve the complete hosted organization DID when parsing professional actors, keeping tenants on one hostname distinct while retaining legacy root identities.
+
 - Own commercial seat purchase/search request metadata, employee batch wire identifiers
   and confidential provenance index names as pure neutral contracts. Preserve
   existing wire values; request construction never grants runtime authority.

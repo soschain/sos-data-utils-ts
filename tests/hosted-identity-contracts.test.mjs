@@ -46,7 +46,7 @@ test('builds hosted provider, organization and member DIDs without serializing p
 })
 test('parses actor terminal role semantics and keeps parse output separate from authorization',()=>{
  const sub=`${e.didWeb}:employee:${golden[1]}:ISCO-08%7C2211:${e.resourceUuid}`
- assert.deepEqual(parseActorFromSub(sub),{sub,organization:`did:web:${e.domain}`,identifier:golden[1],role:'ISCO-08|2211',memberKind:'organization'})
+ assert.deepEqual(parseActorFromSub(sub),{sub,organization:e.didWeb,identifier:golden[1],role:'ISCO-08|2211',memberKind:'organization'})
  const member=`${e.didWeb}:individual-member:${golden[1]}:v3-RoleCode|ONESELF`
  assert.equal(parseActorFromSub(member).memberKind,'individual')
  assert.deepEqual(parseActorFromSub(''),{sub:''})
