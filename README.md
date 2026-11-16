@@ -1,6 +1,11 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # sos-data-utils-ts
 
+`gateway-response-contract` includes `IndividualCustomer: 'Customer'` in
+`GatewayResponseEntryTypes` for the existing individual-registration response.
+This operational envelope tag does not define a Schema.org class or alter the
+contained resource's canonical FHIR type.
+
 `gateway-data-collections` defines logical storage/index IDs and the existing
 FHIR resource-family and operational permission-summary fan-out maps. Use
 canonical FHIR resource names from `fhir-data-utils-ts`; these SOS mappings

@@ -1,6 +1,12 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # Changelog
 
+## Unreleased
+
+- Own the existing individual-registration `Customer` response discriminator
+  as `GatewayResponseEntryTypes.IndividualCustomer`, preserving all prior
+  response entries and keeping operational tags separate from ontology types.
+
 ## 0.8.2
 
 - Pin verified Antifraud 0.3.3 while retaining all other direct dependency
