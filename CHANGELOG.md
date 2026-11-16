@@ -3,6 +3,11 @@
 
 ## Unreleased
 
+- Own the compact fifteen-code individual-member application profile and
+  two-code personal-access type, composing canonical FHIR descriptors without
+  broadening the selection list. Normalize accepted strings explicitly and
+  keep membership checks separate from identity, evidence and authorization.
+
 - Own the existing individual-registration `Customer` response discriminator
   as `GatewayResponseEntryTypes.IndividualCustomer`, preserving all prior
   response entries and keeping operational tags separate from ontology types.
