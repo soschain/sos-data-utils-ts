@@ -1,6 +1,11 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # Changelog
 
+## Unreleased
+
+- Scope jurisdiction-specific integration acceptance to affected flows, while
+  retaining mandatory affected regressions and truthful failure reporting.
+
 ## 0.8.1
 
 - Pin the verified Antifraud 0.3.2 registry contract alongside the existing
