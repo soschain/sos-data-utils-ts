@@ -3,6 +3,9 @@
 
 ## Unreleased
 
+- Pin verified Antifraud 0.3.3 while retaining all other direct dependency
+  versions and the existing FHIR payload.
+
 - Own the complete logical collection IDs and resource/permission-summary
   fan-out mappings with canonical FHIR resource names and unchanged operational
   wire values, including immutable nested arrays and public literal types.
