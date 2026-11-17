@@ -1,7 +1,7 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # Changelog
 
-## 0.8.3
+## 0.9.0
 
 - Align the exact FHIR dependency and registry lock with the published 0.7.1 baseline, retaining the existing public contracts.
 
@@ -44,6 +44,14 @@
   keep decoding separate from signatures, current authority and consent policy.
 - Add direct/legacy presentation parsing, read-only SMART emergency details,
   activation credential policy and governed deterministic identity examples.
+
+## 0.8.3
+
+- Own the consumed Communication participant query/index helpers and token
+  prefixes. Preserve existing normalization, wildcard/date/pagination semantics
+  and index order while retaining own `__proto__` filters and preventing
+  inherited constructor values from matching or crashing. These pure helpers
+  do not authenticate participants or grant access.
 
 - Own the six printed-card identity builders and validators used by Personal:
   species-aware animal checksums, human card numbers and DIDs, and provider

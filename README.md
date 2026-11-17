@@ -1,6 +1,19 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # sos-data-utils-ts
 
+`sos-data-utils-ts/communication-participant-query` owns the consumed participant
+parser, matcher, paginator, index builder and prefix/index-name catalogs. The
+parser accepts flat fields or FHIR Parameters and returns mutable criteria so
+an authorized caller can narrow the search. Storage, transport and authorization
+remain with that caller; a token match grants no access.
+
+The profile preserves DID remainder case, lowercases email identifiers, keeps
+an explicitly leading telephone plus, and retains inclusive lexical date
+ranges. Own `__proto__` and `constructor` filters are retained safely without
+altering ordinary JSON criteria. It exports no Bundle/Parameters serializer.
+See the [original participant search implementation](https://github.com/Global-DataCare/gdc-common-utils-ts/blob/main/src/utils/communication-participant-search.ts)
+for source attribution.
+
 `individual-access-role-profile` defines the compact, ordered fifteen-choice
 individual-member picker and the separate `ONESELF` / `RESPRSN` access-role
 type. It reuses descriptors and their vocabulary version from the declared

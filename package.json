@@ -1,12 +1,16 @@
 {
   "name": "sos-data-utils-ts",
-  "version": "0.8.3",
+  "version": "0.9.0",
   "description": "Product-neutral SOS channel and BFF contract utilities",
   "license": "Apache-2.0",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./communication-participant-query": {
+      "types": "./dist/communication-participant-query.d.ts",
+      "default": "./dist/communication-participant-query.js"
+    },
     "./printed-card-identity": {
       "types": "./dist/printed-card-identity.d.ts",
       "default": "./dist/printed-card-identity.js"
