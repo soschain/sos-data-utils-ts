@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+## 0.8.3
+
 - Own the consumed Communication participant query/index helpers and token
   prefixes. Preserve existing normalization, wildcard/date/pagination semantics
   and index order while retaining own `__proto__` filters and preventing
