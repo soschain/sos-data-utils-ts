@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./communication-participant-query": {
+      "types": "./dist/communication-participant-query.d.ts",
+      "default": "./dist/communication-participant-query.js"
+    },
     "./printed-card-identity": {
       "types": "./dist/printed-card-identity.d.ts",
       "default": "./dist/printed-card-identity.js"

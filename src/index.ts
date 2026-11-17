@@ -99,3 +99,4 @@ export * from './individual-access-role-profile.js';
 export * from './permission-request-contract.js';
 export * from './registered-employee-draft-requester-contract.js';
 export * from './printed-card-identity.js';
+export * from './communication-participant-query.js';

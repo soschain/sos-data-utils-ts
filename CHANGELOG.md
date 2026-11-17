@@ -3,6 +3,12 @@
 
 ## Unreleased
 
+- Own the consumed Communication participant query/index helpers and token
+  prefixes. Preserve existing normalization, wildcard/date/pagination semantics
+  and index order while retaining own `__proto__` filters and preventing
+  inherited constructor values from matching or crashing. These pure helpers
+  do not authenticate participants or grant access.
+
 - Own the six printed-card identity builders and validators used by Personal:
   species-aware animal checksums, human card numbers and DIDs, and provider
   check digits. Retain existing identifier bytes, leading zeros, whitespace

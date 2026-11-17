@@ -1,0 +1,1370 @@
+{
+  "source": {
+    "repository": "https://github.com/Global-DataCare/gdc-common-utils-ts/blob/main/src/utils/communication-participant-search.ts",
+    "moduleSha256": "6feabb06707313971d991a60b519960a204f91c84e3ded91afe8f4ca2c1fe366",
+    "readOnly": true,
+    "scope": "Actual consumed deterministic index/query/match/pagination behavior; not authentication or permission proof."
+  },
+  "prefixes": {
+    "Did": "did:",
+    "Email": "email:",
+    "Mailto": "mailto:",
+    "Tel": "tel:",
+    "Phone": "phone:",
+    "Wildcard": "*"
+  },
+  "indexNames": {
+    "Subject": "Communication.subject",
+    "Participant": "Communication.participant-token",
+    "Sender": "Communication.sender-token",
+    "Recipient": "Communication.recipient-token"
+  },
+  "prototypeBaseline": {
+    "ownProtoFilterDropped": true,
+    "ownProtoMatched": true,
+    "constructorThrows": true
+  },
+  "rows": [
+    {
+      "operation": "index",
+      "input": {},
+      "output": []
+    },
+    {
+      "operation": "index",
+      "input": {
+        "subject": "did:web:example.invalid:example-tenant"
+      },
+      "output": [
+        {
+          "name": "Communication.subject",
+          "value": "did:web:example.invalid:example-tenant",
+          "unique": true
+        }
+      ]
+    },
+    {
+      "operation": "index",
+      "input": {
+        "subject": [
+          "did:web:example.invalid:example-tenant",
+          "did:web:example.invalid:example-tenant"
+        ],
+        "sender": "MAILTO:JANE.DOE@EXAMPLE.INVALID",
+        "recipients": [
+          "PHONE:+12025550123",
+          "did:web:example.invalid:example-tenant"
+        ]
+      },
+      "output": [
+        {
+          "name": "Communication.subject",
+          "value": "did:web:example.invalid:example-tenant",
+          "unique": true
+        },
+        {
+          "name": "Communication.sender-token",
+          "value": "email:jane.doe@example.invalid",
+          "unique": false
+        },
+        {
+          "name": "Communication.recipient-token",
+          "value": "tel:+12025550123",
+          "unique": false
+        },
+        {
+          "name": "Communication.recipient-token",
+          "value": "did:web:example.invalid:example-tenant",
+          "unique": false
+        },
+        {
+          "name": "Communication.participant-token",
+          "value": "email:jane.doe@example.invalid",
+          "unique": false
+        },
+        {
+          "name": "Communication.participant-token",
+          "value": "tel:+12025550123",
+          "unique": false
+        },
+        {
+          "name": "Communication.participant-token",
+          "value": "did:web:example.invalid:example-tenant",
+          "unique": false
+        }
+      ]
+    },
+    {
+      "operation": "index",
+      "input": {
+        "subject": [
+          [
+            " DID:WEB:EXAMPLE.INVALID:EXAMPLE-TENANT",
+            "did:web:example.invalid:example-tenant"
+          ],
+          [
+            "*"
+          ]
+        ],
+        "from": " jane.doe@example.invalid ",
+        "to": [
+          "+12025550123",
+          "tel:+12025550123"
+        ]
+      },
+      "output": [
+        {
+          "name": "Communication.subject",
+          "value": "did:WEB:EXAMPLE.INVALID:EXAMPLE-TENANT",
+          "unique": true
+        },
+        {
+          "name": "Communication.subject",
+          "value": "did:web:example.invalid:example-tenant",
+          "unique": true
+        },
+        {
+          "name": "Communication.subject",
+          "value": "*",
+          "unique": true
+        },
+        {
+          "name": "Communication.sender-token",
+          "value": "email:jane.doe@example.invalid",
+          "unique": false
+        },
+        {
+          "name": "Communication.recipient-token",
+          "value": "tel:+12025550123",
+          "unique": false
+        },
+        {
+          "name": "Communication.participant-token",
+          "value": "email:jane.doe@example.invalid",
+          "unique": false
+        },
+        {
+          "name": "Communication.participant-token",
+          "value": "tel:+12025550123",
+          "unique": false
+        }
+      ]
+    },
+    {
+      "operation": "index",
+      "input": {
+        "sender": "tel: (123) 456",
+        "recipients": "phone:+123456,+123456, (123)456"
+      },
+      "output": [
+        {
+          "name": "Communication.sender-token",
+          "value": "tel:123456",
+          "unique": false
+        },
+        {
+          "name": "Communication.recipient-token",
+          "value": "tel:+123456",
+          "unique": false
+        },
+        {
+          "name": "Communication.recipient-token",
+          "value": "tel:123456",
+          "unique": false
+        },
+        {
+          "name": "Communication.participant-token",
+          "value": "tel:123456",
+          "unique": false
+        },
+        {
+          "name": "Communication.participant-token",
+          "value": "tel:+123456",
+          "unique": false
+        }
+      ]
+    },
+    {
+      "operation": "index",
+      "input": {
+        "sender": "",
+        "from": "jane.doe@example.invalid",
+        "recipients": [],
+        "to": "+12025550123"
+      },
+      "output": []
+    },
+    {
+      "operation": "index",
+      "input": {
+        "subject": "literal-custom",
+        "sender": [
+          "did:Mixed:Case",
+          "email:JANE.DOE@EXAMPLE.INVALID"
+        ],
+        "recipients": [
+          [
+            "literal-custom"
+          ],
+          [
+            "*"
+          ]
+        ]
+      },
+      "output": [
+        {
+          "name": "Communication.subject",
+          "value": "literal-custom",
+          "unique": true
+        },
+        {
+          "name": "Communication.sender-token",
+          "value": "did:Mixed:Case",
+          "unique": false
+        },
+        {
+          "name": "Communication.sender-token",
+          "value": "email:jane.doe@example.invalid",
+          "unique": false
+        },
+        {
+          "name": "Communication.recipient-token",
+          "value": "literal-custom",
+          "unique": false
+        },
+        {
+          "name": "Communication.recipient-token",
+          "value": "*",
+          "unique": false
+        },
+        {
+          "name": "Communication.participant-token",
+          "value": "did:Mixed:Case",
+          "unique": false
+        },
+        {
+          "name": "Communication.participant-token",
+          "value": "email:jane.doe@example.invalid",
+          "unique": false
+        },
+        {
+          "name": "Communication.participant-token",
+          "value": "literal-custom",
+          "unique": false
+        },
+        {
+          "name": "Communication.participant-token",
+          "value": "*",
+          "unique": false
+        }
+      ]
+    },
+    {
+      "operation": "index",
+      "input": {
+        "subject": [
+          0,
+          false,
+          null,
+          ""
+        ],
+        "sender": "MAILTO:",
+        "recipients": [
+          "phone:---",
+          "tel: +",
+          "tel:+12025550123"
+        ]
+      },
+      "output": [
+        {
+          "name": "Communication.recipient-token",
+          "value": "tel:+12025550123",
+          "unique": false
+        },
+        {
+          "name": "Communication.participant-token",
+          "value": "tel:+12025550123",
+          "unique": false
+        }
+      ]
+    },
+    {
+      "operation": "parse",
+      "input": {},
+      "output": {
+        "subjectActorIds": [],
+        "anySubject": false,
+        "actorIds": [],
+        "anyActor": false,
+        "senderActorIds": [],
+        "anySender": false,
+        "recipientActorIds": [],
+        "anyRecipient": false,
+        "userActorIds": [],
+        "anyUser": false,
+        "targetActorIds": [],
+        "anyTarget": false,
+        "claimSearchParams": {},
+        "page": 1
+      }
+    },
+    {
+      "operation": "parse",
+      "input": {
+        "subject": "did:web:example.invalid:example-tenant"
+      },
+      "output": {
+        "subjectActorIds": [
+          "did:web:example.invalid:example-tenant"
+        ],
+        "anySubject": false,
+        "actorIds": [],
+        "anyActor": false,
+        "senderActorIds": [],
+        "anySender": false,
+        "recipientActorIds": [],
+        "anyRecipient": false,
+        "userActorIds": [],
+        "anyUser": false,
+        "targetActorIds": [],
+        "anyTarget": false,
+        "claimSearchParams": {},
+        "page": 1
+      }
+    },
+    {
+      "operation": "parse",
+      "input": {
+        "actor": [
+          "MAILTO:JANE.DOE@EXAMPLE.INVALID",
+          "+12025550123",
+          "*"
+        ]
+      },
+      "output": {
+        "subjectActorIds": [],
+        "anySubject": false,
+        "actorIds": [
+          "email:jane.doe@example.invalid",
+          "tel:+12025550123"
+        ],
+        "anyActor": true,
+        "senderActorIds": [],
+        "anySender": false,
+        "recipientActorIds": [],
+        "anyRecipient": false,
+        "userActorIds": [],
+        "anyUser": false,
+        "targetActorIds": [],
+        "anyTarget": false,
+        "claimSearchParams": {},
+        "page": 1
+      }
+    },
+    {
+      "operation": "parse",
+      "input": {
+        "sender": "DID:WEB:EXAMPLE.INVALID:EXAMPLE-TENANT"
+      },
+      "output": {
+        "subjectActorIds": [],
+        "anySubject": false,
+        "actorIds": [],
+        "anyActor": false,
+        "senderActorIds": [
+          "did:WEB:EXAMPLE.INVALID:EXAMPLE-TENANT"
+        ],
+        "anySender": false,
+        "recipientActorIds": [],
+        "anyRecipient": false,
+        "userActorIds": [],
+        "anyUser": false,
+        "targetActorIds": [],
+        "anyTarget": false,
+        "claimSearchParams": {},
+        "page": 1
+      }
+    },
+    {
+      "operation": "parse",
+      "input": {
+        "recipient": [
+          "+12025550123",
+          "PHONE:+12025550123"
+        ]
+      },
+      "output": {
+        "subjectActorIds": [],
+        "anySubject": false,
+        "actorIds": [],
+        "anyActor": false,
+        "senderActorIds": [],
+        "anySender": false,
+        "recipientActorIds": [
+          "tel:+12025550123"
+        ],
+        "anyRecipient": false,
+        "userActorIds": [],
+        "anyUser": false,
+        "targetActorIds": [],
+        "anyTarget": false,
+        "claimSearchParams": {},
+        "page": 1
+      }
+    },
+    {
+      "operation": "parse",
+      "input": {
+        "user": " jane.doe@example.invalid "
+      },
+      "output": {
+        "subjectActorIds": [],
+        "anySubject": false,
+        "actorIds": [],
+        "anyActor": false,
+        "senderActorIds": [],
+        "anySender": false,
+        "recipientActorIds": [],
+        "anyRecipient": false,
+        "userActorIds": [
+          "email:jane.doe@example.invalid"
+        ],
+        "anyUser": false,
+        "targetActorIds": [],
+        "anyTarget": false,
+        "claimSearchParams": {},
+        "page": 1
+      }
+    },
+    {
+      "operation": "parse",
+      "input": {
+        "target": "*"
+      },
+      "output": {
+        "subjectActorIds": [],
+        "anySubject": false,
+        "actorIds": [],
+        "anyActor": false,
+        "senderActorIds": [],
+        "anySender": false,
+        "recipientActorIds": [],
+        "anyRecipient": false,
+        "userActorIds": [],
+        "anyUser": false,
+        "targetActorIds": [],
+        "anyTarget": true,
+        "claimSearchParams": {},
+        "page": 1
+      }
+    },
+    {
+      "operation": "parse",
+      "input": {
+        "Communication.subject": "did:web:example.invalid:example-tenant",
+        "Communication.sender": "MAILTO:jane.doe@example.invalid",
+        "Communication.recipient": "+12025550123",
+        "Communication.category": "notice,alert",
+        "Communication.topic": "Encounter/synthetic-one"
+      },
+      "output": {
+        "subjectActorIds": [],
+        "anySubject": false,
+        "actorIds": [],
+        "anyActor": false,
+        "senderActorIds": [],
+        "anySender": false,
+        "recipientActorIds": [],
+        "anyRecipient": false,
+        "userActorIds": [],
+        "anyUser": false,
+        "targetActorIds": [],
+        "anyTarget": false,
+        "claimSearchParams": {
+          "Communication.subject": [
+            "did:web:example.invalid:example-tenant"
+          ],
+          "Communication.sender": [
+            "email:jane.doe@example.invalid"
+          ],
+          "Communication.recipient": [
+            "tel:+12025550123"
+          ],
+          "Communication.category": [
+            "notice",
+            "alert"
+          ],
+          "Communication.topic": [
+            "Encounter/synthetic-one"
+          ]
+        },
+        "page": 1
+      }
+    },
+    {
+      "operation": "parse",
+      "input": {
+        "period-start": " alpha ",
+        "sent-from": "beta",
+        "period-end": " omega ",
+        "sent-to": "zeta"
+      },
+      "output": {
+        "subjectActorIds": [],
+        "anySubject": false,
+        "actorIds": [],
+        "anyActor": false,
+        "senderActorIds": [],
+        "anySender": false,
+        "recipientActorIds": [],
+        "anyRecipient": false,
+        "userActorIds": [],
+        "anyUser": false,
+        "targetActorIds": [],
+        "anyTarget": false,
+        "claimSearchParams": {},
+        "periodStart": "alpha",
+        "periodEnd": "omega",
+        "page": 1
+      }
+    },
+    {
+      "operation": "parse",
+      "input": {
+        "sent-from": "alpha",
+        "sent-to": "omega",
+        "page": "02",
+        "count": "3"
+      },
+      "output": {
+        "subjectActorIds": [],
+        "anySubject": false,
+        "actorIds": [],
+        "anyActor": false,
+        "senderActorIds": [],
+        "anySender": false,
+        "recipientActorIds": [],
+        "anyRecipient": false,
+        "userActorIds": [],
+        "anyUser": false,
+        "targetActorIds": [],
+        "anyTarget": false,
+        "claimSearchParams": {},
+        "periodStart": "alpha",
+        "periodEnd": "omega",
+        "page": 2,
+        "count": 3
+      }
+    },
+    {
+      "operation": "parse",
+      "input": {
+        "page": 0,
+        "count": -1
+      },
+      "output": {
+        "subjectActorIds": [],
+        "anySubject": false,
+        "actorIds": [],
+        "anyActor": false,
+        "senderActorIds": [],
+        "anySender": false,
+        "recipientActorIds": [],
+        "anyRecipient": false,
+        "userActorIds": [],
+        "anyUser": false,
+        "targetActorIds": [],
+        "anyTarget": false,
+        "claimSearchParams": {},
+        "page": 1
+      }
+    },
+    {
+      "operation": "parse",
+      "input": {
+        "page": 1.5,
+        "count": "2.5"
+      },
+      "output": {
+        "subjectActorIds": [],
+        "anySubject": false,
+        "actorIds": [],
+        "anyActor": false,
+        "senderActorIds": [],
+        "anySender": false,
+        "recipientActorIds": [],
+        "anyRecipient": false,
+        "userActorIds": [],
+        "anyUser": false,
+        "targetActorIds": [],
+        "anyTarget": false,
+        "claimSearchParams": {},
+        "page": 1
+      }
+    },
+    {
+      "operation": "parse",
+      "input": {
+        "resourceType": "Parameters",
+        "parameter": [
+          {
+            "name": "actor",
+            "valueString": "did:web:example.invalid:example-tenant",
+            "valueUri": "jane.doe@example.invalid",
+            "valueCode": "+12025550123"
+          },
+          {
+            "name": "recipient",
+            "valueUri": "MAILTO:jane.doe@example.invalid",
+            "valueCode": "+12025550123"
+          },
+          {
+            "name": "sender",
+            "valueCode": "PHONE:+12025550123"
+          },
+          {
+            "name": "subject",
+            "valueReference": {
+              "reference": "did:web:example.invalid:example-tenant"
+            }
+          },
+          {
+            "name": "target",
+            "valueCoding": {
+              "code": "*"
+            }
+          },
+          {
+            "name": "page",
+            "valueInteger": 2
+          },
+          {
+            "name": "count",
+            "valueDecimal": 3
+          }
+        ]
+      },
+      "output": {
+        "subjectActorIds": [
+          "did:web:example.invalid:example-tenant"
+        ],
+        "anySubject": false,
+        "actorIds": [
+          "did:web:example.invalid:example-tenant"
+        ],
+        "anyActor": false,
+        "senderActorIds": [
+          "tel:+12025550123"
+        ],
+        "anySender": false,
+        "recipientActorIds": [
+          "email:jane.doe@example.invalid"
+        ],
+        "anyRecipient": false,
+        "userActorIds": [],
+        "anyUser": false,
+        "targetActorIds": [],
+        "anyTarget": true,
+        "claimSearchParams": {},
+        "page": 2,
+        "count": 3
+      }
+    },
+    {
+      "operation": "parse",
+      "input": {
+        "resourceType": "Parameters",
+        "parameter": [
+          {
+            "name": "actor",
+            "valueString": "",
+            "valueUri": "did:web:example.invalid:example-tenant"
+          },
+          {
+            "name": "count",
+            "valueInteger": 0
+          },
+          {
+            "name": "page",
+            "valueInteger": 0
+          }
+        ]
+      },
+      "output": {
+        "subjectActorIds": [],
+        "anySubject": false,
+        "actorIds": [],
+        "anyActor": false,
+        "senderActorIds": [],
+        "anySender": false,
+        "recipientActorIds": [],
+        "anyRecipient": false,
+        "userActorIds": [],
+        "anyUser": false,
+        "targetActorIds": [],
+        "anyTarget": false,
+        "claimSearchParams": {},
+        "page": 1
+      }
+    },
+    {
+      "operation": "parse",
+      "input": {
+        "actor": [
+          [
+            "did:web:example.invalid:example-tenant",
+            ", did:web:example.invalid:example-tenant,"
+          ],
+          [
+            "email:jane.doe@example.invalid",
+            "*"
+          ]
+        ],
+        "unknown": [
+          " one, two ",
+          [
+            "two",
+            "three"
+          ]
+        ]
+      },
+      "output": {
+        "subjectActorIds": [],
+        "anySubject": false,
+        "actorIds": [
+          "did:web:example.invalid:example-tenant",
+          "email:jane.doe@example.invalid"
+        ],
+        "anyActor": true,
+        "senderActorIds": [],
+        "anySender": false,
+        "recipientActorIds": [],
+        "anyRecipient": false,
+        "userActorIds": [],
+        "anyUser": false,
+        "targetActorIds": [],
+        "anyTarget": false,
+        "claimSearchParams": {
+          "unknown": [
+            "one",
+            "two",
+            "three"
+          ]
+        },
+        "page": 1
+      }
+    },
+    {
+      "operation": "parse",
+      "input": {
+        "Communication.category": [
+          "notice",
+          "notice,alert"
+        ],
+        "custom-field": "custom-value"
+      },
+      "output": {
+        "subjectActorIds": [],
+        "anySubject": false,
+        "actorIds": [],
+        "anyActor": false,
+        "senderActorIds": [],
+        "anySender": false,
+        "recipientActorIds": [],
+        "anyRecipient": false,
+        "userActorIds": [],
+        "anyUser": false,
+        "targetActorIds": [],
+        "anyTarget": false,
+        "claimSearchParams": {
+          "Communication.category": [
+            "notice",
+            "alert"
+          ],
+          "custom-field": [
+            "custom-value"
+          ]
+        },
+        "page": 1
+      }
+    },
+    {
+      "operation": "parse",
+      "input": {
+        "period-start": "",
+        "sent-from": "fallback",
+        "period-end": " z ",
+        "page": "Infinity",
+        "count": true
+      },
+      "output": {
+        "subjectActorIds": [],
+        "anySubject": false,
+        "actorIds": [],
+        "anyActor": false,
+        "senderActorIds": [],
+        "anySender": false,
+        "recipientActorIds": [],
+        "anyRecipient": false,
+        "userActorIds": [],
+        "anyUser": false,
+        "targetActorIds": [],
+        "anyTarget": false,
+        "claimSearchParams": {},
+        "periodStart": "fallback",
+        "periodEnd": "z",
+        "page": 1
+      }
+    },
+    {
+      "operation": "parse",
+      "input": {
+        "resourceType": "Parameters",
+        "parameter": [
+          null,
+          {
+            "name": " "
+          },
+          {
+            "name": "subject",
+            "valueString": "did:web:example.invalid:example-tenant"
+          },
+          {
+            "name": "subject",
+            "valueString": "did:web:example.invalid:example-tenant"
+          },
+          {
+            "name": "count",
+            "valueString": "10",
+            "valueInteger": 2
+          }
+        ]
+      },
+      "output": {
+        "subjectActorIds": [
+          "did:web:example.invalid:example-tenant"
+        ],
+        "anySubject": false,
+        "actorIds": [],
+        "anyActor": false,
+        "senderActorIds": [],
+        "anySender": false,
+        "recipientActorIds": [],
+        "anyRecipient": false,
+        "userActorIds": [],
+        "anyUser": false,
+        "targetActorIds": [],
+        "anyTarget": false,
+        "claimSearchParams": {},
+        "page": 1,
+        "count": 10
+      }
+    },
+    {
+      "operation": "match",
+      "input": {
+        "projection": {
+          "subject": "did:web:example.invalid:example-tenant",
+          "sender": "jane.doe@example.invalid",
+          "recipients": [
+            "+12025550123",
+            "did:web:example.invalid:example-tenant"
+          ],
+          "sent": "2026-11-17T12:00:00Z",
+          "category": "notice,alert",
+          "topic": "Encounter/synthetic-one"
+        },
+        "criteria": {
+          "subjectActorIds": [],
+          "anySubject": false,
+          "actorIds": [],
+          "anyActor": false,
+          "senderActorIds": [],
+          "anySender": false,
+          "recipientActorIds": [],
+          "anyRecipient": false,
+          "userActorIds": [],
+          "anyUser": false,
+          "targetActorIds": [],
+          "anyTarget": false,
+          "claimSearchParams": {},
+          "page": 1
+        }
+      },
+      "output": true
+    },
+    {
+      "operation": "match",
+      "input": {
+        "projection": {
+          "subject": "did:web:example.invalid:example-tenant",
+          "sender": "jane.doe@example.invalid",
+          "recipients": [
+            "+12025550123",
+            "did:web:example.invalid:example-tenant"
+          ],
+          "sent": "2026-11-17T12:00:00Z",
+          "category": "notice,alert",
+          "topic": "Encounter/synthetic-one"
+        },
+        "criteria": {
+          "subjectActorIds": [
+            "did:web:example.invalid:example-tenant"
+          ],
+          "anySubject": false,
+          "actorIds": [],
+          "anyActor": false,
+          "senderActorIds": [],
+          "anySender": false,
+          "recipientActorIds": [],
+          "anyRecipient": false,
+          "userActorIds": [],
+          "anyUser": false,
+          "targetActorIds": [],
+          "anyTarget": false,
+          "claimSearchParams": {},
+          "page": 1
+        }
+      },
+      "output": true
+    },
+    {
+      "operation": "match",
+      "input": {
+        "projection": {
+          "subject": "did:web:example.invalid:example-tenant",
+          "sender": "jane.doe@example.invalid",
+          "recipients": [
+            "+12025550123",
+            "did:web:example.invalid:example-tenant"
+          ],
+          "sent": "2026-11-17T12:00:00Z",
+          "category": "notice,alert",
+          "topic": "Encounter/synthetic-one"
+        },
+        "criteria": {
+          "subjectActorIds": [],
+          "anySubject": false,
+          "actorIds": [
+            "email:jane.doe@example.invalid"
+          ],
+          "anyActor": false,
+          "senderActorIds": [],
+          "anySender": false,
+          "recipientActorIds": [],
+          "anyRecipient": false,
+          "userActorIds": [],
+          "anyUser": false,
+          "targetActorIds": [],
+          "anyTarget": false,
+          "claimSearchParams": {},
+          "page": 1
+        }
+      },
+      "output": true
+    },
+    {
+      "operation": "match",
+      "input": {
+        "projection": {
+          "subject": "did:web:example.invalid:example-tenant",
+          "sender": "jane.doe@example.invalid",
+          "recipients": [
+            "+12025550123",
+            "did:web:example.invalid:example-tenant"
+          ],
+          "sent": "2026-11-17T12:00:00Z",
+          "category": "notice,alert",
+          "topic": "Encounter/synthetic-one"
+        },
+        "criteria": {
+          "subjectActorIds": [],
+          "anySubject": false,
+          "actorIds": [],
+          "anyActor": false,
+          "senderActorIds": [
+            "tel:+12025550123"
+          ],
+          "anySender": false,
+          "recipientActorIds": [],
+          "anyRecipient": false,
+          "userActorIds": [],
+          "anyUser": false,
+          "targetActorIds": [],
+          "anyTarget": false,
+          "claimSearchParams": {},
+          "page": 1
+        }
+      },
+      "output": false
+    },
+    {
+      "operation": "match",
+      "input": {
+        "projection": {
+          "subject": "did:web:example.invalid:example-tenant",
+          "sender": "jane.doe@example.invalid",
+          "recipients": [
+            "+12025550123",
+            "did:web:example.invalid:example-tenant"
+          ],
+          "sent": "2026-11-17T12:00:00Z",
+          "category": "notice,alert",
+          "topic": "Encounter/synthetic-one"
+        },
+        "criteria": {
+          "subjectActorIds": [],
+          "anySubject": false,
+          "actorIds": [],
+          "anyActor": false,
+          "senderActorIds": [],
+          "anySender": false,
+          "recipientActorIds": [],
+          "anyRecipient": true,
+          "userActorIds": [],
+          "anyUser": false,
+          "targetActorIds": [],
+          "anyTarget": false,
+          "claimSearchParams": {},
+          "page": 1
+        }
+      },
+      "output": true
+    },
+    {
+      "operation": "match",
+      "input": {
+        "projection": {
+          "subject": "did:web:example.invalid:example-tenant",
+          "sender": "jane.doe@example.invalid",
+          "recipients": [
+            "+12025550123",
+            "did:web:example.invalid:example-tenant"
+          ],
+          "sent": "2026-11-17T12:00:00Z",
+          "category": "notice,alert",
+          "topic": "Encounter/synthetic-one"
+        },
+        "criteria": {
+          "subjectActorIds": [],
+          "anySubject": false,
+          "actorIds": [],
+          "anyActor": false,
+          "senderActorIds": [],
+          "anySender": false,
+          "recipientActorIds": [],
+          "anyRecipient": false,
+          "userActorIds": [
+            "tel:+12025550123"
+          ],
+          "anyUser": false,
+          "targetActorIds": [],
+          "anyTarget": false,
+          "claimSearchParams": {},
+          "page": 1
+        }
+      },
+      "output": true
+    },
+    {
+      "operation": "match",
+      "input": {
+        "projection": {
+          "subject": "did:web:example.invalid:example-tenant",
+          "sender": "jane.doe@example.invalid",
+          "recipients": [
+            "+12025550123",
+            "did:web:example.invalid:example-tenant"
+          ],
+          "sent": "2026-11-17T12:00:00Z",
+          "category": "notice,alert",
+          "topic": "Encounter/synthetic-one"
+        },
+        "criteria": {
+          "subjectActorIds": [],
+          "anySubject": false,
+          "actorIds": [],
+          "anyActor": false,
+          "senderActorIds": [],
+          "anySender": false,
+          "recipientActorIds": [],
+          "anyRecipient": false,
+          "userActorIds": [],
+          "anyUser": false,
+          "targetActorIds": [
+            "missing"
+          ],
+          "anyTarget": false,
+          "claimSearchParams": {},
+          "page": 1
+        }
+      },
+      "output": false
+    },
+    {
+      "operation": "match",
+      "input": {
+        "projection": {
+          "subject": "did:web:example.invalid:example-tenant",
+          "sender": "jane.doe@example.invalid",
+          "recipients": [
+            "+12025550123",
+            "did:web:example.invalid:example-tenant"
+          ],
+          "sent": "2026-11-17T12:00:00Z",
+          "category": "notice,alert",
+          "topic": "Encounter/synthetic-one"
+        },
+        "criteria": {
+          "subjectActorIds": [],
+          "anySubject": false,
+          "actorIds": [],
+          "anyActor": false,
+          "senderActorIds": [],
+          "anySender": false,
+          "recipientActorIds": [],
+          "anyRecipient": false,
+          "userActorIds": [],
+          "anyUser": false,
+          "targetActorIds": [],
+          "anyTarget": false,
+          "claimSearchParams": {
+            "Communication.category": [
+              "notice"
+            ]
+          },
+          "page": 1
+        }
+      },
+      "output": true
+    },
+    {
+      "operation": "match",
+      "input": {
+        "projection": {
+          "subject": "did:web:example.invalid:example-tenant",
+          "sender": "jane.doe@example.invalid",
+          "recipients": [
+            "+12025550123",
+            "did:web:example.invalid:example-tenant"
+          ],
+          "sent": "2026-11-17T12:00:00Z",
+          "category": "notice,alert",
+          "topic": "Encounter/synthetic-one"
+        },
+        "criteria": {
+          "subjectActorIds": [],
+          "anySubject": false,
+          "actorIds": [],
+          "anyActor": false,
+          "senderActorIds": [],
+          "anySender": false,
+          "recipientActorIds": [],
+          "anyRecipient": false,
+          "userActorIds": [],
+          "anyUser": false,
+          "targetActorIds": [],
+          "anyTarget": false,
+          "claimSearchParams": {
+            "Communication.topic": [
+              "Encounter/synthetic-one"
+            ]
+          },
+          "page": 1
+        }
+      },
+      "output": true
+    },
+    {
+      "operation": "match",
+      "input": {
+        "projection": {
+          "subject": "did:web:example.invalid:example-tenant",
+          "sender": "jane.doe@example.invalid",
+          "recipients": [
+            "+12025550123",
+            "did:web:example.invalid:example-tenant"
+          ],
+          "sent": "2026-11-17T12:00:00Z",
+          "category": "notice,alert",
+          "topic": "Encounter/synthetic-one"
+        },
+        "criteria": {
+          "subjectActorIds": [],
+          "anySubject": false,
+          "actorIds": [],
+          "anyActor": false,
+          "senderActorIds": [],
+          "anySender": false,
+          "recipientActorIds": [],
+          "anyRecipient": false,
+          "userActorIds": [],
+          "anyUser": false,
+          "targetActorIds": [],
+          "anyTarget": false,
+          "claimSearchParams": {},
+          "periodStart": "2026-11-17T12:00:00Z",
+          "periodEnd": "2026-11-17T12:00:00Z",
+          "page": 1
+        }
+      },
+      "output": true
+    },
+    {
+      "operation": "match",
+      "input": {
+        "projection": {
+          "subject": "did:web:example.invalid:example-tenant",
+          "sender": "jane.doe@example.invalid",
+          "recipients": [
+            "+12025550123",
+            "did:web:example.invalid:example-tenant"
+          ],
+          "sent": "2026-11-17T12:00:00Z",
+          "category": "notice,alert",
+          "topic": "Encounter/synthetic-one"
+        },
+        "criteria": {
+          "subjectActorIds": [],
+          "anySubject": false,
+          "actorIds": [],
+          "anyActor": false,
+          "senderActorIds": [],
+          "anySender": false,
+          "recipientActorIds": [],
+          "anyRecipient": false,
+          "userActorIds": [],
+          "anyUser": false,
+          "targetActorIds": [],
+          "anyTarget": false,
+          "claimSearchParams": {},
+          "periodStart": "z",
+          "page": 1
+        }
+      },
+      "output": false
+    },
+    {
+      "operation": "match",
+      "input": {
+        "projection": {
+          "subject": "did:web:example.invalid:example-tenant",
+          "sender": "jane.doe@example.invalid",
+          "recipients": [
+            "+12025550123",
+            "did:web:example.invalid:example-tenant"
+          ],
+          "sent": "2026-11-17T12:00:00Z",
+          "category": "notice,alert",
+          "topic": "Encounter/synthetic-one"
+        },
+        "criteria": {
+          "subjectActorIds": [],
+          "anySubject": false,
+          "actorIds": [],
+          "anyActor": false,
+          "senderActorIds": [],
+          "anySender": false,
+          "recipientActorIds": [],
+          "anyRecipient": false,
+          "userActorIds": [],
+          "anyUser": false,
+          "targetActorIds": [],
+          "anyTarget": false,
+          "claimSearchParams": {
+            "unknown": [
+              "missing"
+            ]
+          },
+          "page": 1
+        }
+      },
+      "output": false
+    },
+    {
+      "operation": "page",
+      "input": {
+        "records": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "criteria": {
+          "page": 1
+        }
+      },
+      "output": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "operation": "page",
+      "input": {
+        "records": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "criteria": {
+          "page": 2,
+          "count": 2
+        }
+      },
+      "output": [
+        3,
+        4
+      ]
+    },
+    {
+      "operation": "page",
+      "input": {
+        "records": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "criteria": {
+          "page": 0,
+          "count": 2
+        }
+      },
+      "output": [
+        1,
+        2
+      ]
+    },
+    {
+      "operation": "page",
+      "input": {
+        "records": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "criteria": {
+          "page": 2,
+          "count": 0
+        }
+      },
+      "output": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  ]
+}
