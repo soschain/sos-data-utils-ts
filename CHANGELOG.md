@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+- Align the exact FHIR dependency and registry lock with the published 0.7.1 baseline, retaining the existing public contracts.
+
 - Preserve the complete hosted organization DID when parsing professional actors, keeping tenants on one hostname distinct while retaining legacy root identities.
 
 - Own commercial seat purchase/search request metadata, employee batch wire identifiers

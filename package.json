@@ -595,7 +595,7 @@
   "private": false,
   "dependencies": {
     "antifraud-data-utils-ts": "0.3.3",
-    "fhir-data-utils-ts": "0.7.0",
+    "fhir-data-utils-ts": "0.7.1",
     "pako": "2.1.0",
     "@noble/hashes": "2.4.0"
   },
