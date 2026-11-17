@@ -1,6 +1,21 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # sos-data-utils-ts
 
+`individual-access-role-profile` defines the compact, ordered fifteen-choice
+individual-member picker and the separate `ONESELF` / `RESPRSN` access-role
+type. It reuses descriptors and their vocabulary version from the declared
+FHIR dependency. This SOS application profile is a subset of the canonical
+HL7 vocabulary, which remains in FHIR utilities. Use
+`normalizeIndividualMemberRelationshipCode` to obtain a canonical code from
+case-insensitive, whitespace-trimmed string input. The boolean membership
+check does not narrow its original input. Codes describe a relationship;
+the runtime must still verify subject binding, evidence and permissions.
+
+`gateway-response-contract` includes `IndividualCustomer: 'Customer'` in
+`GatewayResponseEntryTypes` for the existing individual-registration response.
+This operational envelope tag does not define a Schema.org class or alter the
+contained resource's canonical FHIR type.
+
 `gateway-data-collections` defines logical storage/index IDs and the existing
 FHIR resource-family and operational permission-summary fan-out maps. Use
 canonical FHIR resource names from `fhir-data-utils-ts`; these SOS mappings
@@ -27,6 +42,12 @@ separate. Timestamps retain numeric epoch seconds; optional legacy single-device
 fields remain supported. These contracts do not authorize admission, grant
 permissions or execute activation, capacity checks or revocation.
 
+`registered-profile-contract` defines fixed individual-presentation and
+organization detached-credential signature commands. Hosts admit the operation
+before calling the Node signer; its result contains the signature, verification
+method and public JWK. Sealed wallet-session rows can carry a credential
+revision; historical rows without one have revision zero.
+
 `server-profile-secret-contract` owns the existing PIN-plus-host encrypted
 secret envelope and public scrypt metadata. It contains no cryptographic
 execution or profile authority. The persisted format discriminator remains
@@ -44,6 +65,22 @@ a proposed permission.
 profile: Core selections, the IPS document and the canonical FHIR subject-domain
 catalog, including Dentistry. They do not claim parity with the broader
 document/service workbook catalogs. Native FHIR definitions remain in FHIR utilities.
+
+`printed-card-identity` formats the existing human and animal 21-digit card
+profiles. It preserves leading zeros, species-aware animal checksums and
+stored personal identifier values. Callers select the explicit historical
+profile; rendering, layout and subject URN selection stay with the channel.
+
+`registered-employee-draft-requester-contract` describes the completed
+enrollment record and the public identity used to propose access. Its recorded
+role comes from verified enrollment. Current profile custody and enrollment
+validation belong in the Node runtime.
+
+`permission-request-contract` defines the identifiers, requester and missing
+access in a Communication proposal. Callers supply both resource identifiers
+and a thread identifier, allowing retries to retain their correlation. SOS SDK
+Core builds the draft Consent; the controller approves access through the
+normal Consent workflow.
 
 `individual-registration-contract` exports `NetworkSubjectRegistrationResult`
 and `assertNetworkSubjectRegistrationResult` for the projected Network response.

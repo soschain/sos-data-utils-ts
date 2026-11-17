@@ -43,6 +43,31 @@
 - Add direct/legacy presentation parsing, read-only SMART emergency details,
   activation credential policy and governed deterministic identity examples.
 
+- Own the six printed-card identity builders and validators used by Personal:
+  species-aware animal checksums, human card numbers and DIDs, and provider
+  check digits. Retain existing identifier bytes, leading zeros, whitespace
+  rules and the established human/animal port representations.
+
+- Describe completed employee enrollment and its public draft-requester
+  identity using the existing stored consumption record. Preserve the stored
+  grant format and distinguish invitation expiry from a current PIN session.
+
+- Define correlated permission-request Communication inputs and draft outputs,
+  retaining the existing Consent create-request entry type and requiring
+  explicit resource and thread identifiers for retries.
+
+- Define the two stored-profile signature commands and their public-only
+  result, and retain revision-zero compatibility for sealed wallet sessions.
+
+- Own the compact fifteen-code individual-member application profile and
+  two-code personal-access type, composing canonical FHIR descriptors without
+  broadening the selection list. Normalize accepted strings explicitly and
+  keep membership checks separate from identity, evidence and authorization.
+
+- Own the existing individual-registration `Customer` response discriminator
+  as `GatewayResponseEntryTypes.IndividualCustomer`, preserving all prior
+  response entries and keeping operational tags separate from ontology types.
+
 ## 0.8.2
 
 - Pin verified Antifraud 0.3.3 while retaining all other direct dependency

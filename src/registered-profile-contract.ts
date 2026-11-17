@@ -3,6 +3,7 @@ import type {CompositionAttesterMode} from 'fhir-data-utils-ts'
 import type {ClinicalCreatorBinding} from './clinical-creator-contract.js'
 import type {RouteContext} from './gateway-transport-contract.js'
 import type {PinProtectedProfileSecret} from './server-profile-secret-contract.js'
+import type {ClassicPublicJwk} from 'antifraud-data-utils-ts/cryptography'
 
 /** Governed relationship semantics; a stored tag is not relationship evidence. */
 export type RegisteredProfileActorMode='self'|'controller'|'member'
@@ -74,4 +75,41 @@ export type RegisteredProfileSessionRecord=Readonly<{
  sealedAccessToken?:string
  expiresAt:string
  credentialRevision?:number
+}>
+
+/** Existing sealed BFF wallet-session row; no plaintext seed or bearer is stored. */
+export type SealedProfileWalletSessionRecord=Readonly<{
+ id:string
+ ownerId:string
+ profileId:string
+ sealedWalletSeed:string
+ expiresAt:string
+ /** Historical absence is revision zero; a newer profile revision makes it stale. */
+ credentialRevision?:number
+}>
+
+/** Fixed wire/signing profiles, selected by an admitted server use case rather than browser policy. */
+export const StoredProfileSignatureProfiles=Object.freeze({
+ IndividualIdentityPresentation:'individual-identity-presentation-v1',
+ OrganizationActorDetachedCredential:'organization-actor-detached-credential-v1',
+} as const)
+
+/** One signature request; this contract grants no role, relationship, licence or SMART access. */
+export type StoredProfileSignatureCommand=
+ |Readonly<{
+  profile:typeof StoredProfileSignatureProfiles.IndividualIdentityPresentation
+  subjectDid:string
+  claims:Readonly<Record<string,unknown>>
+ }>
+ |Readonly<{
+  profile:typeof StoredProfileSignatureProfiles.OrganizationActorDetachedCredential
+  /** Detached signing retains these exact bytes without JSON reserialization. */
+  payload:string|Uint8Array
+ }>
+
+/** Signature and sanitized public material only; no ciphertext, token or seed is returned. */
+export type StoredProfileSignatureResult=Readonly<{
+ jws:string
+ verificationMethod:string
+ publicJwk:Readonly<ClassicPublicJwk&{crv:'P-384';alg:'ES384';use:'sig';kid:string}>
 }>

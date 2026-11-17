@@ -131,3 +131,8 @@ export * from './gateway-flow-examples.js';
 export * from './license-commercial-contract.js'
 
 export * from './employee-batch-contract.js'
+
+export * from './individual-access-role-profile.js';
+export * from './permission-request-contract.js';
+export * from './registered-employee-draft-requester-contract.js';
+export * from './printed-card-identity.js';
