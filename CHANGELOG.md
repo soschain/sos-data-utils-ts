@@ -1,7 +1,7 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # Changelog
 
-## Unreleased
+## 0.8.3
 
 - Align the exact FHIR dependency and registry lock with the published 0.7.1 baseline, retaining the existing public contracts.
 
