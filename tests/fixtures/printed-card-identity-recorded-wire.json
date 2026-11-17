@@ -1,0 +1,354 @@
+{
+  "source": {
+    "readOnly": true,
+    "originalGenericRepository": "https://github.com/Global-DataCare/gdc-common-utils-ts",
+    "sourceModules": [
+      {
+        "package": "vet-sdk-core-ts",
+        "version": "0.8.2",
+        "module": "animal-identity.js",
+        "sha256": "099cc9b376fcab48ca8f3cedec15c716e0a3b99e15235818b8ac6b5a6d40744a"
+      },
+      {
+        "package": "uhc-sdk-core-ts",
+        "version": "0.6.6",
+        "module": "uhc-personal-card-identity.js",
+        "sha256": "63418865e640f5ea1e63519e63e9c09b2f12bd1160fbf9d50b4f64afdf9e2fce"
+      },
+      {
+        "package": "gdc-common-utils-ts",
+        "version": "2.9.21",
+        "module": "utils/unified-health-id.js",
+        "sha256": "c931f7d59f6f02c66137248368f0023e48e6bd3efc96487a51be33022371b593"
+      }
+    ],
+    "scope": "Actual six prior callable outputs and rejection boundaries; not identity authority, allocation or random generation proof."
+  },
+  "rows": [
+    {
+      "operation": "species",
+      "input": "9615",
+      "output": "0009615"
+    },
+    {
+      "operation": "species",
+      "input": "0009615",
+      "output": "0009615"
+    },
+    {
+      "operation": "species",
+      "input": " 9615 ",
+      "output": "0009615"
+    },
+    {
+      "operation": "species",
+      "input": "1",
+      "output": "0000001"
+    },
+    {
+      "operation": "species",
+      "input": "1000000",
+      "output": "1000000"
+    },
+    {
+      "operation": "species",
+      "input": "9999999",
+      "output": "9999999"
+    },
+    {
+      "operation": "species",
+      "input": "9606",
+      "throws": true,
+      "errorType": "TypeError"
+    },
+    {
+      "operation": "species",
+      "input": "0009606",
+      "throws": true,
+      "errorType": "TypeError"
+    },
+    {
+      "operation": "species",
+      "input": "0",
+      "throws": true,
+      "errorType": "TypeError"
+    },
+    {
+      "operation": "species",
+      "input": "0000000",
+      "throws": true,
+      "errorType": "TypeError"
+    },
+    {
+      "operation": "species",
+      "input": "10000000",
+      "throws": true,
+      "errorType": "TypeError"
+    },
+    {
+      "operation": "species",
+      "input": "9\t615",
+      "throws": true,
+      "errorType": "TypeError"
+    },
+    {
+      "operation": "species",
+      "input": "-9615",
+      "throws": true,
+      "errorType": "TypeError"
+    },
+    {
+      "operation": "species",
+      "input": "",
+      "throws": true,
+      "errorType": "TypeError"
+    },
+    {
+      "operation": "animalBuild",
+      "input": {
+        "speciesId7": "9615",
+        "jurisdictionCode5": "00000",
+        "animalNumericId15": "000000000000000"
+      },
+      "output": "000000000000000000004"
+    },
+    {
+      "operation": "animalBuild",
+      "input": {
+        "speciesId7": "9999999",
+        "jurisdictionCode5": "00123",
+        "animalNumericId15": "000000000000001"
+      },
+      "output": "001230000000000000013"
+    },
+    {
+      "operation": "animalBuild",
+      "input": {
+        "speciesId7": "9615",
+        "jurisdictionCode5": "00\t123",
+        "animalNumericId15": "00000-00000 00001"
+      },
+      "output": "001230000000000000011"
+    },
+    {
+      "operation": "animalBuild",
+      "input": {
+        "speciesId7": "9606",
+        "jurisdictionCode5": "00123",
+        "animalNumericId15": "000000000000001"
+      },
+      "throws": true,
+      "errorType": "TypeError"
+    },
+    {
+      "operation": "animalBuild",
+      "input": {
+        "speciesId7": "10000000",
+        "jurisdictionCode5": "00123",
+        "animalNumericId15": "000000000000001"
+      },
+      "throws": true,
+      "errorType": "TypeError"
+    },
+    {
+      "operation": "animalBuild",
+      "input": {
+        "speciesId7": "9615",
+        "jurisdictionCode5": "0012",
+        "animalNumericId15": "000000000000001"
+      },
+      "throws": true,
+      "errorType": "TypeError"
+    },
+    {
+      "operation": "animalBuild",
+      "input": {
+        "speciesId7": "9615",
+        "jurisdictionCode5": "00123",
+        "animalNumericId15": "00000000000000A"
+      },
+      "throws": true,
+      "errorType": "TypeError"
+    },
+    {
+      "operation": "animalValidate",
+      "input": {
+        "speciesId7": "9615",
+        "cardNumber21": "000000000000000000004"
+      },
+      "output": true
+    },
+    {
+      "operation": "animalValidate",
+      "input": {
+        "speciesId7": "9615",
+        "cardNumber21": "00000\t0000000000000004"
+      },
+      "output": true
+    },
+    {
+      "operation": "animalValidate",
+      "input": {
+        "speciesId7": "9606",
+        "cardNumber21": "000000000000000000004"
+      },
+      "output": false
+    },
+    {
+      "operation": "animalValidate",
+      "input": {
+        "speciesId7": "9615",
+        "cardNumber21": "000000000000000000000"
+      },
+      "output": false
+    },
+    {
+      "operation": "animalValidate",
+      "input": {
+        "speciesId7": "9615",
+        "cardNumber21": "not-digits"
+      },
+      "output": false
+    },
+    {
+      "operation": "personalDigits",
+      "input": {
+        "providerId": "000000000",
+        "personalIdWithoutCheckDigit": "00000000000"
+      },
+      "output": "000000000000"
+    },
+    {
+      "operation": "personalDigits",
+      "input": {
+        "providerId": "00:000-0001",
+        "personalIdWithoutCheckDigit": "00000\t000001"
+      },
+      "output": "000000000010"
+    },
+    {
+      "operation": "personalDigits",
+      "input": {
+        "providerId": "1",
+        "personalIdWithoutCheckDigit": "0"
+      },
+      "output": "01"
+    },
+    {
+      "operation": "personalDigits",
+      "input": {
+        "providerId": "999999999",
+        "personalIdWithoutCheckDigit": "99999999999"
+      },
+      "output": "999999999999"
+    },
+    {
+      "operation": "personalDigits",
+      "input": {
+        "providerId": "",
+        "personalIdWithoutCheckDigit": "1"
+      },
+      "throws": true,
+      "errorType": "Error"
+    },
+    {
+      "operation": "personalDigits",
+      "input": {
+        "providerId": "1",
+        "personalIdWithoutCheckDigit": ""
+      },
+      "throws": true,
+      "errorType": "Error"
+    },
+    {
+      "operation": "personalDigits",
+      "input": {
+        "providerId": "A",
+        "personalIdWithoutCheckDigit": "1"
+      },
+      "throws": true,
+      "errorType": "Error"
+    },
+    {
+      "operation": "humanBuild",
+      "input": {
+        "providerCode9": "000000001",
+        "subjectCode12": "000000000010"
+      },
+      "output": "000000001000000000010"
+    },
+    {
+      "operation": "humanBuild",
+      "input": {
+        "providerCode9": "000-000-001",
+        "subjectCode12": "000 000 000 010"
+      },
+      "output": "000000001000000000010"
+    },
+    {
+      "operation": "humanBuild",
+      "input": {
+        "providerCode9": "000\t000001",
+        "subjectCode12": "000000000010"
+      },
+      "throws": true,
+      "errorType": "Error"
+    },
+    {
+      "operation": "humanBuild",
+      "input": {
+        "providerCode9": "000000001",
+        "subjectCode12": "000000000011"
+      },
+      "throws": true,
+      "errorType": "Error"
+    },
+    {
+      "operation": "humanBuild",
+      "input": {
+        "providerCode9": "1",
+        "subjectCode12": "000000000010"
+      },
+      "throws": true,
+      "errorType": "Error"
+    },
+    {
+      "operation": "humanDid",
+      "input": {
+        "host": " EXAMPLE.INVALID ",
+        "cardNumber21": "000000001000000000010"
+      },
+      "output": "did:web:example.invalid:card:uhc:personal:000000001000000000010"
+    },
+    {
+      "operation": "humanDid",
+      "input": {
+        "host": "EXAMPLE.INVALID:4400",
+        "cardNumber21": "000000001000000000010"
+      },
+      "output": "did:web:example.invalid:4400:card:uhc:personal:000000001000000000010"
+    },
+    {
+      "operation": "humanDid",
+      "input": {
+        "host": "https://example.invalid",
+        "cardNumber21": "000000001000000000010"
+      },
+      "throws": true,
+      "errorType": "Error"
+    },
+    {
+      "operation": "humanDid",
+      "input": {
+        "host": "example.invalid",
+        "cardNumber21": "000000001\t000000000010"
+      },
+      "throws": true,
+      "errorType": "Error"
+    }
+  ],
+  "compatibility": {
+    "humanDid": "did:web:example.invalid:4400:card:uhc:personal:000000001000000000010",
+    "animalDid": "did:web:example.invalid%3A4400:card:vetchain:0009615:000000000000000000004"
+  }
+}

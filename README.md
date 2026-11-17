@@ -66,6 +66,11 @@ profile: Core selections, the IPS document and the canonical FHIR subject-domain
 catalog, including Dentistry. They do not claim parity with the broader
 document/service workbook catalogs. Native FHIR definitions remain in FHIR utilities.
 
+`printed-card-identity` formats the existing human and animal 21-digit card
+profiles. It preserves leading zeros, species-aware animal checksums and
+stored personal identifier values. Callers select the explicit historical
+profile; rendering, layout and subject URN selection stay with the channel.
+
 `registered-employee-draft-requester-contract` describes the completed
 enrollment record and the public identity used to propose access. Its recorded
 role comes from verified enrollment. Current profile custody and enrollment

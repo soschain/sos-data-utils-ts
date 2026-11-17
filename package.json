@@ -7,6 +7,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
+    "./printed-card-identity": {
+      "types": "./dist/printed-card-identity.d.ts",
+      "default": "./dist/printed-card-identity.js"
+    },
     "./registered-employee-draft-requester-contract": {
       "types": "./dist/registered-employee-draft-requester-contract.d.ts",
       "default": "./dist/registered-employee-draft-requester-contract.js"

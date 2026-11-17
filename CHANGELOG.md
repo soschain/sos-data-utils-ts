@@ -3,6 +3,11 @@
 
 ## Unreleased
 
+- Own the six printed-card identity builders and validators used by Personal:
+  species-aware animal checksums, human card numbers and DIDs, and provider
+  check digits. Retain existing identifier bytes, leading zeros, whitespace
+  rules and the established human/animal port representations.
+
 - Describe completed employee enrollment and its public draft-requester
   identity using the existing stored consumption record. Preserve the stored
   grant format and distinguish invitation expiry from a current PIN session.
