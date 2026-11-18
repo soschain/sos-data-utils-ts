@@ -14,6 +14,9 @@ export const HealthcareActorRoles = Object.freeze({
   /** @deprecated Use GeneralistMedicalPractitioner. */
   Physician:claim(Occupations.GeneralistMedicalPractitioner),
   Dentist:claim(Occupations.Dentist),
+  Pharmacist:claim(Occupations.Pharmacist),
+  PharmacyTechnicianOrAssistant:claim(Occupations.PharmaceuticalTechnicianOrAssistant),
+  AdministrativeAssistant:claim(Occupations.GeneralOfficeClerk),
   NursingProfessional:claim(Occupations.NursingProfessional),
   MidwiferyProfessional:claim(Occupations.MidwiferyProfessional),
   Paramedic:claim(Occupations.ParamedicalPractitioner),
@@ -115,11 +118,11 @@ export function getHealthcareRoleByClaim(claim: string): HealthcareActorRoleDesc
 
 const R=HealthcareActorRoles
 const clinical=[R.Controller,R.MedicalDoctors,R.GeneralistMedicalPractitioner,R.SpecialistMedicalPractitioner]
-const admin=[R.Receptionist,R.MedicalSecretary]
-const veterinary=[R.Controller,R.Veterinarian,R.VeterinaryTechnicianOrAssistant,R.Receptionist]
-const technical=[R.Controller,R.Receptionist]
+const admin=[R.Receptionist,R.MedicalSecretary,R.AdministrativeAssistant]
+const veterinary=[R.Controller,R.Veterinarian,R.VeterinaryTechnicianOrAssistant,R.Receptionist,R.AdministrativeAssistant]
+const technical=[R.Controller,R.Receptionist,R.AdministrativeAssistant]
 const bySector:Readonly<Record<string,readonly string[]>>=Object.freeze({
-  [S.HealthCare]:Object.freeze([...clinical,R.Dentist,R.NursingProfessional,R.MidwiferyProfessional,R.Paramedic,...admin]),
+  [S.HealthCare]:Object.freeze([...clinical,R.Dentist,R.Pharmacist,R.PharmacyTechnicianOrAssistant,R.NursingProfessional,R.MidwiferyProfessional,R.Paramedic,...admin]),
   [S.HealthResearch]:Object.freeze([...clinical,...admin]),
   [S.HealthLab]:Object.freeze([R.Controller,R.MedicalDoctors,R.SpecialistMedicalPractitioner,R.MedicalAndPathologyLaboratoryTechnician,...admin]),
   [S.HealthTech]:Object.freeze(technical),[S.HealthInsurance]:Object.freeze(technical),

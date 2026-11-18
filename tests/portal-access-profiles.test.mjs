@@ -78,6 +78,7 @@ test('publishes bounded public-health profiles without adding animal services', 
     SoschainProfessionalDemoProfileIds.Nurse,
     SoschainProfessionalDemoProfileIds.MedicalSecretary,
     SoschainProfessionalDemoProfileIds.Researcher,
+    SoschainProfessionalDemoProfileIds.AdministrativeAssistant,
   ])
   assert.ok(publicHealthProfiles.every(({ grantsAuthority }) => grantsAuthority === false))
   assert.equal(JSON.stringify(SOSCHAIN_PROFESSIONAL_DEMO_PROFILES).includes('animal-shelter'), false)

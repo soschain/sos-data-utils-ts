@@ -19,7 +19,7 @@ const section = (id: typeof ProfessionalDemoSectionIds[keyof typeof Professional
 const result = (value: Omit<ProfessionalDemoCapabilities, 'grantsRealAuthority'>): ProfessionalDemoCapabilities => Object.freeze({ ...value, grantsRealAuthority: false })
 const clinicalProfiles = new Set<SoschainProfessionalDemoProfileId>([SoschainProfessionalDemoProfileIds.Doctor, SoschainProfessionalDemoProfileIds.Dentist, SoschainProfessionalDemoProfileIds.Nurse, SoschainProfessionalDemoProfileIds.Veterinarian])
 const operationalProfiles = new Set<SoschainProfessionalDemoProfileId>([SoschainProfessionalDemoProfileIds.Firefighter, SoschainProfessionalDemoProfileIds.Lifeguard])
-const administrativeProfiles = new Set<SoschainProfessionalDemoProfileId>([SoschainProfessionalDemoProfileIds.MedicalSecretary, SoschainProfessionalDemoProfileIds.Receptionist])
+const administrativeProfiles = new Set<SoschainProfessionalDemoProfileId>([SoschainProfessionalDemoProfileIds.MedicalSecretary, SoschainProfessionalDemoProfileIds.Receptionist, SoschainProfessionalDemoProfileIds.Pharmacist, SoschainProfessionalDemoProfileIds.PharmacyTechnician, SoschainProfessionalDemoProfileIds.AdministrativeAssistant])
 
 /** Synthetic Demo projection only. Real authorization always comes from the BFF/GW. */
 export function resolveProfessionalDemoCapabilities(profileId: SoschainProfessionalDemoProfileId): ProfessionalDemoCapabilities {

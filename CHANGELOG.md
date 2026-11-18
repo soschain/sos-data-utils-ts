@@ -1,6 +1,18 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # Changelog
 
+## Unreleased
+
+- Project pharmacist (2262), pharmacy technician/assistant (3213) and
+  administrative assistant (4110) roles from the Antifraud occupation catalog.
+  Add three synthetic employee profiles, bringing the catalog to fifteen
+  employee profiles with Controller kept separate. Pharmacy discovery is
+  restricted to health care; office assistance is available across the existing
+  Demo sectors. These additions grant no clinical authorship, emergency health
+  access, communication launch or organization administration authority.
+- Keep Medical secretary (3344) distinct from Administrative assistant (4110)
+  in the public-health profile labels.
+
 ## 0.8.4
 
 - Validate the committed registry dependency pin independently of temporary,

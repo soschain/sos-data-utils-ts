@@ -90,6 +90,9 @@ export type SoschainProfessionalDemoSectorId =
 export const SoschainProfessionalDemoProfileIds = Object.freeze({
   Doctor: 'doctor',
   Dentist: 'dentist',
+  Pharmacist: 'pharmacist',
+  PharmacyTechnician: 'pharmacy-technician',
+  AdministrativeAssistant: 'administrative-assistant',
   Nurse: 'nurse',
   Paramedic: EmergencyProfessionalRoleIds.Paramedic,
   MedicalSecretary: 'medical-secretary',
@@ -143,6 +146,9 @@ export const SOSCHAIN_PROFESSIONAL_DEMO_PROFILES: readonly SoschainProfessionalD
     true,
   ),
   demoProfile(SoschainProfessionalDemoProfileIds.Dentist, SoschainProfessionalDemoSectorIds.HealthCare, HealthcareActorRoles.Dentist, 'Dentist', true),
+  demoProfile(SoschainProfessionalDemoProfileIds.Pharmacist, SoschainProfessionalDemoSectorIds.HealthCare, HealthcareActorRoles.Pharmacist, 'Pharmacist', true),
+  demoProfile(SoschainProfessionalDemoProfileIds.PharmacyTechnician, SoschainProfessionalDemoSectorIds.HealthCare, HealthcareActorRoles.PharmacyTechnicianOrAssistant, 'Pharmacy technician/assistant', true),
+  demoProfile(SoschainProfessionalDemoProfileIds.AdministrativeAssistant, SoschainProfessionalDemoSectorIds.HealthCare, HealthcareActorRoles.AdministrativeAssistant, 'Administrative assistant', true),
   demoProfile(
     SoschainProfessionalDemoProfileIds.Nurse,
     SoschainProfessionalDemoSectorIds.HealthCare,
@@ -259,7 +265,7 @@ export const SOSCHAIN_PROFESSIONAL_DEMO_PROFILES: readonly SoschainProfessionalD
     SoschainProfessionalDemoProfileIds.MedicalSecretary,
     SoschainProfessionalDemoSectorIds.PublicHealth,
     HealthcareActorRoles.MedicalSecretary,
-    'Administrative assistant',
+    'Medical secretary',
     true,
   ),
   demoProfile(
@@ -290,6 +296,10 @@ export const SOSCHAIN_PROFESSIONAL_DEMO_PROFILES: readonly SoschainProfessionalD
     EmergencyProfessionalRoles[EmergencyProfessionalRoleIds.Lifeguard].titleEn,
     true,
   ),
+  demoProfile(SoschainProfessionalDemoProfileIds.AdministrativeAssistant, SoschainProfessionalDemoSectorIds.AnimalCare, HealthcareActorRoles.AdministrativeAssistant, 'Administrative assistant', true),
+  demoProfile(SoschainProfessionalDemoProfileIds.AdministrativeAssistant, SoschainProfessionalDemoSectorIds.AnimalTech, HealthcareActorRoles.AdministrativeAssistant, 'Administrative assistant', true),
+  demoProfile(SoschainProfessionalDemoProfileIds.AdministrativeAssistant, SoschainProfessionalDemoSectorIds.PublicHealth, HealthcareActorRoles.AdministrativeAssistant, 'Administrative assistant', true),
+  demoProfile(SoschainProfessionalDemoProfileIds.AdministrativeAssistant, SoschainProfessionalDemoSectorIds.PublicSafety, HealthcareActorRoles.AdministrativeAssistant, 'Administrative assistant', true),
 ])
 
 export const SoschainDemoDepartmentIds = Object.freeze({
