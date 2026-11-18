@@ -6,7 +6,8 @@
 - Validate the committed registry dependency pin independently of temporary,
   integrity-verified local candidate installations used during release tests.
 
-- Align the exact FHIR dependency and registry lock with the published 0.7.1 baseline, retaining the existing public contracts.
+- Pin Antifraud Data 0.4.0 and FHIR Data 0.8.0 to their verified registry artifacts,
+  retaining exact dependency-lock integrity and the existing public contracts.
 
 - Preserve the complete hosted organization DID when parsing professional actors, keeping tenants on one hostname distinct while retaining legacy root identities.
 
