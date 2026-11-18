@@ -599,8 +599,8 @@
   "private": false,
   "dependencies": {
     "@noble/hashes": "2.4.0",
-    "antifraud-data-utils-ts": "0.4.0",
-    "fhir-data-utils-ts": "0.8.0",
+    "antifraud-data-utils-ts": "0.4.1",
+    "fhir-data-utils-ts": "0.8.1",
     "pako": "2.1.0"
   },
   "publishConfig": {

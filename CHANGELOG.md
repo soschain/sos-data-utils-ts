@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+- Align the exact registry owners with FHIR Data 0.8.1 and Antifraud Data 0.4.1, retaining clinical preview dependency coherence and the shared occupation catalog.
+
 - Project pharmacist (2262), pharmacy technician/assistant (3213) and
   administrative assistant (4110) roles from the Antifraud occupation catalog.
   Add three synthetic employee profiles, bringing the catalog to fifteen
