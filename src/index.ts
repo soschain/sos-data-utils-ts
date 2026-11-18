@@ -95,6 +95,43 @@ export * from './gateway-dataspace-routing.js';
 export * from './controller-identity-evidence.js'
 
 export * from './gateway-data-collections.js'
+export * from './identity-credential-contracts.js';
+export * from './professional-smart.js';
+export * from './individual-smart.js';
+export * from './inter-tenant-access-contract.js';
+export * from './subject-identity-binding.js';
+export * from './smart-authorization-profile.js';
+export * from './jwt.js';
+export { createVP, addVC, addVCs, getVpCredentials, getVpCredentialByAnyType, getOrganizationCredentialFromVpToken, getLegalRepresentativeCredentialFromVpToken, getOrganizationControllerCredentialFromVpToken, getServiceControllerCredentialFromVpToken, addOrganizationCredential, addLegalRepresentativeCredential, addOrganizationControllerCredential, addServiceControllerCredential, decodeVpTokenPayload, buildEpochWindow, generateUuidLike, prepareForSignature, prepareBytesForSignature, buildVpTokenCompact } from './vp-token.js';
+export * from './identity-presentation-examples.js';
+
+export * from './scheduling.js';
+export * from './provenance.js';
+export * from './place-service-directory.js';
+export * from './health-dcat.js';
+export * from './iso-jurisdictions.js';
+export * from './smart-health-card.js';
+export * from './payment.js';
+export * from './individual-did-routing.js';
+
+export * from './reminder-metadata.js'
+export * from './research-review-team-identity.js'
+export * from './hosted-did.js';
+export * from './actor-identity.js';
+export * from './identity-identifiers.js';
+export * from './subject-identity.js';
+export * from './organization-did-binding.js';
+export * from './postal-activation-binding.js';
+export * from './organization-role-license.js';
+export * from './legal-sector-organization-urn.js';
+export * from './public-alias-ledger.js';
+
+export * from './gateway-flow-examples.js';
+
+export * from './license-commercial-contract.js'
+
+export * from './employee-batch-contract.js'
+
 export * from './individual-access-role-profile.js';
 export * from './permission-request-contract.js';
 export * from './registered-employee-draft-requester-contract.js';

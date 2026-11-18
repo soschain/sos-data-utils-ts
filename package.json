@@ -1,6 +1,6 @@
 {
   "name": "sos-data-utils-ts",
-  "version": "0.8.3",
+  "version": "0.9.0",
   "description": "Product-neutral SOS channel and BFF contract utilities",
   "license": "Apache-2.0",
   "type": "module",
@@ -410,6 +410,166 @@
     "./gateway-dataspace-routing": {
       "types": "./dist/gateway-dataspace-routing.d.ts",
       "default": "./dist/gateway-dataspace-routing.js"
+    },
+    "./activation-policy": {
+      "types": "./dist/activation-policy.d.ts",
+      "default": "./dist/activation-policy.js"
+    },
+    "./service-claim-parsing": {
+      "types": "./dist/service-claim-parsing.d.ts",
+      "default": "./dist/service-claim-parsing.js"
+    },
+    "./identity-credential-contracts": {
+      "types": "./dist/identity-credential-contracts.d.ts",
+      "default": "./dist/identity-credential-contracts.js"
+    },
+    "./professional-smart": {
+      "types": "./dist/professional-smart.d.ts",
+      "default": "./dist/professional-smart.js"
+    },
+    "./individual-smart": {
+      "types": "./dist/individual-smart.d.ts",
+      "default": "./dist/individual-smart.js"
+    },
+    "./inter-tenant-access-contract": {
+      "types": "./dist/inter-tenant-access-contract.d.ts",
+      "default": "./dist/inter-tenant-access-contract.js"
+    },
+    "./subject-identity-binding": {
+      "types": "./dist/subject-identity-binding.d.ts",
+      "default": "./dist/subject-identity-binding.js"
+    },
+    "./smart-authorization-profile": {
+      "types": "./dist/smart-authorization-profile.d.ts",
+      "default": "./dist/smart-authorization-profile.js"
+    },
+    "./vp-token": {
+      "types": "./dist/vp-token.d.ts",
+      "default": "./dist/vp-token.js"
+    },
+    "./jwt": {
+      "types": "./dist/jwt.d.ts",
+      "default": "./dist/jwt.js"
+    },
+    "./identity-presentation-examples": {
+      "types": "./dist/identity-presentation-examples.d.ts",
+      "default": "./dist/identity-presentation-examples.js"
+    },
+    "./scheduling": {
+      "types": "./dist/scheduling.d.ts",
+      "default": "./dist/scheduling.js"
+    },
+    "./provenance": {
+      "types": "./dist/provenance.d.ts",
+      "default": "./dist/provenance.js"
+    },
+    "./place-service-directory": {
+      "types": "./dist/place-service-directory.d.ts",
+      "default": "./dist/place-service-directory.js"
+    },
+    "./health-dcat": {
+      "types": "./dist/health-dcat.d.ts",
+      "default": "./dist/health-dcat.js"
+    },
+    "./iso-jurisdictions": {
+      "types": "./dist/iso-jurisdictions.d.ts",
+      "default": "./dist/iso-jurisdictions.js"
+    },
+    "./smart-health-card": {
+      "types": "./dist/smart-health-card.d.ts",
+      "default": "./dist/smart-health-card.js"
+    },
+    "./payment": {
+      "types": "./dist/payment.d.ts",
+      "default": "./dist/payment.js"
+    },
+    "./individual-did-routing": {
+      "types": "./dist/individual-did-routing.d.ts",
+      "default": "./dist/individual-did-routing.js"
+    },
+    "./reminder-metadata": {
+      "types": "./dist/reminder-metadata.d.ts",
+      "default": "./dist/reminder-metadata.js"
+    },
+    "./research-review-team-identity": {
+      "types": "./dist/research-review-team-identity.d.ts",
+      "default": "./dist/research-review-team-identity.js"
+    },
+    "./hosted-did": {
+      "types": "./dist/hosted-did.d.ts",
+      "default": "./dist/hosted-did.js"
+    },
+    "./actor-identity": {
+      "types": "./dist/actor-identity.d.ts",
+      "default": "./dist/actor-identity.js"
+    },
+    "./identity-identifiers": {
+      "types": "./dist/identity-identifiers.d.ts",
+      "default": "./dist/identity-identifiers.js"
+    },
+    "./subject-identity": {
+      "types": "./dist/subject-identity.d.ts",
+      "default": "./dist/subject-identity.js"
+    },
+    "./organization-did-binding": {
+      "types": "./dist/organization-did-binding.d.ts",
+      "default": "./dist/organization-did-binding.js"
+    },
+    "./postal-activation-binding": {
+      "types": "./dist/postal-activation-binding.d.ts",
+      "default": "./dist/postal-activation-binding.js"
+    },
+    "./organization-role-license": {
+      "types": "./dist/organization-role-license.d.ts",
+      "default": "./dist/organization-role-license.js"
+    },
+    "./legal-sector-organization-urn": {
+      "types": "./dist/legal-sector-organization-urn.d.ts",
+      "default": "./dist/legal-sector-organization-urn.js"
+    },
+    "./public-alias-ledger": {
+      "types": "./dist/public-alias-ledger.d.ts",
+      "default": "./dist/public-alias-ledger.js"
+    },
+    "./organization-role-license-examples": {
+      "types": "./dist/organization-role-license-examples.d.ts",
+      "default": "./dist/organization-role-license-examples.js"
+    },
+    "./individual-onboarding": {
+      "types": "./dist/individual-onboarding.d.ts",
+      "default": "./dist/individual-onboarding.js"
+    },
+    "./gateway-transport-values": {
+      "types": "./dist/gateway-transport-values.d.ts",
+      "default": "./dist/gateway-transport-values.js"
+    },
+    "./animal-insurance-consent": {
+      "types": "./dist/animal-insurance-consent.d.ts",
+      "default": "./dist/animal-insurance-consent.js"
+    },
+    "./eu-countries": {
+      "types": "./dist/eu-countries.d.ts",
+      "default": "./dist/eu-countries.js"
+    },
+    "./gateway-profile-values": {
+      "types": "./dist/gateway-profile-values.d.ts",
+      "default": "./dist/gateway-profile-values.js"
+    },
+    "./gateway-flow-examples": {
+      "types": "./dist/gateway-flow-examples.d.ts",
+      "default": "./dist/gateway-flow-examples.js"
+    },
+    "./gateway-resource-flow-examples": {
+      "types": "./dist/gateway-resource-flow-examples.d.ts",
+      "default": "./dist/gateway-resource-flow-examples.js"
+    },
+    "./license-commercial-contract": {
+      "types": "./dist/license-commercial-contract.d.ts",
+      "default": "./dist/license-commercial-contract.js"
+    },
+    "./employee-batch-contract": {
+      "types": "./dist/employee-batch-contract.d.ts",
+      "default": "./dist/employee-batch-contract.js"
     }
   },
   "files": [
@@ -439,8 +599,9 @@
   "private": false,
   "dependencies": {
     "antifraud-data-utils-ts": "0.3.3",
-    "fhir-data-utils-ts": "0.7.0",
-    "pako": "2.1.0"
+    "fhir-data-utils-ts": "0.7.1",
+    "pako": "2.1.0",
+    "@noble/hashes": "2.4.0"
   },
   "publishConfig": {
     "access": "public"
