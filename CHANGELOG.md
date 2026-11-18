@@ -1,7 +1,7 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # Changelog
 
-## Unreleased
+## 0.8.5
 
 - Align the exact registry owners with FHIR Data 0.8.1 and Antifraud Data 0.4.1, retaining clinical preview dependency coherence and the shared occupation catalog.
 
