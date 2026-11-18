@@ -1,7 +1,7 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # Changelog
 
-## 0.9.0
+## 0.8.4
 
 - Validate the committed registry dependency pin independently of temporary,
   integrity-verified local candidate installations used during release tests.
