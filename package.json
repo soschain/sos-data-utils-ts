@@ -499,6 +499,14 @@
       "types": "./dist/hosted-did.d.ts",
       "default": "./dist/hosted-did.js"
     },
+    "./hosted-did-test-fixtures": {
+      "types": "./dist/hosted-did-test-fixtures.d.ts",
+      "default": "./dist/hosted-did-test-fixtures.js"
+    },
+    "./clinical-terminology-test-fixtures": {
+      "types": "./dist/clinical-terminology-test-fixtures.d.ts",
+      "default": "./dist/clinical-terminology-test-fixtures.js"
+    },
     "./actor-identity": {
       "types": "./dist/actor-identity.d.ts",
       "default": "./dist/actor-identity.js"
@@ -583,7 +591,8 @@
     "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
     "build": "npm run clean && tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "npm run build && node --test --test-concurrency=1 tests/*.test.mjs",
+    "test:types": "tsc -p tsconfig.test-fixtures.json",
+    "test": "npm run build && npm run test:types && node --test --test-concurrency=1 tests/*.test.mjs tests/*.test.ts",
     "check:repository-privacy": "npm run build && node scripts/check-repository-privacy.mjs",
     "check": "npm run typecheck && npm test && node scripts/check-repository-privacy.mjs",
     "prepack": "npm run check"

@@ -137,3 +137,5 @@ export * from './permission-request-contract.js';
 export * from './registered-employee-draft-requester-contract.js';
 export * from './printed-card-identity.js';
 export * from './communication-participant-query.js';
+export * from './clinical-terminology-test-fixtures.js';
+export * from './hosted-did-test-fixtures.js';

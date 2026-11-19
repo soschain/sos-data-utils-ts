@@ -514,3 +514,9 @@ emergency vocabulary. Runtime identity, consent and scope checks remain required
 emergency authorization. It retains the existing ODRL IRIs and rejects policy
 attachments that disagree with the canonical Consent claims. Native FHIR views
 are generated only at the requested adapter boundary.
+
+Typed regression fixtures are available through `clinical-terminology-test-fixtures`,
+`hosted-did-test-fixtures`, and the license wire expectations in
+`organization-role-license-examples`. Recorded identity values remain independent
+of the builders under test. The label fixtures describe response interpretation;
+they do not establish Spanish catalogue completeness or grant authority.

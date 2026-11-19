@@ -1,6 +1,15 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # Changelog
 
+## Unreleased - Typed shared regression fixtures
+
+- Add shared label-evidence fixtures for English fallback, asserted Spanish text,
+  missing language and non-English display. Reuse existing clinical code data.
+- Retain independent hosted organization, professional and individual-member DID
+  vectors and license lifecycle wire expectations for consumer migrations.
+- Include typed fixture tests and their strict no-emit typecheck in the existing
+  cumulative test command. No runtime API, version or dependency change.
+
 ## 0.8.5
 
 - Align the exact registry owners with FHIR Data 0.8.1 and Antifraud Data 0.4.1, retaining clinical preview dependency coherence and the shared occupation catalog.
