@@ -7,6 +7,8 @@
   metadata and email/telephone recipient claims. Preserve purchase/search wire.
 - Classify member versus professional seat namespaces independently of catalog
   membership; this classification grants no consent or employment authority.
+- Define the `onehealth-care` sector identifier and document the shared
+  organization sector catalogue.
 
 ## 0.8.6 - Typed shared regression fixtures
 

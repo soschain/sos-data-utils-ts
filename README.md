@@ -163,6 +163,9 @@ The [documentation index](docs/README.md) is the entry point for architecture,
 organization and authorization contracts, communication and emergency flows,
 interoperability guidance, public notification datasets and release policy.
 
+See [Organization sectors and admission](docs/ORGANIZATION_SECTORS.md) for
+sector identifiers and the activities covered by each sector.
+
 ## Public source history
 
 The public repository begins from a clean 2026 source snapshot. The retained

@@ -17,6 +17,9 @@ area relevant to the workflow being implemented or reviewed.
 
 ## Organizations, services and authority
 
+- [Organization sectors and admission](ORGANIZATION_SECTORS.md)
+  — sector identifiers and organization activities.
+
 - [Organization departments, services and communication identity](ORGANIZATION_SERVICE_CATALOG.md)
   — department, service, place, professional Group and communication roles.
 - [Organization-scoped resource identities](ORGANIZATION_SCOPED_RESOURCE_IDENTITIES.md)
