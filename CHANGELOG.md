@@ -1,6 +1,13 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # Changelog
 
+## Unreleased
+
+- Add pure licence issue entries with typed owner, subject, contact and invitation
+  metadata and email/telephone recipient claims. Preserve purchase/search wire.
+- Classify member versus professional seat namespaces independently of catalog
+  membership; this classification grants no consent or employment authority.
+
 ## 0.8.6 - Typed shared regression fixtures
 
 - Add shared label-evidence fixtures for English fallback, asserted Spanish text,

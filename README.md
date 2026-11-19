@@ -1,6 +1,16 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # sos-data-utils-ts
 
+`license-commercial-contract` builds pure issue, purchase and indexed-search
+entries. Issue metadata binds owner, subject, RelatedPerson and invitation
+separately from recipient email/telephone claims. Explicit input fields take
+precedence over additional claims; operational metadata is never inferred from
+those claims. Role-family classification recognizes compatibility namespaces,
+not code membership, employment evidence or consent. Callers retain all
+recipient, owner and lifecycle authorization checks. See the
+[original licence wire helpers](https://github.com/Global-DataCare/gdc-common-utils-ts/blob/main/src/utils/license.ts)
+for compatibility evidence.
+
 `sos-data-utils-ts/communication-participant-query` owns the consumed participant
 parser, matcher, paginator, index builder and prefix/index-name catalogs. The
 parser accepts flat fields or FHIR Parameters and returns mutable criteria so
