@@ -1,6 +1,11 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # Changelog
 
+## Unreleased
+
+- Define the `onehealth-care` sector identifier and document the shared
+  organization sector catalogue.
+
 ## 0.8.6 - Typed shared regression fixtures
 
 - Add shared label-evidence fixtures for English fallback, asserted Spanish text,
