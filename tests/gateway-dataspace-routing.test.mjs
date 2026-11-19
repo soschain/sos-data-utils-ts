@@ -10,6 +10,10 @@ const owned=await import('../dist/gateway-dataspace-routing.js').catch(error=>{
 });
 const tenant=()=>({tenantId:SAFE.tenantId,jurisdiction:'ES-MD',version:'v1',businessSector:SAFE.sector});
 const base=`/${SAFE.tenantId}/cds-ES-MD/v1/${SAFE.sector}`;
+test('formats the separate public offering catalogue path for a tenant',()=>{
+ assert.equal(owned.buildGatewayDataspaceOfferingCatalogPath(tenant()),base+'/dsp/catalog/offerings.json');
+ assert.equal(owned.buildGatewayDataspaceOfferingCatalogPath(),'/dsp/catalog/offerings.json');
+});
 const functions={
  buildGatewayDataspaceBasePath:'/dsp',buildGatewayDataspaceVersionPath:'/.well-known/dspace-version',
  buildGatewayDataspaceCatalogRequestPath:'/dsp/catalog/request',buildGatewayDataspaceCatalogCollectionPath:'/dsp/catalog',

@@ -53,6 +53,10 @@ export function buildGatewayDataspaceCatalogCollectionPath(input:GatewayDataspac
 export function buildGatewayDataspaceCatalogArtifactPath(input:GatewayDataspaceRouteContext={}):string{
   return buildGatewayDataspaceBasePath(input)+'/catalog/dcat.json'
 }
+/** Website offers use a distinct public projection within the catalogue namespace. */
+export function buildGatewayDataspaceOfferingCatalogPath(input:GatewayDataspaceRouteContext={}):string{
+  return buildGatewayDataspaceCatalogCollectionPath(input)+'/offerings.json'
+}
 /** Dataset IDs are supplied wire data; this formatter does not encode or authorize them. */
 export function buildGatewayDataspaceCatalogDatasetPath(input:GatewayDataspaceRouteContext={},datasetId=':id'):string{
   return buildGatewayDataspaceBasePath(input)+`/catalog/datasets/${datasetId}`

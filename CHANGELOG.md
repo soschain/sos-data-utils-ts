@@ -3,6 +3,8 @@
 
 ## Unreleased
 
+- Build scoped public offering catalogue URLs alongside existing DSP paths.
+
 - Allow public product and service directory claims for galleries, brand
   identity and subscription plan metadata.
 
