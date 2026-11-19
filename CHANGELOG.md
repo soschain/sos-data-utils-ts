@@ -3,6 +3,9 @@
 
 ## Unreleased
 
+- Allow public product and service directory claims for galleries, brand
+  identity and subscription plan metadata.
+
 - Add pure licence issue entries with typed owner, subject, contact and invitation
   metadata and email/telephone recipient claims. Preserve purchase/search wire.
 - Classify member versus professional seat namespaces independently of catalog

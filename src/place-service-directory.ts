@@ -50,6 +50,10 @@ export enum ClaimsDirectoryServiceSchemaorg {
   serviceType = 'org.schema.Service.serviceType',
   category = 'org.schema.Service.category',
   areaServed = 'org.schema.Service.areaServed',
+  imageContentUrl = 'org.schema.Service.image.contentUrl',
+  brandName = 'org.schema.Service.brand.name',
+  brandLogoContentUrl = 'org.schema.Service.brand.logo.contentUrl',
+  subscriptionPlans = 'org.schema.Service.additionalProperty.subscriptionPlans',
   userSelected = 'Service.user-selected',
 }
 
@@ -64,6 +68,9 @@ export enum ClaimsProductSchemaorg {
   areaServed = 'org.schema.Product.areaServed',
   url = 'org.schema.Product.url',
   imageContentUrl = 'org.schema.Product.image.contentUrl',
+  brandName = 'org.schema.Product.brand.name',
+  brandLogoContentUrl = 'org.schema.Product.brand.logo.contentUrl',
+  subscriptionPlans = 'org.schema.Product.additionalProperty.subscriptionPlans',
   availabilityStarts = 'org.schema.Product.offers.availabilityStarts',
   availabilityEnds = 'org.schema.Product.offers.availabilityEnds',
   price = 'org.schema.Product.offers.price',
