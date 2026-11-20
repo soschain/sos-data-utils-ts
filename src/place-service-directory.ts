@@ -2,6 +2,81 @@
 // Selectively migrated neutral contracts; source attribution is retained in NOTICE.
 // Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0.
 
+/** Public veterinary service categories used by the directory and its editors. */
+export const VeterinaryServiceTypes = Object.freeze({
+  VeterinaryConsultation: 'veterinary-consultation',
+  PreventiveCare: 'preventive-care',
+  Vaccination: 'vaccination',
+  DiagnosticImaging: 'diagnostic-imaging',
+  Surgery: 'surgery',
+  Emergency: 'emergency',
+  Dentistry: 'dentistry',
+  Rehabilitation: 'rehabilitation',
+  Diagnostic: 'diagnostic',
+  Laboratory: 'laboratory',
+  DiagnosticTesting: 'diagnostic-testing',
+  Pathology: 'pathology',
+  Microbiology: 'microbiology',
+  Toxicology: 'toxicology',
+  GeneticTesting: 'genetic-testing',
+  ResearchStudyAccess: 'research-study-access',
+  ResearchDataAccess: 'research-data-access',
+  ReproductiveService: 'reproductive-service',
+  BreedingManagement: 'breeding-management',
+  AnimalTransport: 'animal-transport',
+  TravelCertification: 'travel-certification',
+  AnimalIntake: 'animal-intake',
+  AnimalWelfare: 'animal-welfare',
+  Adoption: 'adoption',
+  HerdHealth: 'herd-health',
+  FarmVisit: 'farm-visit',
+  AnimalRetail: 'animal-retail',
+  AnimalTransfer: 'animal-transfer',
+  ColonyManagement: 'colony-management',
+  AnimalRegistration: 'animal-registration',
+  SystemIntegration: 'system-integration',
+  DataConversion: 'data-conversion',
+  AnimalIdentityVerification: 'animal-identity-verification',
+  EmergencyResponse: 'emergency-response',
+} as const)
+
+const veterinary = VeterinaryServiceTypes
+type VeterinaryServiceType = typeof veterinary[keyof typeof veterinary]
+const veterinaryServiceTypesBySector = new Map<string, readonly VeterinaryServiceType[]>([
+  ['animal-care', Object.freeze([veterinary.VeterinaryConsultation, veterinary.PreventiveCare, veterinary.Vaccination,
+    veterinary.DiagnosticImaging, veterinary.Surgery, veterinary.Emergency, veterinary.Dentistry, veterinary.Rehabilitation])],
+  ['animal-lab', Object.freeze([veterinary.DiagnosticTesting, veterinary.Pathology, veterinary.Microbiology,
+    veterinary.Toxicology, veterinary.GeneticTesting])],
+  ['animal-research', Object.freeze([veterinary.ResearchStudyAccess, veterinary.ResearchDataAccess])],
+  ['animal-breed', Object.freeze([veterinary.ReproductiveService, veterinary.BreedingManagement])],
+  ['animal-mobility', Object.freeze([veterinary.AnimalTransport, veterinary.TravelCertification])],
+  ['animal-shelter', Object.freeze([veterinary.AnimalIntake, veterinary.AnimalWelfare, veterinary.Adoption])],
+  ['animal-farm', Object.freeze([veterinary.HerdHealth, veterinary.FarmVisit])],
+  ['animal-commerce', Object.freeze([veterinary.AnimalRetail, veterinary.AnimalTransfer])],
+  ['animal-management', Object.freeze([veterinary.ColonyManagement, veterinary.AnimalRegistration, veterinary.AnimalWelfare])],
+  ['animal-tech', Object.freeze([veterinary.SystemIntegration, veterinary.DataConversion])],
+  ['public-safety', Object.freeze([veterinary.AnimalIdentityVerification, veterinary.EmergencyResponse])],
+])
+const noVeterinaryServiceTypes = Object.freeze([])
+
+export function listVeterinaryDirectoryServiceTypes(sector: string): readonly VeterinaryServiceType[] {
+  return veterinaryServiceTypesBySector.get(sector) ?? noVeterinaryServiceTypes
+}
+
+const services = Object.freeze(['Service'] as const)
+const products = Object.freeze(['Product'] as const)
+const servicesAndProducts = Object.freeze(['Service', 'Product'] as const)
+
+/** Offering kinds presented by the organization directory editor. */
+export function listOrganizationDirectoryOfferingKinds(sector: string): readonly ('Service' | 'Product')[] {
+  switch (sector) {
+    case 'animal-insurance': return products
+    case 'animal-care':
+    case 'animal-tech': return servicesAndProducts
+    default: return services
+  }
+}
+
 /** Schema.org flat claims for a persistent, sector-neutral public Place. */
 export enum ClaimsPlaceSchemaorg {
   identifier = 'org.schema.Place.identifier',

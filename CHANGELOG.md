@@ -3,6 +3,10 @@
 
 ## Unreleased
 
+- Share the organization offering picker and veterinary directory categories
+  across Professional and Personal.
+- Parse printed human card numbers and historical human locators through the
+  shared checksum contract.
 - Build scoped public offering catalogue URLs alongside existing DSP paths.
 
 - Allow public product and service directory claims for galleries, brand

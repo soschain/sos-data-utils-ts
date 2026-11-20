@@ -4,13 +4,13 @@ Copyright 2026 Connecting Solution & Applications Ltd.
 Adapted identity-presentation and access-evidence helpers retain their original
 Copyright 2026 Antifraud Services Inc. attribution under Apache License 2.0.
 
-The neutral scheduling, Provenance, claims-only directory, HealthDCAT,
-jurisdiction and signed health-card preparation contracts selectively adapted
+The neutral scheduling, Provenance, claims-only directory, public offering
+kinds, veterinary service categories, HealthDCAT, jurisdiction and signed
+health-card preparation contracts selectively adapted
 from vet-data-utils-ts 0.8.7 retain Copyright 2026 Connecting Solution &
 Applications Ltd. under Apache License 2.0. The reviewed source revision is
 ce71d5c4f43f99e73bf56c1168030228e2f89cb9. The ISO country/subdivision dataset
-retains its Debian iso-codes 4.20.1-1 provenance. Product sector presentation,
-veterinary service categories and marketplace routing were not migrated.
+retains its Debian iso-codes 4.20.1-1 provenance.
 
 The selective hosted DID, actor parsing, Subject identity and tenant DID/postal
 binding contracts retain Antifraud Services Inc. Apache-2.0 attribution from
