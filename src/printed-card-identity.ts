@@ -23,6 +23,12 @@ export type PrintedHumanCardDidWebInput = Readonly<{
   host: string
   cardNumber21: string
 }>
+export type PrintedHumanCardIdentity = Readonly<{
+  cardNumber21: string
+  providerCode9: string
+  subjectCode12: string
+  cardUrn: string
+}>
 export type ProviderScopedPersonalDigitsInput = Readonly<{
   profile: 'provider-damm-v1'
   providerId: string
@@ -92,6 +98,29 @@ function validatedHumanCard(value: string): string {
 export function buildPrintedHumanCardNumber21(input: PrintedHumanCardInput): string {
   requireProfile(input.profile, 'human21-v1')
   return validatedHumanCard(humanDigits(input.providerCode9, 9, 'providerCode9') + humanDigits(input.subjectCode12, 12, 'subjectCode12'))
+}
+
+/** Reads a compact or printed human card number with its existing checksum. */
+export function parsePrintedHumanCardNumber21(value: string): PrintedHumanCardIdentity {
+  const cardNumber21 = validatedHumanCard(value)
+  return Object.freeze({
+    cardNumber21,
+    providerCode9: cardNumber21.slice(0, 9),
+    subjectCode12: cardNumber21.slice(9),
+    cardUrn: `urn:cds:v1:uhc:person:${cardNumber21}`,
+  })
+}
+
+/** Reads the canonical URN, historical URN or portal DID as printed identity only. */
+export function parsePrintedHumanCardLocator(value: string): PrintedHumanCardIdentity | undefined {
+  const source = String(value || '').trim()
+  const match = /^(?:urn:cds:v1:(?:uhc:person|card:uhc:personal)|did:web:[^\s]+:card:uhc:personal):([0-9][0-9 -]*)$/iu.exec(source)
+  if (!match?.[1]) return undefined
+  try {
+    return parsePrintedHumanCardNumber21(match[1])
+  } catch {
+    return undefined
+  }
 }
 
 /** Retains the existing human locator namespace and literal hostname port spelling. */
