@@ -1,7 +1,7 @@
 <!-- Copyright 2026 Connecting Solution & Applications Ltd under the Apache License, Version 2.0. -->
 # Changelog
 
-## Unreleased
+## 0.8.8 - 2026-11-20
 
 - Share the organization offering picker and veterinary directory categories
   across Professional and Personal.
